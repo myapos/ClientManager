@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import styles from './Home.css';
 
 
-export default class Home extends Component {
-  render() {
+var Home = React.createClass({
+  render: function () {
     return (
       <div>
-        <div className={styles.container}>
-          <h2>Home</h2>
-          <Link to="/counter">to Counter</Link>
+        <div>
+          <h2>Welcome to ClientManager Application sdfds</h2>
+            <Link to="/login">Go to Login page</Link>
         </div>
       </div>
-    );
+    )
   }
-}
+});
+
+module.exports = Home;
