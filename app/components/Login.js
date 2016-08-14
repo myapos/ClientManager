@@ -30,14 +30,24 @@ contextTypes: {
     return (
     <div>
       <h2>Hello from Login</h2> <br/>
-      <form role="form">
-	      	<div className="form-group">
-			  <div className="col-xs-4">Username: <input className="form-control" type="text" id="usrnm"/> <br/></div>
-			  <div className="col-xs-4">Password: <input className="form-control" type="text" id="pswrd"/> <br/></div>
-			  <button className="btn btn-default" onClick={this.auth}>Login</button> <br/>
-			</div>
+      <form role="form" className="form-inline">
+	     <div className="form-group">
+        <div className="container">
+          <div className="row">
+    			  <div className="col-xs-2">Username: <input className="form-control" type="text" id="usrnm"/> </div>
+    			  <div className="col-xs-2">Password: <input className="form-control" type="text" id="pswrd"/> </div>
+			    </div> 
+          <div className="row">
+            <div className="col-xs-2"> <button className="btn btn-default" onClick={this.auth}>Login</button> </div>
+          </div>
+          <div className="row">
+            <div className="col-xs-2"> <Link to="/">Go to Home</Link></div>
+          </div>
+       </div>
+
+      </div>
 	  </form>
-      <Link to="/">Go to Home</Link>
+      
     </div>
     )
   }
