@@ -29,25 +29,28 @@ contextTypes: {
   render: function () {
     return (
     <div>
-      <h2>Hello from Login</h2> <br/>
-      <form role="form" className="form-inline">
-	     <div className="form-group">
-        <div className="container">
+      <div className="container">
           <div className="row">
-    			  <div className="col-xs-2">Username: <input className="form-control" type="text" id="usrnm"/> </div>
-    			  <div className="col-xs-2">Password: <input className="form-control" type="text" id="pswrd"/> </div>
-			    </div> 
-          <div className="row">
-            <div className="col-xs-2"> <button className="btn btn-default" onClick={this.auth}>Login</button> </div>
+            <div className="col-xs-6"><h2>Hello from Login</h2></div>
           </div>
-          <div className="row">
-            <div className="col-xs-2"> <Link to="/">Go to Home</Link></div>
-          </div>
-       </div>
-
       </div>
-	  </form>
-      
+      <form role="form" className="form-inline">
+        <div className="form-group">
+            <div className="container">
+                <div className="row">
+                  <div className="col-xs-2">Username: <input className="form-control" type="text" id="usrnm"/> </div>
+                  <div className="col-xs-2">Password: <input className="form-control" type="text" id="pswrd"/> </div>
+                </div> 
+                <div className="row">
+                  <div className="col-xs-2"> <button className="btn btn-default" onClick={this.auth}>Login</button> </div>
+                </div>
+                <div className="row">
+                  <div className="col-xs-2"> <Link to="/">Go to Home</Link>
+                </div>
+              </div>
+            </div>
+        </div> {/*end of form container*/}
+      </form> 
     </div>
     )
   }
