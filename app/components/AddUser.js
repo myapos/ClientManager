@@ -40,6 +40,8 @@ saveValuesInStore(myprops){
   let Adaptive_gym = document.getElementById("Adaptive_gym").checked+"";
   let sms = document.getElementById("sms").checked+"";
   let receive_email = document.getElementById("receive_email").checked+"";
+  let payed = document.getElementById("payed").checked+"";
+  let payment_date = document.getElementById("payment_date").value;
 
   console.log("Got values succesfully");
   //console.log(shortid.generate());
@@ -64,7 +66,9 @@ saveValuesInStore(myprops){
             WC:Womens_corner,
             ADG:Adaptive_gym,
             sms:sms,
-            receive_email:receive_email           
+            receive_email:receive_email,
+            payed:payed,
+            date_payment:date_payment       
         }
         var r = confirm("Are you sure to add user "+user.first +" "+user.last+"?");
                       if (r == true) {

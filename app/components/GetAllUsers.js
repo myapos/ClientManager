@@ -89,6 +89,12 @@ displayUsersFromState(myprops) {
           <td>
           {user.receive_email}
           </td>
+          <td>
+          {user.payed}
+          </td>
+          <td>
+          {user.date_payment}
+          </td>
           </tr>)
       else 
         return("")
@@ -194,6 +200,12 @@ displayUsersFromLocalStorage() {
           <td>
           {user.receive_email}
           </td>
+          <td>
+          {user.payed}
+          </td>
+          <td>
+          {user.date_payment}
+          </td>
         </tr>)
       else 
         return("")
@@ -272,6 +284,12 @@ displayUsersFromLocalStorage() {
                 </th>
                 <th>
                 Receive email?
+                </th>
+                <th>
+                Payed?
+                </th>
+                <th>
+                Payment date
                 </th>
             </tr>
             </thead>

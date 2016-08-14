@@ -3,8 +3,8 @@ import React, { Component, PropTypes } from 'react';
 export default class App extends Component {
 
 componentDidUpdate(){
-	debugger;
-	this.mycheck();
+	//debugger;
+	//this.mycheck();
 };
 
 
@@ -19,7 +19,6 @@ mycheck(){
     let userDate;
 	//let userDate = new Date(previoususers[2].date);
 
-
 	//var timeDiff = Math.abs(today.getTime() - userDate.getTime());
 	//var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
 	//alert(diffDays);
@@ -31,14 +30,15 @@ mycheck(){
 	for (let i=0;i<numOfUsers;i++){
 		userDate = new Date(previoususers[i].date); 
 		var timeDiff = Math.abs(today.getTime() - userDate.getTime());
+
 		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
 		//alert(diffDays);
-		//check if one month passed
-
+		//check if one month passed and user has not payεd.
 		if (diffDays>30){
 			console.log("User "+previoususers[i].first+" "+previoususers[i].last+" "+Math.floor(diffDays/30)+" month(s) passed");
 			//send email to user
 			this.send_email(previoususers[i].first,previoususers[i].last, previoususers[i].usremail);	
+			//update date of registration payment
 		}
 	}
     console.log("current date: "+Date());
@@ -59,7 +59,7 @@ mycheck(){
 	    from: '"Ferrum Gym"<touishtouish@hotmail.com>', // sender address 
 	    to: email, // list of receivers 
 	    subject: 'Please check registration ✔', // Subject line 
-	    text: 'Hello '+first+" "+last+".Please check you registration fee! ", // plaintext body 
+	    text: 'Hello '+first+" "+last+".Please check your registration fee! ", // plaintext body 
 	    html: '<b>Hello '+first+" "+last+"</b>.Please check you registration fee! " // html body 
 	};
 	debugger;

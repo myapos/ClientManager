@@ -49,7 +49,9 @@ class DeleteUser extends Component {
                           ADG:row.getElementsByTagName("td")[17].innerHTML,
                           id:row.getElementsByTagName("td")[18].innerHTML,
                           sms:row.getElementsByTagName("td")[19].innerHTML,
-                          receive_email:row.getElementsByTagName("td")[20].innerHTML           
+                          receive_email:row.getElementsByTagName("td")[20].innerHTML,
+                          payed:row.getElementsByTagName("td")[21].innerHTML,
+                          date_payment:row.getElementsByTagName("td")[22].innerHTML            
                       }
                       debugger;
                       var r = confirm("Are you sure to delete user "+user.first +" "+user.last+"?");
@@ -144,6 +146,12 @@ Search(usrprops){
                   <th>\
                   Receive email? \
                   </th>\
+                  <th>\
+                  Payed? \
+                  </th>\
+                  <th>\
+                  Payment date\
+                  </th>\
               </tr>\
               </thead><tbody>";
             output.innerHTML = htmltableheadings;
@@ -188,6 +196,8 @@ Search(usrprops){
           <td>"+user.id+"</td>\
           <td>"+user.sms+"</td>\
           <td>"+user.receive_email+"</td>\
+          <td>"+user.payed+"</td>\
+          <td>"+user.date_payment+"</td>\
           </tr>";
     }
   //debugger;

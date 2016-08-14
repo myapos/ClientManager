@@ -76,6 +76,8 @@ var MyModal = React.createClass({
   let Adaptive_gym = document.getElementById("updAdaptive_gym").value;
   let sms = document.getElementById("sms").value;
   let receive_email = document.getElementById("receive_email").value;
+  let payed = document.getElementById("payed").checked+"";
+  let date_payment = document.getElementById("date_payment").value;
 
   console.log("Got values succesfully");
   //console.log(shortid.generate());
@@ -101,8 +103,9 @@ var MyModal = React.createClass({
             WC:Womens_corner,
             ADG:Adaptive_gym,
             sms:sms,
-            receive_email:receive_email
-
+            receive_email:receive_email,
+            payed:payed,
+            date_payment:date_payment 
         }
         debugger;
         var r = confirm("Are you sure to update user "+userupdt.first +" "+userupdt.last+"?");
@@ -144,8 +147,8 @@ var MyModal = React.createClass({
             Kids_B: <input type='text' defaultValue={user.KB} id="updKids_B" onChange={this.handleChange}/> Crossfit: <input type='text' defaultValue={user.CF} id="updCrossfit" onChange={this.handleChange}/> <br/>
             TRX: <input type='text' defaultValue={user.TRX_} id="updTRX" onChange={this.handleChange}/> Womens_corner: <input type='text' defaultValue={user.WC} id="updWomens_corner" onChange={this.handleChange}/> <br/>
             Adaptive_gym: <input type='text' defaultValue={user.ADG} id="updAdaptive_gym" onChange={this.handleChange}/> <br/>SMS: <input type='text' defaultValue={user.sms} id="sms" onChange={this.handleChange}/> <br/>
-            Receive email?: <input type='text' defaultValue={user.receive_email} id="receive_email" onChange={this.handleChange}/> <br/>
-            <button onClick={this.saveUpdatedValuesInStore}>Save</button>
+            Receive email?: <input type='text' defaultValue={user.receive_email} id="receive_email" onChange={this.handleChange}/> <br/>Payed: <input type='text' defaultValue={user.payed} id="payed" onChange={this.handleChange}/> <br/>
+            Payment date: <input type='date' defaultValue={user.date_payment} id="date_payment" onChange={this.handleChange}/> <br/><button onClick={this.saveUpdatedValuesInStore}>Save</button>
           </form>
           
           

@@ -36,6 +36,10 @@ class Form extends Component {
               <div className="col-xs-4"><input className="form-control" type="checkbox" name="sms" id="sms"/>Receive sms? <br/></div>
               <div className="col-xs-4"><input className="form-control" type="checkbox" name="receive_email" id="receive_email"/>Receive email? <br/></div>
            </div>  
+           <div className="form-group col-xs-6">Payments: 
+              <div className="col-xs-4"><input className="form-control" type="checkbox" name="payed" id="payment"/>Payed? <br/></div>
+              <div className="col-xs-4"><label>Payment date: <input className="form-control" type="date" name="payment_date" id="payment_date"/> <br/></label></div>
+           </div>
            </fieldset>
            </form>
         </div>

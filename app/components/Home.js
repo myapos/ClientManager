@@ -7,7 +7,7 @@ var Home = React.createClass({
     return (
       <div>
         <div>
-          <h2>Welcome to ClientManager Application sdfds</h2>
+          <h2>Welcome to ClientManager Application</h2>
             <Link to="/login">Go to Login page</Link>
         </div>
       </div>

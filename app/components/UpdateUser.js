@@ -45,7 +45,9 @@ class UpdateUser extends Component {
                           ADG:currentRow.getElementsByTagName("td")[17].innerHTML+"",
                           id:currentRow.getElementsByTagName("td")[18].innerHTML+"",
                           sms:currentRow.getElementsByTagName("td")[19].innerHTML+"", 
-                          receive_email:currentRow.getElementsByTagName("td")[20].innerHTML+""           
+                          receive_email:currentRow.getElementsByTagName("td")[20].innerHTML+"" ,
+                          payed:currentRow.getElementsByTagName("td")[21].innerHTML+"",
+                          date_payment:currentRow.getElementsByTagName("td")[22].innerHTML+""           
                       }
                       //open modal window and get updated data
                       myDivElement = <MyModal users={that.users} userRow={user} userUpdate={that.updateuser}/>
@@ -131,6 +133,12 @@ Search(usrprops){
                   receive_email\
                   </th>\
                   <th>\
+                  Payed?\
+                  </th>\
+                  <th>\
+                  Payment date\
+                  </th>\
+                  <th>\
                   Edit \
                   </th>\
               </tr>\
@@ -177,6 +185,8 @@ Search(usrprops){
           <td>"+user.id+"</td>\
           <td>"+user.sms+"</td>\
           <td>"+user.receive_email+"</td>\
+          <td>"+user.payed+"</td>\
+          <td>"+user.date_payment+"</td>\
           <td id=\"edit"+user.id+"\"></td>\
           </tr>";
     }
