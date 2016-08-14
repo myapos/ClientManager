@@ -88,22 +88,16 @@ saveValuesInStore(myprops){
   //debugger;
     return (
         <div>
-          <Form ref="FormInput" > 
-             
-          </Form>
-           
-           {/*<button onClick={() => adduser("myros")}>
-                Add User1
-            </button>*/}
-           
-           <button onClick={this.saveValuesInStore.bind(this,this.props)}>
-                Add User2
-           </button>
-           
-         
-            
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12"><Form ref="FormInput"></Form></div>
+            </div>
+            <div className="row">            
+               <div className="col-xs-4"><button className="btn btn-default" onClick={this.saveValuesInStore.bind(this,this.props)}>Add User</button></div>
+             </div>
           <Link to="/main">Back to control panel</Link>
-        </div>
+        </div>  {/*end of container*/}
+      </div>
 
     );
   }

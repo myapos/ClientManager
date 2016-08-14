@@ -31,7 +31,7 @@ contextTypes: {
     <div>
       <div className="container">
           <div className="row">
-            <div className="col-xs-6"><h2>Hello from Login</h2></div>
+            <div className="col-xs-6"><h2>Please enter your credentials</h2></div>
           </div>
       </div>
       <form role="form" className="form-inline">
