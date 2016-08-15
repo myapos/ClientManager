@@ -20,7 +20,11 @@ h1,h2{
 	font-size:70%;
 	width:50%;
 }
-#users_table_update, #btnupdate{
+#users_table_update{
 	font-size:62%;
 	width:50%;
+}
+
+ #btnupdate{
+	font-size:100%;
 }

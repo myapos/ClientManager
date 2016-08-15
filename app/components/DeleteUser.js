@@ -208,7 +208,7 @@ Search(usrprops){
   })
       
     if(searchcount==0){
-      output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"22\">This user does not exist in database</td></tr></tbody></table></div>";
+      output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"23\">This user does not exist in database</td></tr></tbody></table></div>";
     }
   }
   
