@@ -5,7 +5,6 @@ import UpdateForm from './UpdateForm';
 import MyModal from './MyModal';
 
 
-
 class UpdateUser extends Component {
 
   static propTypes = {

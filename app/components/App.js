@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import MySignature from './Signature';
 
 export default class App extends Component {
 
@@ -6,8 +7,6 @@ componentDidUpdate(){
 	//debugger;
 	//this.mycheck();
 };
-
-
 mycheck(){
     debugger;
     
@@ -78,8 +77,13 @@ mycheck(){
 
   render() {
     return (
-	    <div>
-	      {this.props.children}
+	    <div className="container">
+          <div className="row">
+	      	<div className="col-xs-12"> {this.props.children} </div>
+	      </div>
+	       <div className="row">
+	      	<div className="col-xs-12"><MySignature/></div>
+	       </div>
 	    </div>
 	  );
   }
