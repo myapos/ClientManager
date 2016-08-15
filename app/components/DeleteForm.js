@@ -5,17 +5,21 @@ class DeleteForm extends Component {
   render() {
     return (
       <div> 
-        <div>
-          <form role="form" className="col-sm-4" id="my_form">
-          
+        <div className="container">
+          <form role="form" id="my_form" className="col-xs-8">
           <fieldset>
-          <legend>
-          Search fields
-          </legend>
+            <legend>
+              Search user to delete
+            </legend>
             <div className="form-group">
+              <div className="row">
                   <div className="col-xs-4"><label>First Name: <input className="form-control" type="text" name="fname" id="fname"/> <br/></label></div>
                   <div className="col-xs-4"><label>Last Name:<input className="form-control" type="text" name="lname" id="lname"/> <br/></label></div>
-            </div>    
+              </div>
+              <div className="row">
+                <div className="col-xs-4">{this.props.children}</div>
+              </div>
+            </div>   
           </fieldset>
            </form>
         </div>

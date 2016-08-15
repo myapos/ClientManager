@@ -121,12 +121,16 @@ class ImportUsers extends Component {
   
   //debugger;
     return (
-        <div>
-        <h1>Welcome to import page </h1>
-         <button >Import</button><br/>
-         <input id='myfile' type="file" name="file" accept=".csv" onChange={this.handleFileSelect.bind(this,newUsers)}/><br/>
-         <span>foo</span><br/>
-        <Link to="/main">Back to control panel</Link>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-8"> <h1>Welcome to import page </h1></div>
+          </div>
+          <div className="row">
+            <div className="col-xs-4">  <input className="form-control" id='myfile' type="file" name="file" accept=".csv" onChange={this.handleFileSelect.bind(this,newUsers)}/></div>
+          </div>
+          <div className="row">
+            <div className="col-xs-8"><Link to="/main">Back to control panel</Link></div>
+          </div>
         </div>
     );
   }

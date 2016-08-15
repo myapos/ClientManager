@@ -26,33 +26,32 @@ class UpdateUser extends Component {
     for(let i = 1; i <= rows.length; i++) {
         currentRow = table.rows[i];
         user = {
-                          first: currentRow.getElementsByTagName("td")[1].innerHTML,
-                          last:currentRow.getElementsByTagName("td")[2].innerHTML,
-                          usremail:currentRow.getElementsByTagName("td")[3].innerHTML,
-                          mob:currentRow.getElementsByTagName("td")[4].innerHTML,
-                          date:currentRow.getElementsByTagName("td")[5].innerHTML,
-                          age:currentRow.getElementsByTagName("td")[6].innerHTML,
-                          sex:currentRow.getElementsByTagName("td")[7].innerHTML,
-                          kettl:currentRow.getElementsByTagName("td")[8].innerHTML+"",
-                          MIB:currentRow.getElementsByTagName("td")[9].innerHTML+"",
-                          KVMG:currentRow.getElementsByTagName("td")[10].innerHTML+"",
-                          CV:currentRow.getElementsByTagName("td")[11].innerHTML+"",
-                          KA:currentRow.getElementsByTagName("td")[12].innerHTML+"",
-                          KB:currentRow.getElementsByTagName("td")[13].innerHTML+"",
-                          CF:currentRow.getElementsByTagName("td")[14].innerHTML+"",
-                          TRX_:currentRow.getElementsByTagName("td")[15].innerHTML+"",
-                          WC:currentRow.getElementsByTagName("td")[16].innerHTML+"",
-                          ADG:currentRow.getElementsByTagName("td")[17].innerHTML+"",
-                          id:currentRow.getElementsByTagName("td")[18].innerHTML+"",
-                          sms:currentRow.getElementsByTagName("td")[19].innerHTML+"", 
-                          receive_email:currentRow.getElementsByTagName("td")[20].innerHTML+"" ,
-                          payed:currentRow.getElementsByTagName("td")[21].innerHTML+"",
-                          date_payment:currentRow.getElementsByTagName("td")[22].innerHTML+""           
-                      }
-                      //open modal window and get updated data
-                      myDivElement = <MyModal users={that.users} userRow={user} userUpdate={that.updateuser}/>
-                      ReactDOM.render(myDivElement, document.getElementById("edit"+user.id));
-        
+                first: currentRow.getElementsByTagName("td")[1].innerHTML,
+                last:currentRow.getElementsByTagName("td")[2].innerHTML,
+                usremail:currentRow.getElementsByTagName("td")[3].innerHTML,
+                mob:currentRow.getElementsByTagName("td")[4].innerHTML,
+                date:currentRow.getElementsByTagName("td")[5].innerHTML,
+                age:currentRow.getElementsByTagName("td")[6].innerHTML,
+                sex:currentRow.getElementsByTagName("td")[7].innerHTML,
+                kettl:currentRow.getElementsByTagName("td")[8].innerHTML+"",
+                MIB:currentRow.getElementsByTagName("td")[9].innerHTML+"",
+                KVMG:currentRow.getElementsByTagName("td")[10].innerHTML+"",
+                CV:currentRow.getElementsByTagName("td")[11].innerHTML+"",
+                KA:currentRow.getElementsByTagName("td")[12].innerHTML+"",
+                KB:currentRow.getElementsByTagName("td")[13].innerHTML+"",
+                CF:currentRow.getElementsByTagName("td")[14].innerHTML+"",
+                TRX_:currentRow.getElementsByTagName("td")[15].innerHTML+"",
+                WC:currentRow.getElementsByTagName("td")[16].innerHTML+"",
+                ADG:currentRow.getElementsByTagName("td")[17].innerHTML+"",
+                id:currentRow.getElementsByTagName("td")[18].innerHTML+"",
+                sms:currentRow.getElementsByTagName("td")[19].innerHTML+"", 
+                receive_email:currentRow.getElementsByTagName("td")[20].innerHTML+"" ,
+                payed:currentRow.getElementsByTagName("td")[21].innerHTML+"",
+                date_payment:currentRow.getElementsByTagName("td")[22].innerHTML+""           
+              }
+            //open modal window and get updated data
+            myDivElement = <MyModal users={that.users} userRow={user} userUpdate={that.updateuser}/>
+            ReactDOM.render(myDivElement, document.getElementById("edit"+user.id));  
     }
 };
 
@@ -151,7 +150,7 @@ Search(usrprops){
   let output_table = document.getElementById("output_table");
   if(localStorage.length==0){
         console.log("No users in database yet");
-        output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"17\">No users in database yet. Please add some first!</td></tr</tbody></table></div>";
+        output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"22\">No users in database yet. Please add some first!</td></tr</tbody></table></div>";
       }
   else {
   let users = JSON.parse(localStorage.getItem("users"));
@@ -221,17 +220,20 @@ Search(usrprops){
   const {users,updateuser} = this.props;
   //debugger;
     return (
-        <div>
-          <UpdateForm ref="FormInput" > 
-          </UpdateForm>
-          <br/>  
-          If you want to update a user please search for him, by his first name and last name and
-          click on the button edit. User Info: <br/>
-                <button onClick={this.Search.bind(this,this.props)}>
-                  Search
-                </button>  
-              <div id= "output"> </div>
-          <Link to="/main">Back to control panel</Link>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-8"> <UpdateForm ref="FormInput" ><button onClick={this.Search.bind(this,this.props)} className="btn btn-default">Search</button> </UpdateForm> </div>
+          </div>
+          <div className="row">
+            <div className="col-xs-8">If you want to update a user please search for him, by his first name and last name and
+          click on the button edit.</div>
+          </div>
+          <div className="row">  
+              <div className="col-xs-8">User Info:<div id= "output"> </div></div>
+          </div>
+          <div className="row">            
+            <div className="col-xs-4"> <Link to="/main">Back to control panel</Link></div>
+          </div>
         </div>
     );
   }

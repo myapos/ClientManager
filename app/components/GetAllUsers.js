@@ -295,7 +295,7 @@ displayUsersFromLocalStorage() {
             </thead>
             <tbody>
               {this.displayUsersFromLocalStorage()}
-            {/*this.displayUsersFromState(this.props)*/}
+              {/*this.displayUsersFromState(this.props)*/}
             </tbody>
               </table>
             </div>

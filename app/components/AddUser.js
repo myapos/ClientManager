@@ -95,7 +95,9 @@ saveValuesInStore(myprops){
             <div className="row">            
                <div className="col-xs-4"><button className="btn btn-default" onClick={this.saveValuesInStore.bind(this,this.props)}>Add User</button></div>
              </div>
-          <Link to="/main">Back to control panel</Link>
+            <div className="row">            
+               <div className="col-xs-4"> <Link to="/main">Back to control panel</Link></div>
+            </div>
         </div>  {/*end of container*/}
       </div>
 

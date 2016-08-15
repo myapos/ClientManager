@@ -106,14 +106,18 @@ class ExportUsers extends Component {
     previoususers = JSON.parse(localStorage.getItem("users"));
     newUsers=users;
   }
-  
-
     return (
-
-        <div>
-          <h1>Welcome to export page </h1>
-           <button onClick={this.exportHandler.bind(this,newUsers)}>Export</button><br/>
-          <Link to="/main">Back to control panel</Link>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-8"> <h1>Welcome to export page </h1> </div>
+          </div>
+          <div className="row">
+            <div className="col-xs-8"> <button className="btn btn-default" onClick={this.exportHandler.bind(this,newUsers)}>Export</button> </div>
+          </div>
+          <div className="row">
+            <div className="col-xs-8">  <Link to="/main">Back to control panel</Link></div>
+          </div>  
+         
         </div>
     );
   }

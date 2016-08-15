@@ -8,8 +8,11 @@ export default class Main extends Component {
   render() {
     return (
         <div>
-          <h2>Hello from Main Control Panel</h2>
+          
           <div className="container">
+              <div className="row">
+                <div className="col-xs-8"> <h2>Hello from Main Control Panel</h2></div>
+              </div>
               <div className="row">
                 <div className="col-xs-2"> <Link to="/getallusers">GetAllUsers</Link></div>
               </div>

@@ -208,7 +208,7 @@ Search(usrprops){
   })
       
     if(searchcount==0){
-      output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"17\">This user does not exist in database</td></tr></tbody></table></div>";
+      output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"22\">This user does not exist in database</td></tr></tbody></table></div>";
     }
   }
   
@@ -231,17 +231,20 @@ Search(usrprops){
   const {users,deleteuser} = this.props;
   //debugger;
     return (
-        <div>
-          <DeleteForm ref="FormInput" > 
-          </DeleteForm>
-          <br/>  
-          If you want to delete a user please search for him by his first name and last name and
-          click on it. User Info: <br/>
-                <button onClick={this.Search.bind(this,this.props)}>
-                  Search
-                </button>  
-              <div id= "output"> </div>
-          <Link to="/main">Back to control panel</Link>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-8"> <DeleteForm ref="FormInput"> <button className="btn btn-default" onClick={this.Search.bind(this,this.props)}>Search</button> </DeleteForm> </div>
+          </div>
+          <div className="row">
+            <div className="col-xs-8"> If you want to delete a user please search for him by his first name and last name and
+            click on it.</div>
+          </div>
+          <div className="row">  
+              <div className="col-xs-8">User Info:<div id= "output"></div></div>
+          </div>
+          <div className="row">            
+              <div className="col-xs-4"> <Link to="/main">Back to control panel</Link></div>
+          </div>
         </div>
     );
   }

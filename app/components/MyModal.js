@@ -41,7 +41,8 @@ var MyModal = React.createClass({
  
   afterOpenModal: function() {
     // references are now sync'd and can be accessed. 
-    this.refs.subtitle.style.color = '#f00';
+    this.refs.subtitle.style.color = '#90A6AD';
+    this.refs.closebtn.style.color = '#ED1F33';
   },
  
   closeModal: function() {
@@ -84,7 +85,8 @@ var MyModal = React.createClass({
   let newid = this.props.userRow.id;
   //use the same id
   
-  userupdt = {  id:newid,
+  userupdt = {  
+            id:newid,
             first: fname,
             last:lname,
             usremail:email,
@@ -109,12 +111,12 @@ var MyModal = React.createClass({
         }
         debugger;
         var r = confirm("Are you sure to update user "+userupdt.first +" "+userupdt.last+"?");
-                      if (r == true) {
-                          userupdatefunc(userupdt,users);
-                          alert("User updated!");
-                      } else {
-                          ;
-                      }
+              if (r == true) {
+                  userupdatefunc(userupdt,users);
+                  alert("User updated!");
+              } else {
+                  ;
+              }
   
   //debugger;
   //return user;
@@ -128,29 +130,73 @@ var MyModal = React.createClass({
     const user = this.props.userRow;
     return (
       <div>
-        <button onClick={this.openModal}>Edit</button>
+        <button className="btn btn-default"  onClick={this.openModal}>Edit</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles} >
  
-          <h2 ref="subtitle">Client Form</h2>
-          <button onClick={this.closeModal}>close</button>
-          <form >
-            First Name : <input type='text' id="updfname" defaultValue={user.first} onChange={this.handleChange}/> Last Name :<input type='text' id="updlname" defaultValue={user.last} onChange={this.handleChange}/> <br/>
-            Email : <input type='email' defaultValue={user.usremail} id="updemail" onChange={this.handleChange}/> Mobile: <input type='number' defaultValue={user.mob} id="updmobile" onChange={this.handleChange}/> <br/>
-            Age: <input type='text' defaultValue={user.age} id="updage" onChange={this.handleChange}/> Gender: <input type='text' defaultValue={user.sex} id="updgender" onChange={this.handleChange}/> <br/>
-            Date: <input type='date' defaultValue={user.date} id="upddate" onChange={this.handleChange}/> Kettlebells: <input type='text' defaultValue={user.kettl} id="updKettlebells" onChange={this.handleChange}/> <br/>
-            Made_In_Brazil: <input type='text' defaultValue={user.MIB} id="updMade_In_Brazil" onChange={this.handleChange}/>  Krav_Maga: <input type='text' defaultValue={user.KVMG} id="updKrav_Maga" onChange={this.handleChange}/> <br/>
-            Civilian: <input type='text' defaultValue={user.CV} id="updCivilian" onChange={this.handleChange}/> Kids_A: <input type='text' defaultValue={user.KA} id="updKids_A" onChange={this.handleChange}/> <br/>
-            Kids_B: <input type='text' defaultValue={user.KB} id="updKids_B" onChange={this.handleChange}/> Crossfit: <input type='text' defaultValue={user.CF} id="updCrossfit" onChange={this.handleChange}/> <br/>
-            TRX: <input type='text' defaultValue={user.TRX_} id="updTRX" onChange={this.handleChange}/> Womens_corner: <input type='text' defaultValue={user.WC} id="updWomens_corner" onChange={this.handleChange}/> <br/>
-            Adaptive_gym: <input type='text' defaultValue={user.ADG} id="updAdaptive_gym" onChange={this.handleChange}/> <br/>SMS: <input type='text' defaultValue={user.sms} id="sms" onChange={this.handleChange}/> <br/>
-            Receive email?: <input type='text' defaultValue={user.receive_email} id="receive_email" onChange={this.handleChange}/> <br/>Payed: <input type='text' defaultValue={user.payed} id="payed" onChange={this.handleChange}/> <br/>
-            Payment date: <input type='date' defaultValue={user.date_payment} id="date_payment" onChange={this.handleChange}/> <br/><button onClick={this.saveUpdatedValuesInStore}>Save</button>
-          </form>
           
+          
+          <div className="container">
+            <form >
+            <div className="row">
+              <div className="col-xs-6"><h2 ref="subtitle">Client Form</h2></div>
+             </div>
+            <div className="row">
+                <div className="col-xs-6"> </div>
+                <div className="col-xs-6"> <button ref="closebtn" id="close-btn" className="btn btn-default"  onClick={this.closeModal}>X</button></div>
+              </div>
+              <div className="row">
+                <div className="col-xs-4"> First Name : <input type='text' id="updfname" defaultValue={user.first} onChange={this.handleChange}/></div>
+                <div className="col-xs-4"> Last Name :<input type='text' id="updlname" defaultValue={user.last} onChange={this.handleChange}/></div>
+              </div>
+              <div className="row">  
+                <div className="col-xs-4"> Email : <input type='email' defaultValue={user.usremail} id="updemail" onChange={this.handleChange}/></div>
+                <div className="col-xs-4"> Mobile: <input type='number' defaultValue={user.mob} id="updmobile" onChange={this.handleChange}/></div>
+              </div>
+              <div className="row">
+                <div className="col-xs-4"> Age: <input type='text' defaultValue={user.age} id="updage" onChange={this.handleChange}/></div> 
+                <div className="col-xs-4"> Gender: <input type='text' defaultValue={user.sex} id="updgender" onChange={this.handleChange}/></div>
+              </div>
+              <div className="row">
+                <div className="col-xs-4"> Date: <input type='date' defaultValue={user.date} id="upddate" onChange={this.handleChange}/> </div>
+                <div className="col-xs-4"> Kettlebells: <input type='text' defaultValue={user.kettl} id="updKettlebells" onChange={this.handleChange}/> </div>
+              </div>
+              <div className="row"> 
+                <div className="col-xs-4"> Made_In_Brazil: <input type='text' defaultValue={user.MIB} id="updMade_In_Brazil" onChange={this.handleChange}/></div>
+                <div className="col-xs-4">  Krav_Maga: <input type='text' defaultValue={user.KVMG} id="updKrav_Maga" onChange={this.handleChange}/></div>
+              </div>
+              <div className="row">
+                <div className="col-xs-4"> Civilian: <input type='text' defaultValue={user.CV} id="updCivilian" onChange={this.handleChange}/></div>
+                <div className="col-xs-4"> Kids_A: <input type='text' defaultValue={user.KA} id="updKids_A" onChange={this.handleChange}/></div>
+              </div>
+              <div className="row">
+                <div className="col-xs-4"> Kids_B: <input type='text' defaultValue={user.KB} id="updKids_B" onChange={this.handleChange}/></div>
+                <div className="col-xs-4"> Crossfit: <input type='text' defaultValue={user.CF} id="updCrossfit" onChange={this.handleChange}/></div>
+              </div>
+              <div className="row">
+                <div className="col-xs-4"> TRX: <input type='text' defaultValue={user.TRX_} id="updTRX" onChange={this.handleChange}/></div>
+                <div className="col-xs-4"> Womens_corner: <input type='text' defaultValue={user.WC} id="updWomens_corner" onChange={this.handleChange}/></div>
+              </div>
+              <div className="row">
+                <div className="col-xs-4"> Adaptive_gym: <input type='text' defaultValue={user.ADG} id="updAdaptive_gym" onChange={this.handleChange}/></div> 
+                <div className="col-xs-4"> SMS: <input type='text' defaultValue={user.sms} id="sms" onChange={this.handleChange}/></div>
+              </div>
+              <div className="row">
+                <div className="col-xs-4"> Receive email?: <input type='text' defaultValue={user.receive_email} id="receive_email" onChange={this.handleChange}/> </div>
+                <div className="col-xs-4">Payed: <input type='text' defaultValue={user.payed} id="payed" onChange={this.handleChange}/></div>
+              </div>
+              <div className="row">
+                <div className="col-xs-4"> Payment date: <input type='date' defaultValue={user.date_payment} id="date_payment" onChange={this.handleChange}/> </div>
+              </div>
+              <div className="row">
+                <div className="col-xs-4"> <button className="btn btn-default"  onClick={this.saveUpdatedValuesInStore}>Save</button></div>
+              </div>
+            </form>
+
+          </div>
           
         </Modal>
         
