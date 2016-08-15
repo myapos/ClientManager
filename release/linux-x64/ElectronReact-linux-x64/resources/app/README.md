@@ -1,1 +1,0 @@
-This repository is for development purposes. Electron,react, redux are used in order to implement a client manager native application.
