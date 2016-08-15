@@ -68,7 +68,7 @@ saveValuesInStore(myprops){
             sms:sms,
             receive_email:receive_email,
             payed:payed,
-            date_payment:date_payment       
+            payment_date:payment_date       
         }
         var r = confirm("Are you sure to add user "+user.first +" "+user.last+"?");
                       if (r == true) {

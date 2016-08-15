@@ -16,11 +16,7 @@ mycheck(){
     //get current date and date from previous users
     let today = new Date();
     let userDate;
-	//let userDate = new Date(previoususers[2].date);
 
-	//var timeDiff = Math.abs(today.getTime() - userDate.getTime());
-	//var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-	//alert(diffDays);
 	//get how many users exist in the system
 	let numOfUsers = previoususers.length;
 	let userDates = new Array();
@@ -29,10 +25,8 @@ mycheck(){
 	for (let i=0;i<numOfUsers;i++){
 		userDate = new Date(previoususers[i].date); 
 		var timeDiff = Math.abs(today.getTime() - userDate.getTime());
-
 		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-		//alert(diffDays);
-		//check if one month passed and user has not payεd.
+		//check if one month passed and user has not payed. Business logic entered here!!!!!!
 		if (diffDays>30){
 			console.log("User "+previoususers[i].first+" "+previoususers[i].last+" "+Math.floor(diffDays/30)+" month(s) passed");
 			//send email to user
@@ -69,10 +63,6 @@ mycheck(){
 	    }
 	    console.log('Message sent: ' + info.response+" "+first+" "+last);
 	});
-
-		
-  	//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
-  	//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
   }; //end of send_email
 
   render() {

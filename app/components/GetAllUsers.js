@@ -93,7 +93,7 @@ displayUsersFromState(myprops) {
           {user.payed}
           </td>
           <td>
-          {user.date_payment}
+          {user.payment_date}
           </td>
           </tr>)
       else 
@@ -204,7 +204,7 @@ displayUsersFromLocalStorage() {
           {user.payed}
           </td>
           <td>
-          {user.date_payment}
+          {user.payment_date}
           </td>
         </tr>)
       else 

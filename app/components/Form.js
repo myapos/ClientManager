@@ -49,7 +49,7 @@ class Form extends Component {
                  </div>  
                  <div className="form-group"><strong>Payments:</strong>
                     <div className="row">
-                      <div className="col-xs-2"><input className="form-control" type="checkbox" name="payed" id="payment"/>Payed? <br/></div>
+                      <div className="col-xs-2"><input className="form-control" type="checkbox" name="payed" id="payed"/>Payed? <br/></div>
                       <div className="col-xs-4"><input className="form-control" type="date" name="payment_date" id="payment_date"/> Payment date: <br/></div>
                     </div>
                    </div>
