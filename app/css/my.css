@@ -3,7 +3,7 @@ body{
 }
 
 #root{
-	width: 800px;
+	width:1200px;/**/
   	margin: 0 auto; 
   	margin-top:5%;
   	border:1px solid black;
@@ -16,6 +16,11 @@ h1,h2{
 .row{
 	padding:5px;
 }
-h1,h2,h3{
-	
+.users_table{
+	font-size:70%;
+	width:50%;
+}
+#users_table_update, #btnupdate{
+	font-size:62%;
+	width:50%;
 }

@@ -64,7 +64,7 @@ Search(usrprops){
   let fname = document.getElementById("fname").value;
   let lname = document.getElementById("lname").value;
   let output = document.getElementById("output");
-  let htmltableheadings ="<div class=\"table-responsive\">\
+  let htmltableheadings ="<div id=\"users_table_update\">\
             <table id=\"output_table\" class=\"table table-bordered table-hover\">\
                <thead>\
                <tr>\

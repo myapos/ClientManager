@@ -217,90 +217,97 @@ displayUsersFromLocalStorage() {
   
   //debugger;
     return (
-      <div>
-        <div>
-          <h2>Welcome to GetAllUsers page</h2>
-           User List: <br/>
-           <div className="table-responsive">
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12"> <h2>Welcome to GetAllUsers page</h2></div>
+        </div>
+        <div className="row">
+          <div className="col-xs-4"> User List:
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12">
+            <div className="users_table">
              <table className="table table-bordered table-hover">
-             <thead>
-             <tr>
-                <th>
-                Num
-                </th>
-                <th>
-                First name
-                </th>
-                <th>
-                Last name
-                </th>
-                <th>
-                 email
-                </th>
-                <th>
-                 mobile
-                </th>
-                <th>
-                 date
-                </th>
-                <th>
-                 age
-                </th>
-                <th>
-                 Gender
-                </th>
-                <th>
-                 Kettlebels
-               </th>
-                <th>
-                 Made in brazil
-               </th>
-                <th>
-                 Kravmaga
-                </th>
-                <th>
-                 Civilian 
-                </th>
-                <th>
-                Kids A
-                </th>
-                <th>
-                 Kids B 
-                </th>
-                <th>
-                Crossfit 
-                </th>
-                <th>
-                TRX  
-                </th>
-                <th>
-                Womens Corner
-                </th>
-                <th>
-                Adaptive_gym 
-                </th>
-                <th>
-                SMS 
-                </th>
-                <th>
-                Receive email?
-                </th>
-                <th>
-                Payed?
-                </th>
-                <th>
-                Payment date
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-              {this.displayUsersFromLocalStorage()}
-              {/*this.displayUsersFromState(this.props)*/}
-            </tbody>
+                 <thead>
+                   <tr>
+                    <th>
+                    Num
+                    </th>
+                    <th>
+                    First name
+                    </th>
+                    <th>
+                    Last name
+                    </th>
+                    <th>
+                     email
+                    </th>
+                    <th>
+                     mobile
+                    </th>
+                    <th>
+                     date
+                    </th>
+                    <th>
+                     age
+                    </th>
+                    <th>
+                     Gender
+                    </th>
+                    <th>
+                     Kettlebels
+                   </th>
+                    <th>
+                     Made in brazil
+                   </th>
+                    <th>
+                     Kravmaga
+                    </th>
+                    <th>
+                     Civilian 
+                    </th>
+                    <th>
+                    Kids A
+                    </th>
+                    <th>
+                     Kids B 
+                    </th>
+                    <th>
+                    Crossfit 
+                    </th>
+                    <th>
+                    TRX  
+                    </th>
+                    <th>
+                    Womens Corner
+                    </th>
+                    <th>
+                    Adaptive_gym 
+                    </th>
+                    <th>
+                    SMS 
+                    </th>
+                    <th>
+                    Receive email?
+                    </th>
+                    <th>
+                    Payed?
+                    </th>
+                    <th>
+                    Payment date
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.displayUsersFromLocalStorage()}
+                </tbody>
               </table>
             </div>
-            <br/>
-            <Link to="/main">Back to control panel</Link>
+          </div>
+        </div>        
+        <div className="row">            
+           <div className="col-xs-4"> <Link to="/main">Back to control panel</Link></div>
         </div>
       </div>
     )

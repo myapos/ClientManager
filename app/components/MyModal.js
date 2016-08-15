@@ -19,7 +19,7 @@ Modal.setAppElement('#your-app-element');
 const customStyles = {
   content : {
     top                   : '50%',
-    width                 : '70%',
+    width                 : '60%',
     left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
@@ -130,7 +130,7 @@ var MyModal = React.createClass({
     const user = this.props.userRow;
     return (
       <div>
-        <button className="btn btn-default"  onClick={this.openModal}>Edit</button>
+        <button id="btnupdate" className="btn btn-default"  onClick={this.openModal}>Edit</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
