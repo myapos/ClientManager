@@ -117,7 +117,7 @@ displayUsersFromLocalStorage() {
   if(localStorage.length==0){
     //return (<tr><td>No user exist in database</td></tr>);
     console.log("no user exist in local storage");
-    return(<tr><td colSpan="20">no user exist in local storage</td></tr>)
+    return(<tr><td colSpan="22">no user exist in local storage</td></tr>)
   }
   else{
   let users = JSON.parse(localStorage.getItem("users"));
@@ -134,10 +134,11 @@ displayUsersFromLocalStorage() {
 
    
     return (users.map((user,id) => {
-
+      debugger;
       //if (user.first)
-      console.log("id:"+id);
-      if(id!=0)
+      //console.log("id:"+id);
+      console.log(user);
+      if(!user.empty)
         return(
         <tr>
           <td>

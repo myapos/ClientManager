@@ -4,23 +4,27 @@ export default function importusers(state = [{"empty":"no user"}], action) {
   switch (action.type) {
     case IMPORT_USERS:{
       
-      //debugger;
+      debugger;
       
       let newState = new Array();
-      //newState=action.users;
-
+      //let reduced_users = action.users.splice(1, action.users.length-1); //ignores the first and last item of the array which contains only titles
+      //newState = reduced_users;
+      //newState=action.users; //action.users.splice(1, action.users.length);
+      let numOfUsers=action.users.length;
       //construct array of json objects in action.users[0] exists json keys
       let keys = new Array();
       keys = action.users[0];
       let keyssplitted = keys[0].split(",");
       let userJson={};
 
-      for(let i=0;i<action.users.length;i++){
+      for(let i=1;i<numOfUsers-1;i++){
         //tokenize usersstrings
         debugger;
         let userssplitted = action.users[i][0].split(",");
-
+        //["id,first,last,usremail,mob,age,sex,date,kettl,MIB,KVMG,CV,KA,KB,CF,TRX_,WC,ADG,sms,receive_email,payed,payment_date"]
+        //these conditions removes some useless information from saving in local storage
         if(userssplitted.length>1){
+          /*
           let id = keyssplitted[0];
           let first = keyssplitted[1];
           let last = keyssplitted[2];
@@ -40,8 +44,10 @@ export default function importusers(state = [{"empty":"no user"}], action) {
           let WC = keyssplitted[16];
           let ADG = keyssplitted[17];
           let sms = keyssplitted[18];
-          let receive_email = keyssplitted[19]
-
+          let receive_email = keyssplitted[19];
+          let payed = keyssplitted[20];
+          let payment_date = keyssplitted[21];
+          */
           userJson ={
             id:userssplitted[0],
             first:userssplitted[1],
@@ -62,16 +68,18 @@ export default function importusers(state = [{"empty":"no user"}], action) {
             WC:userssplitted[16],
             ADG:userssplitted[17],
             sms:userssplitted[18],
-            receive_email:userssplitted[19] /**/
+            receive_email:userssplitted[19],
+            payed:userssplitted[20],
+            payment_date:userssplitted[21]
         }
         newState.push(userJson);
-        }
+        } //end of if
 
       }
 
       console.log("Saved new state in local storage");
       localStorage.setItem("users", JSON.stringify(newState));
-
+      alert("Users imported succesfully");
       return newState; //in newState we save imported users
 
     }

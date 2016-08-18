@@ -4,7 +4,7 @@ export default function adduser(state = [{"empty":"no user"}], action) {
   switch (action.type) {
     case ADD_USER:{
       //let newState = Object.assign({}, state.adduser, action.payload);
-      //debugger;
+      debugger;
       //initializations
       let newState = new Array();
       if(localStorage.length==0){

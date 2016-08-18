@@ -12,8 +12,8 @@ class ExportUsers extends Component {
   };
 
   parseJSONToCSVStr(jsonData) {
-    
-    if(jsonData.length == 0) {
+    debugger;
+    if(jsonData.length == 1) {
         return '';
     }
 
@@ -69,7 +69,7 @@ class ExportUsers extends Component {
   };
 
   exportHandler(users){
-    //debugger;
+    debugger;
     console.log("hey from export function");
     //let cvStr = this.parseJSONToCSVStr.bind(users);
     this.exportToCsvFile(users);
