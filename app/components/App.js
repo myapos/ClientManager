@@ -4,9 +4,36 @@ import MySignature from './Signature';
 export default class App extends Component {
 
 componentDidUpdate(){
-	//debugger;
-	//this.mycheck();
+	this.checkInterval();
+	//check if checkPeriodInMinutes has passed
 };
+
+
+// initializations --> Period = CurrTime - StartTime. StartTime has to be saved manually
+// saved in localStorage. This will be updated every time the checkPeriodInMilliSeconds 
+// passes.
+
+checkInterval(){
+
+const checkPeriodInMilliSeconds = 5000; // checkPeriodInMinutes stands for the period in ms that has to be passed between
+										 // mail sendings
+let StartTime = JSON.parse(localStorage.getItem("StartTime"));
+let CurrTime = new Date().getTime();
+let period = CurrTime - StartTime;
+console.log("StartTime:"+StartTime);
+console.log("period:"+period);
+
+// if checkPeriodInMilliSeconds passes then swap CurrTime and StartTime
+if (period>checkPeriodInMilliSeconds){
+	console.log("Period passed. Save currtime as new start time in localStorage");
+	localStorage.setItem("StartTime", CurrTime);
+	//call mycheck to send emails
+}
+
+
+}
+
+
 mycheck(){
     debugger;
     
@@ -26,7 +53,14 @@ mycheck(){
 		userDate = new Date(previoususers[i].date); 
 		var timeDiff = Math.abs(today.getTime() - userDate.getTime());
 		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-		//check if one month passed and user has not payed. Business logic entered here!!!!!!
+		
+		//Business logic entered here!!!!!!
+		
+		//Mail conditions
+		//1. One month has passed
+		//2. User has not payed
+		//3. User wishes to be informed by email?? If he don't want to be informed what happens?
+
 		if (diffDays>30){
 			console.log("User "+previoususers[i].first+" "+previoususers[i].last+" "+Math.floor(diffDays/30)+" month(s) passed");
 			//send email to user
