@@ -10,6 +10,7 @@ componentDidUpdate(){
 
 
 // initializations --> Period = CurrTime - StartTime. StartTime has to be saved manually
+// localStorage.setItem("StartTime", new Date().getTime());
 // saved in localStorage. This will be updated every time the checkPeriodInMilliSeconds 
 // passes.
 
@@ -28,6 +29,7 @@ if (period>checkPeriodInMilliSeconds){
 	console.log("Period passed. Save currtime as new start time in localStorage");
 	localStorage.setItem("StartTime", CurrTime);
 	//call mycheck to send emails this.mycheck();
+	//this.mycheck();
 }
 
 

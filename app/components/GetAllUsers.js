@@ -114,7 +114,7 @@ displayUsersFromLocalStorage() {
 
   console.log("Users from local storage:"+localStorage.getItem("users")); 
 
-  if(localStorage.length==0){
+  if(localStorage.length==1){
     //return (<tr><td>No user exist in database</td></tr>);
     console.log("no user exist in local storage");
     return(<tr><td colSpan="22">no user exist in local storage</td></tr>)

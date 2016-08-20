@@ -19,7 +19,7 @@ export default function adduser(state = [{"empty":"no user"}], action) {
       //console.log(previoususers);
      
 
-      if((state.length==1)&&(previoususers.length==2)){
+      if((state.length==1)&&(previoususers.length==1)){
         console.log("State is empty and no previous users exist");
         //retrieve previous users to newState
         previoususers = JSON.parse(localStorage.getItem("users"));
