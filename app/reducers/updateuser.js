@@ -14,12 +14,11 @@ export default function updateuser(state = [{"empty":"no user"}], action) {
       }
       //newState = state;
       //check if newState is empty and a previous state was saved in localstorage
-      //if it was then retrieve previous users
+      //if it was, then retrieve previous users
       //debugger;
       let previoususers = JSON.parse(localStorage.getItem("users"));
       //console.log(previoususers);
      
-
       if((state.length==1)&&(previoususers.length==1)){
         console.log("State is empty and no previous users exist");
         //retrieve previous users to newState
@@ -27,14 +26,14 @@ export default function updateuser(state = [{"empty":"no user"}], action) {
         newState = previoususers;
         action.users = newState;
       }
-      else if((state.length==1)&&(previoususers.length>2)){
+      else if((state.length==1)&&(previoususers.length>=2)){
         console.log("State is empty but previous users exist");
         //retrieve previous users to newState
         previoususers = JSON.parse(localStorage.getItem("users"));
         newState = previoususers;
         action.users = newState;
       }
-      else if((state.length>1)&&(previoususers.length>2)){
+      else if((state.length>1)&&(previoususers.length>=2)){
         console.log("State is not empty and previous users exist");
         //retrieve previous users to newState
         previoususers = JSON.parse(localStorage.getItem("users"));

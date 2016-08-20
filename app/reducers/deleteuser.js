@@ -26,14 +26,14 @@ export default function deleteuser(state = [{"empty":"no user"}], action) {
         previoususers = JSON.parse(localStorage.getItem("users"));
         newState = previoususers;
       }
-      else if((state.length==1)&&(previoususers.length>2)){
+      else if((state.length==1)&&(previoususers.length>=2)){
         console.log("State is empty but previous users exist");
         //retrieve previous users to newState
         previoususers = JSON.parse(localStorage.getItem("users"));
         newState = previoususers;
         action.users = previoususers;
       }
-      else if((state.length>1)&&(previoususers.length>2)){
+      else if((state.length>1)&&(previoususers.length>=2)){
         console.log("State is not empty and previous users exist");
         //retrieve previous users to newState
         previoususers = JSON.parse(localStorage.getItem("users"));
