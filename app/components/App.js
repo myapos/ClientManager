@@ -29,7 +29,7 @@ if (period>checkPeriodInMilliSeconds){
 	console.log("Period passed. Save currtime as new start time in localStorage");
 	localStorage.setItem("StartTime", CurrTime);
 	//call mycheck to send emails this.mycheck();
-	//this.mycheck();
+	this.mycheck();
 }
 
 
@@ -63,7 +63,7 @@ mycheck(){
 		//2. User has not payed
 		//3. User wishes to be informed by email?? If he don't want to be informed what happens?
 
-		if (diffDays>30){
+		if ((diffDays>30)&&(previoususers[i].payed==="false")&&(previoususers[i].receive_email==="true")){
 			console.log("User "+previoususers[i].first+" "+previoususers[i].last+" "+Math.floor(diffDays/30)+" month(s) passed");
 			//send email to user
 			this.send_email(previoususers[i].first,previoususers[i].last, previoususers[i].usremail);	
@@ -87,7 +87,7 @@ mycheck(){
 	var mailOptions = {
 	    from: '"Ferrum Gym"<touishtouish@hotmail.com>', // sender address 
 	    to: email, // list of receivers 
-	    subject: 'Please check registration ✔', // Subject line 
+	    subject: 'Ferrum Gym. Please check your registration ✔', // Subject line 
 	    text: 'Hello '+first+" "+last+".Please check your registration fee! ", // plaintext body 
 	    html: '<b>Hello '+first+" "+last+"</b>.Please check you registration fee! " // html body 
 	};
