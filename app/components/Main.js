@@ -20,7 +20,7 @@ export default class Main extends Component {
                 <div className="col-xs-2"> <Link to="/adduser">AddUser</Link></div>
               </div>
               <div className="row"> 
-                <div className="col-xs-2"> <Link to="/deleteuser">SearchOrDeleteUser</Link></div>
+                <div className="col-xs-2"> <Link to="/deleteuser">DeleteUser</Link></div>
               </div>
               <div className="row">
                 <div className="col-xs-2"> <Link to="/updateuser">UpdateUser</Link></div>

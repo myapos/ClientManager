@@ -16,8 +16,11 @@ componentDidUpdate(){
 
 checkInterval(){
 
-const checkPeriodInMilliSeconds = 5000; // checkPeriodInMinutes stands for the period in ms that has to be passed between
-										// mail sendings
+const checkPeriodInMilliSeconds = 10080000;
+//const checkPeriodInMilliSeconds = 5000; // checkPeriodInMinutes stands for the period in ms that has to be passed between
+										// mail sendings 10080000
+
+
 let StartTime = JSON.parse(localStorage.getItem("StartTime"));
 let CurrTime = new Date().getTime();
 let period = CurrTime - StartTime;
