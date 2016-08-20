@@ -16,7 +16,7 @@ componentDidUpdate(){
 checkInterval(){
 
 const checkPeriodInMilliSeconds = 5000; // checkPeriodInMinutes stands for the period in ms that has to be passed between
-										 // mail sendings
+										// mail sendings
 let StartTime = JSON.parse(localStorage.getItem("StartTime"));
 let CurrTime = new Date().getTime();
 let period = CurrTime - StartTime;
@@ -27,7 +27,7 @@ console.log("period:"+period);
 if (period>checkPeriodInMilliSeconds){
 	console.log("Period passed. Save currtime as new start time in localStorage");
 	localStorage.setItem("StartTime", CurrTime);
-	//call mycheck to send emails
+	//call mycheck to send emails this.mycheck();
 }
 
 
@@ -56,7 +56,7 @@ mycheck(){
 		
 		//Business logic entered here!!!!!!
 		
-		//Mail conditions
+		//   Mail conditions
 		//1. One month has passed
 		//2. User has not payed
 		//3. User wishes to be informed by email?? If he don't want to be informed what happens?

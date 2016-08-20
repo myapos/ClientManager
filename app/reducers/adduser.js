@@ -7,7 +7,7 @@ export default function adduser(state = [{"empty":"no user"}], action) {
       debugger;
       //initializations
       let newState = new Array();
-      if(localStorage.length==0){
+      if(localStorage.length==1){
         //let empty = [{"empty":"no user"}];
         localStorage.setItem("users", JSON.stringify(state)); 
       }
@@ -19,19 +19,19 @@ export default function adduser(state = [{"empty":"no user"}], action) {
       //console.log(previoususers);
      
 
-      if((state.length==1)&&(previoususers.length==1)){
+      if((state.length==1)&&(previoususers.length==2)){
         console.log("State is empty and no previous users exist");
         //retrieve previous users to newState
         previoususers = JSON.parse(localStorage.getItem("users"));
         newState = previoususers;
       }
-      else if((state.length==1)&&(previoususers.length>1)){
+      else if((state.length==1)&&(previoususers.length>2)){
         console.log("State is empty but previous users exist");
         //retrieve previous users to newState
         previoususers = JSON.parse(localStorage.getItem("users"));
         newState = previoususers;
       }
-      else if((state.length>1)&&(previoususers.length>1)){
+      else if((state.length>1)&&(previoususers.length>2)){
         console.log("State is not empty and previous users exist");
         //retrieve previous users to newState
         previoususers = JSON.parse(localStorage.getItem("users"));
