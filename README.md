@@ -18,3 +18,4 @@ TODO list:
 3. Pagination in search results
 4. Add log functionality for sending emails
 5. Twilio API?? URL: https://www.twilio.com/
+6. Improve CSS style
