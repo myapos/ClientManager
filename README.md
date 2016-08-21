@@ -23,4 +23,4 @@ TODO list:
 Initialization steps:
 
 1. Save starttime in localstorage
-2. Save use credentials in localstorage
+2. Save user credentials in localstorage
