@@ -19,3 +19,8 @@ TODO list:
 4. Add log functionality for sending emails
 5. Twilio API?? URL: https://www.twilio.com/
 6. Improve CSS style
+
+Initialization steps:
+
+1. Save starttime in localstorage
+2. Save use credentials in localstorage
