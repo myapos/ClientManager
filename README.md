@@ -9,3 +9,9 @@ Useful commands: npm run dev, npm run package
 Special thanks to Chentsulin for his extraordinary boilerplate. You can find it here
 
 https://github.com/chentsulin/electron-react-boilerplate
+
+
+TODO list: 
+
+1. Fix bugs for automated screen reloading in search functionality
+2. Get hashed user credentials using webservices. Proposed technologies: PHP, AJAX. Alternative approach. Save and retrieve user credential permanently in localStorage.
