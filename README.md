@@ -15,3 +15,6 @@ TODO list:
 
 1. Fix bugs for automated screen reloading in search functionality
 2. Get hashed user credentials using webservices. Proposed technologies: PHP, AJAX. Alternative approach. Save and retrieve user credential permanently in localStorage.
+3. Pagination in search results
+4. Add log functionality for sending emails
+5. Twilio API??
