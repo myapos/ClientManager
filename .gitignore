@@ -24,6 +24,7 @@ build/Release
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+# ignore all node_modules except electron-logger because it is modified for ClientManager
 node_modules/*
 !node_modules/electron-logger
 
