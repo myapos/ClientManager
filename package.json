@@ -99,6 +99,8 @@
   "dependencies": {
     "css-modules-require-hook": "^4.0.1",
     "electron-debug": "^1.0.1",
+    "electron-log": "^1.0.18",
+    "electron-logger": "0.0.3",
     "font-awesome": "^4.6.3",
     "nodemailer": "^2.5.0",
     "postcss": "^5.1.0",

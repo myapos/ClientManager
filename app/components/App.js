@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import MySignature from './Signature';
+import logger from 'electron-logger';
 
 export default class App extends Component {
 
@@ -16,8 +17,8 @@ componentDidUpdate(){
 
 checkInterval(){
 
-const checkPeriodInMilliSeconds = 10080000;
-//const checkPeriodInMilliSeconds = 5000; // checkPeriodInMinutes stands for the period in ms that has to be passed between
+//const checkPeriodInMilliSeconds = 10080000;
+const checkPeriodInMilliSeconds = 5000; // checkPeriodInMinutes stands for the period in ms that has to be passed between
 										// mail sendings 10080000
 
 
@@ -36,7 +37,7 @@ if (period>checkPeriodInMilliSeconds){
 }
 
 
-}
+};
 
 
 mycheck(){
@@ -77,7 +78,7 @@ mycheck(){
   };
 
   send_email(first,last,email){
-  	
+  	debugger;
   	console.log("hey from send email");
   	console.log("first: "+first+" last: "+last+" email: "+email);
   	debugger;
@@ -96,13 +97,40 @@ mycheck(){
 	};
 	debugger;
 	// send mail with defined transport object 
-	transporter.sendMail(mailOptions, function(error, info){
+	transporter.sendMail(mailOptions, (error, info)=>{
 	    if(error){
 	        return console.log(error);
 	    }
-	    console.log('Message sent: ' + info.response+" "+first+" "+last);
+	    let msg = 'Message sent: ' + info.response+" "+"For user with credentials username: "+first+" lastname: "+last +"." ;
+	    console.log(msg);
+	    debugger;
+	    //save to log file
+	    this.save_to_log_file(msg);
 	});
   }; //end of send_email
+
+  save_to_log_file(msg){
+	//reference https://www.npmjs.com/package/electron-logger
+	//output format: 
+	//{{timestamp}} [{{filename}}:{{lineNumber}}]>> {{log_content}} 
+	//16:46:55:111 [test.js:4]>>a info message 
+	logger.info("Send Info: " + msg);
+
+
+	logger.setLevel("info");
+	logger.setLevel(1);
+
+	logger.getLevel();//"info" 
+
+	logger.close();
+	logger.pause();
+	logger.open();
+
+	logger.setOutput({file:"./tmp.log"});
+	console.log("Wrote to log file succesfully");
+
+  };
+
 
   render() {
     return (
