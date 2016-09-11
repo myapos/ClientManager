@@ -1,5 +1,8 @@
 body{
 	background:#9E918D;
+	background-size: 100%;
+	opacity: 0.95;
+	background-image: url("../images/logo.jpg");
 }
 
 #root{

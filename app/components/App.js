@@ -41,7 +41,7 @@ if (period>checkPeriodInMilliSeconds){
 
 
 mycheck(){
-    debugger;
+    //debugger;
     
     console.log("hey from check");
     //get users from local storage and check
