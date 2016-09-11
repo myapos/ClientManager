@@ -134,7 +134,7 @@ displayUsersFromLocalStorage() {
 
    
     return (users.map((user,id) => {
-      debugger;
+      //debugger;
       //if (user.first)
       //console.log("id:"+id);
       console.log(user);
@@ -228,8 +228,8 @@ displayUsersFromLocalStorage() {
         </div>
         <div className="row">
           <div className="col-xs-12">
-            <div className="users_table">
-             <table className="table table-bordered table-hover">
+            <div className="users_table table-responsive">
+             <table className="table table-bordered">
                  <thead>
                    <tr>
                     <th>

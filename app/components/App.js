@@ -78,10 +78,10 @@ mycheck(){
   };
 
   send_email(first,last,email){
-  	debugger;
+  	//debugger;
   	console.log("hey from send email");
   	console.log("first: "+first+" last: "+last+" email: "+email);
-  	debugger;
+  	//debugger;
   	var nodemailer = require('nodemailer');
  
 	// create reusable transporter object using the default SMTP transport 
@@ -95,7 +95,7 @@ mycheck(){
 	    text: 'Γειά σας '+first+" "+last+".Παρακαλώ ελέγξτε τη συνδρομή σας! ", // plaintext body 
 	    html: '<b>Γειά σας '+first+" "+last+"</b>.Παρακαλώ ελέγξτε τη συνδρομή σας! " // html body 
 	};
-	debugger;
+	//debugger;
 	// send mail with defined transport object 
 	transporter.sendMail(mailOptions, (error, info)=>{
 	    if(error){
@@ -103,7 +103,7 @@ mycheck(){
 	    }
 	    let msg = 'Message sent: ' + info.response+" "+"For user with credentials username: "+first+" lastname: "+last +"." ;
 	    console.log(msg);
-	    debugger;
+	    //debugger;
 	    //save to log file
 	    this.save_to_log_file(msg);
 	});
