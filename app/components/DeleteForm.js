@@ -9,7 +9,7 @@ class DeleteForm extends Component {
           <form role="form" id="my_form" className="col-xs-8">
           <fieldset>
             <legend>
-              Search user to delete
+              Αναζήτηση χρήστη προς διαγραφή
             </legend>
             <div className="form-group">
               <div className="row">

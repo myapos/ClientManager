@@ -17,9 +17,9 @@ componentDidUpdate(){
 
 checkInterval(){
 
-//const checkPeriodInMilliSeconds = 10080000;
-const checkPeriodInMilliSeconds = 5000; // checkPeriodInMinutes stands for the period in ms that has to be passed between
-										// mail sendings 10080000
+//const checkPeriodInMilliSeconds = 10080000; //check every week to send emails.
+const checkPeriodInMilliSeconds = 5000;   // checkPeriodInMinutes stands for the period in ms that has to be passed between
+										    // mail sendings 10080000
 
 
 let StartTime = JSON.parse(localStorage.getItem("StartTime"));
@@ -85,15 +85,15 @@ mycheck(){
   	var nodemailer = require('nodemailer');
  
 	// create reusable transporter object using the default SMTP transport 
-	var transporter = nodemailer.createTransport('smtps://myapos%40gmail.com:LuobAXYap2kzAuQ@smtp.gmail.com');
+	var transporter = nodemailer.createTransport('smtps://ferrumgymbox%40gmail.com:@HHA9jX7R#xkeUa@smtp.gmail.com');
 	 
 	// setup e-mail data with unicode symbols 
 	var mailOptions = {
-	    from: '"Ferrum Gym"<touishtouish@hotmail.com>', // sender address 
+	    from: '"Ferrum Gym"<ferrumgymbox@gmail.com>', // sender address 
 	    to: email, // list of receivers 
-	    subject: 'Ferrum Gym. Please check your registration ✔', // Subject line 
-	    text: 'Hello '+first+" "+last+".Please check your registration fee! ", // plaintext body 
-	    html: '<b>Hello '+first+" "+last+"</b>.Please check you registration fee! " // html body 
+	    subject: 'Ferrum Gym. Παρακαλώ ελέγξτε τη συνδρομή σας ✔', // Subject line 
+	    text: 'Γειά σας '+first+" "+last+".Παρακαλώ ελέγξτε τη συνδρομή σας! ", // plaintext body 
+	    html: '<b>Γειά σας '+first+" "+last+"</b>.Παρακαλώ ελέγξτε τη συνδρομή σας! " // html body 
 	};
 	debugger;
 	// send mail with defined transport object 
