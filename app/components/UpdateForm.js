@@ -10,12 +10,12 @@ class UpdateForm extends Component {
           
           <fieldset>
           <legend>
-          Search user to update
+          Αναζήτηση πελάτη προς ενημέρωση
           </legend>
             <div className="form-group">
               <div className="row">
-                <div className="col-xs-4"><label>First Name: <input className="form-control" type="text" name="fname" id="fname"/> <br/></label></div>
-                <div className="col-xs-4"><label>Last Name:<input className="form-control" type="text" name="lname" id="lname"/> <br/></label></div>
+                <div className="col-xs-4"><label>Όνομα: <input className="form-control" type="text" name="fname" id="fname"/> <br/></label></div>
+                <div className="col-xs-4"><label>Επώνυμο:<input className="form-control" type="text" name="lname" id="lname"/> <br/></label></div>
               </div>
               <div className="row">
                 <div className="col-xs-4">{this.props.children}</div>

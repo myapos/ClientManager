@@ -8,12 +8,12 @@ var Home = React.createClass({
     <div className="container">
       <div className="row">
           <div className="col-xs-12">
-            <h2>Καλωσήρθατε στην διαχείριση του FerrumGym</h2>
+            <h2>Καλωσήρθατε στην διαχείριση πελατών του FerrumGym</h2>
           </div>
         </div>
         <div className="row">
           <div className="col-xs-4">
-            <Link to="/login">Go to Login page</Link>
+            <Link to="/login">Σύνδεση</Link>
           </div>
         </div>
     </div>

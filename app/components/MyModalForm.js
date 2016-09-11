@@ -44,9 +44,9 @@ var MyModalForm = React.createClass({
     return (
       <div>
           <form>
-            First Name : <br/>
+            Όνομα : <br/>
             <input type='text' id='idmodal1' ref='idmodal1'/> <br/>
-            Last Name : <br/>
+            Επώνυμο : <br/>
             <input type='text' id='id2' /> <br/>
             <input type='text' id='id3' /> <br/>
             <input type='text' id='id4' /> <br/>

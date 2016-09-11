@@ -137,7 +137,7 @@ Search(usrprops){
                   Payment date\
                   </th>\
                   <th>\
-                  Edit \
+                  Επεξεργασία \
                   </th>\
               </tr>\
               </thead><tbody>";
@@ -149,7 +149,7 @@ Search(usrprops){
   let output_table = document.getElementById("output_table");
   if(localStorage.length==0){
         console.log("No users in database yet");
-        output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"22\">No users in database yet. Please add some first!</td></tr</tbody></table></div>";
+        output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"22\">Δεν υπάρχουν πελάτες αυτή τη στιγμή. Παρακαλώ προσθέστε μερικούς πρώτα.</td></tr</tbody></table></div>";
       }
   else {
   let users = JSON.parse(localStorage.getItem("users"));
@@ -221,17 +221,17 @@ Search(usrprops){
     return (
         <div className="container">
           <div className="row">
-            <div className="col-xs-8"> <UpdateForm ref="FormInput" ><button onClick={this.Search.bind(this,this.props)} className="btn btn-default">Search</button> </UpdateForm> </div>
+            <div className="col-xs-8"> <UpdateForm ref="FormInput" ><button onClick={this.Search.bind(this,this.props)} className="btn btn-default">Αναζήτηση</button> </UpdateForm> </div>
           </div>
           <div className="row">
-            <div className="col-xs-8">If you want to update a user please search for him, by his first name and last name and
-          click on the button edit.</div>
+            <div className="col-xs-8">Εάν επιθυμείτε να επεξεργαστείτε κάποιο πελάτη παρακαλώ χρησιμοποιήστε την αναζήτηση 
+            βάσει ονόματος και επωνύμου και πατήστε το κουμπί "Επεξεργασία".</div>
           </div>
           <div className="row">  
-              <div className="col-xs-8">User Info:<div id= "output"> </div></div>
+              <div className="col-xs-8">Στοιχεία πελάτη:<div id= "output"> </div></div>
           </div>
           <div className="row">            
-            <div className="col-xs-4"> <Link to="/main">Back to control panel</Link></div>
+            <div className="col-xs-4"> <Link to="/main">Πίσω στον πίνακα ελέγχου</Link></div>
           </div>
         </div>
     );

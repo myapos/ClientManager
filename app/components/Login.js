@@ -31,21 +31,21 @@ contextTypes: {
     <div>
       <div className="container">
           <div className="row">
-            <div className="col-xs-6"><h2>Please enter your credentials</h2></div>
+            <div className="col-xs-6"><h2>Παρακαλώ εισάγετε τα στοιχεία σας</h2></div>
           </div>
       </div>
       <form role="form" className="form-inline">
         <div className="form-group">
             <div className="container">
                 <div className="row">
-                  <div className="col-xs-2">Username: <input className="form-control" type="text" id="usrnm"/> </div>
-                  <div className="col-xs-2">Password: <input className="form-control" type="text" id="pswrd"/> </div>
+                  <div className="col-xs-2">Όνομα χρήστη: <input className="form-control" type="text" id="usrnm"/> </div>
+                  <div className="col-xs-2">Συνθηματικό: <input className="form-control" type="text" id="pswrd"/> </div>
                 </div> 
                 <div className="row">
-                  <div className="col-xs-2"> <button className="btn btn-default" onClick={this.auth}>Login</button> </div>
+                  <div className="col-xs-2"> <button className="btn btn-default" onClick={this.auth}>Σύνδεση</button> </div>
                 </div>
                 <div className="row">
-                  <div className="col-xs-2"> <Link to="/">Go to Home</Link>
+                  <div className="col-xs-2"> <Link to="/">Κεντρική σελίδα</Link>
                 </div>
               </div>
             </div>

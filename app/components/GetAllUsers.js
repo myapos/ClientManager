@@ -220,10 +220,10 @@ displayUsersFromLocalStorage() {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-xs-12"> <h2>Welcome to GetAllUsers page</h2></div>
+          <div className="col-xs-12"> <h2>Πελατολόγιο</h2></div>
         </div>
         <div className="row">
-          <div className="col-xs-4"> User List:
+          <div className="col-xs-4"> Λίστα πελατών:
           </div>
         </div>
         <div className="row">
@@ -308,7 +308,7 @@ displayUsersFromLocalStorage() {
           </div>
         </div>        
         <div className="row">            
-           <div className="col-xs-4"> <Link to="/main">Back to control panel</Link></div>
+           <div className="col-xs-4"> <Link to="/main">Πίσω στον πίνακα ελέγχου</Link></div>
         </div>
       </div>
     )

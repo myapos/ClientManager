@@ -236,14 +236,14 @@ Search(usrprops){
             <div className="col-xs-8"> <DeleteForm ref="FormInput"> <button className="btn btn-default" onClick={this.Search.bind(this,this.props)}>Search</button> </DeleteForm> </div>
           </div>
           <div className="row">
-            <div className="col-xs-8"> If you want to delete a user please search for him by his first name and last name and
-            click on it.</div>
+            <div className="col-xs-8"> εάν επιθυμείτε να διαγράψετε κάποιο πελάτη παρακαλώ χρησιμοποιήστε την αναζήτηση 
+            βάσει ονόματος και επωνύμου και κάντε κλικ πάνω του.</div>
           </div>
           <div className="row">  
-              <div className="col-xs-8">User Info:<div id= "output"></div></div>
+              <div className="col-xs-8">Πληροφορίες πελάτη:<div id= "output"></div></div>
           </div>
           <div className="row">            
-              <div className="col-xs-4"> <Link to="/main">Back to control panel</Link></div>
+              <div className="col-xs-4"> <Link to="/main">Πίσω στον πίνακα ελέγχου</Link></div>
           </div>
         </div>
     );

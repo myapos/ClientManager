@@ -123,13 +123,13 @@ class ImportUsers extends Component {
     return (
         <div className="container">
           <div className="row">
-            <div className="col-xs-8"> <h1>Welcome to import page </h1></div>
+            <div className="col-xs-8"> <h1>Καλωσήρθατε στη σελίδα εισαγωγής δεδομένων </h1></div>
           </div>
           <div className="row">
             <div className="col-xs-4">  <input className="form-control" id='myfile' type="file" name="file" accept=".csv" onChange={this.handleFileSelect.bind(this,newUsers)}/></div>
           </div>
           <div className="row">
-            <div className="col-xs-8"><Link to="/main">Back to control panel</Link></div>
+            <div className="col-xs-8"><Link to="/main">Πίσω στον πίνακα ελέγχου</Link></div>
           </div>
         </div>
     );
