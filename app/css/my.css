@@ -43,6 +43,7 @@ h1, h2{
 }
 .mySignature{
 	text-align:right;
+	padding-right: 25px;
 }
 .positionMainLink{
     position: absolute;
