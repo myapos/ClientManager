@@ -34,8 +34,8 @@ h1, h2{
 	width:95%;
 }
 #users_table_update{
-	/*font-size:53%;*/
-	width:100%;
+	/*font-size:80%;*/
+	width:95%;/**/
 }
 
  #btnupdate{
@@ -44,12 +44,17 @@ h1, h2{
 .mySignature{
 	text-align:right;
 }
-#positionMainLink{
+.positionMainLink{
     position: absolute;
-    top: 38px;
-    right: 32px;
+    top: 13px;
+    right: 48px;
 }
 
+.positionLogoutLink{
+    position: absolute;
+    top: 13px;
+    right: 90px;	
+}
 /* unvisited link */
 a:link {
     color: #B53A4E;

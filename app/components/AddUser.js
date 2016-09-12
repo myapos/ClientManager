@@ -95,9 +95,6 @@ saveValuesInStore(myprops){
             <div className="row">            
                <div className="col-xs-4"><button className="btn btn-default" onClick={this.saveValuesInStore.bind(this,this.props)}>Προσθήκη πελάτη</button></div>
              </div>
-            <div className="row">            
-               <div className="col-xs-4"> <Link to="/main">Πίσω στον Πίνακα Ελέγχου</Link></div>
-            </div>
         </div>  {/*end of container*/}
       </div>
 

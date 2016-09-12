@@ -53,7 +53,7 @@ class DeleteUser extends Component {
                           payed:row.getElementsByTagName("td")[21].innerHTML,
                           date_payment:row.getElementsByTagName("td")[22].innerHTML            
                       }
-                      debugger;
+                      //debugger;
                       var r = confirm("Are you sure to delete user "+user.first +" "+user.last+"?");
                       if (r == true) {
                         
@@ -233,17 +233,14 @@ Search(usrprops){
     return (
         <div className="container">
           <div className="row">
-            <div className="col-xs-8"> <DeleteForm ref="FormInput"> <button className="btn btn-default" onClick={this.Search.bind(this,this.props)}>Search</button> </DeleteForm> </div>
+            <div className="col-xs-12"> <DeleteForm ref="FormInput"> <button className="btn btn-default" onClick={this.Search.bind(this,this.props)}>Αναζήτηση</button> </DeleteForm> </div>
           </div>
           <div className="row">
-            <div className="col-xs-8"> εάν επιθυμείτε να διαγράψετε κάποιο πελάτη παρακαλώ χρησιμοποιήστε την αναζήτηση 
+            <div className="col-xs-12"> Εάν επιθυμείτε να διαγράψετε κάποιο πελάτη παρακαλώ χρησιμοποιήστε την αναζήτηση 
             βάσει ονόματος και επωνύμου και κάντε κλικ πάνω του.</div>
           </div>
           <div className="row">  
-              <div className="col-xs-8">Πληροφορίες πελάτη:<div id= "output"></div></div>
-          </div>
-          <div className="row">            
-              <div className="col-xs-4"> <Link to="/main">Πίσω στον πίνακα ελέγχου</Link></div>
+              <div className="col-xs-12">Πληροφορίες πελάτη:<div id= "output"></div></div>
           </div>
         </div>
     );

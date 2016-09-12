@@ -29,7 +29,7 @@ const customStyles = {
 
 var MyModalForm = React.createClass({
  setValues : function(user){
-    debugger;
+    //debugger;
     console.log("hey from setValues");
     console.log("user:"+user.first);
     //this.document.getElementById("id1").innerHTML= user.first;

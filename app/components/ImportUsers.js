@@ -12,7 +12,7 @@ class ImportUsers extends Component {
   };
   
   handleFileSelect(users,evt) {
-    debugger;
+    //debugger;
     console.log("hey from handleFileSelect function");
     if (window.FileReader) {
           // FileReader are supported.
@@ -25,7 +25,7 @@ class ImportUsers extends Component {
   };
 
   getAsText(fileToRead,users) {
-      debugger;
+      //debugger;
       let reader = new FileReader();
       // Read file into memory as UTF-8      
       reader.readAsText(fileToRead);
@@ -47,7 +47,7 @@ class ImportUsers extends Component {
                     lines.push(tarr);
             }
           console.log(lines);
-          debugger;
+          //debugger;
         //save to local storage lines items
         //use import reducer
         this.props.importusers(lines);
@@ -58,7 +58,7 @@ class ImportUsers extends Component {
     };
 
    loadHandler(event) {
-      debugger;
+      //debugger;
 
       let csv = event.target.result;
 
@@ -87,7 +87,7 @@ class ImportUsers extends Component {
 
   importHandler(users,evt){
     //var data = document.getElementById("myfile").value;
-    debugger;
+    //debugger;
     console.log("hey from import function");
     document.getElementById('myfile').addEventListener('change', this.handleFileSelect(users,evt), false);
   };
@@ -95,7 +95,7 @@ class ImportUsers extends Component {
   render() {
   const {users} = this.props;
   let newUsers = new Array();
-  debugger;
+  //debugger;
  
   let previoususers = JSON.parse(localStorage.getItem("users"));
   //console.log(previoususers);

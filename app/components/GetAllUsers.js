@@ -117,7 +117,7 @@ displayUsersFromLocalStorage() {
   if(localStorage.length<=1){
     //return (<tr><td>No user exist in database</td></tr>);
     console.log("no user exist in local storage");
-    return(<tr><td colSpan="22">no user exist in local storage</td></tr>)
+    return(<tr><td colSpan="22">Δεν υπάρχουν πελάτες</td></tr>)
   }
   else{
   let users = JSON.parse(localStorage.getItem("users"));
@@ -220,7 +220,8 @@ displayUsersFromLocalStorage() {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-xs-12"> <h2>Πελατολόγιο</h2></div>
+          <div className="col-xs-11"> <legend> Πελατολόγιο</legend></div>
+          <div className="col-xs-1 positionMainLink"> <Link to="/main">Πίσω</Link></div>
         </div>
         <div className="row">
           <div className="col-xs-4"> Λίστα πελατών:
@@ -307,9 +308,6 @@ displayUsersFromLocalStorage() {
             </div>
           </div>
         </div>        
-        <div className="row">            
-           <div className="col-xs-4"> <Link to="/main">Πίσω στον πίνακα ελέγχου</Link></div>
-        </div>
       </div>
     )
   }

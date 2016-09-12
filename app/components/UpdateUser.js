@@ -21,7 +21,7 @@ class UpdateUser extends Component {
     var table = document.getElementById("output_table");
     var rows = table.getElementsByClassName("res");
     var currentRow,user,myDivElement;
-    debugger;
+    //debugger;
     for(let i = 1; i <= rows.length; i++) {
         currentRow = table.rows[i];
         user = {
@@ -196,7 +196,7 @@ Search(usrprops){
   })
       
     if(searchcount==0){
-      output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"24\">This user does not exist in database</td></tr></tbody></table></div>";
+      output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"24\">Αυτός ο πελάτης δεν υπάρχει στο πελατολόγιο</td></tr></tbody></table></div>";
     }
   }
   
@@ -221,17 +221,14 @@ Search(usrprops){
     return (
         <div className="container">
           <div className="row">
-            <div className="col-xs-8"> <UpdateForm ref="FormInput" ><button onClick={this.Search.bind(this,this.props)} className="btn btn-default">Αναζήτηση</button> </UpdateForm> </div>
+            <div className="col-xs-12"> <UpdateForm ref="FormInput" ><button onClick={this.Search.bind(this,this.props)} className="btn btn-default">Αναζήτηση</button> </UpdateForm> </div>
           </div>
           <div className="row">
-            <div className="col-xs-8">Εάν επιθυμείτε να επεξεργαστείτε κάποιο πελάτη παρακαλώ χρησιμοποιήστε την αναζήτηση 
+            <div className="col-xs-12">Εάν επιθυμείτε να επεξεργαστείτε κάποιο πελάτη παρακαλώ χρησιμοποιήστε την αναζήτηση 
             βάσει ονόματος και επωνύμου και πατήστε το κουμπί "Επεξεργασία".</div>
           </div>
           <div className="row">  
-              <div className="col-xs-8">Στοιχεία πελάτη:<div id= "output"> </div></div>
-          </div>
-          <div className="row">            
-            <div className="col-xs-4"> <Link to="/main">Πίσω στον πίνακα ελέγχου</Link></div>
+              <div className="col-xs-11">Στοιχεία πελάτη:<div id= "output"> </div></div>
           </div>
         </div>
     );

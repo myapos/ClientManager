@@ -55,7 +55,7 @@ var MyModal = React.createClass({
   const userupdatefunc = this.props.userUpdate;
 
   console.log("hello from update savevalues");
-  debugger;
+  //debugger;
   
   let fname = document.getElementById("updfname").value;
   let lname = document.getElementById("updlname").value;
@@ -109,7 +109,7 @@ var MyModal = React.createClass({
             payed:payed,
             date_payment:date_payment 
         }
-        debugger;
+        //debugger;
         var r = confirm("Are you sure to update user "+userupdt.first +" "+userupdt.last+"?");
               if (r == true) {
                   userupdatefunc(userupdt,users);
@@ -130,7 +130,7 @@ var MyModal = React.createClass({
     const user = this.props.userRow;
     return (
       <div>
-        <button id="btnupdate" className="btn btn-default"  onClick={this.openModal}>Edit</button>
+        <button id="btnupdate" className="btn btn-default"  onClick={this.openModal}>Επεξεργασία</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}

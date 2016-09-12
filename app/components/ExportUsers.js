@@ -12,7 +12,7 @@ class ExportUsers extends Component {
   };
 
   parseJSONToCSVStr(jsonData) {
-    debugger;
+    //debugger;
     if(jsonData.length == 1) {
         return '';
     }
@@ -36,7 +36,7 @@ class ExportUsers extends Component {
             csvStr += item[key];
           }
         });
-         debugger;
+         //debugger;
          /**/
         if(item.empty!="no user"){
           csvStr += lineDelimiter;
@@ -49,7 +49,7 @@ class ExportUsers extends Component {
 
   exportToCsvFile(jsonData) {
     console.log("hey from exportToCsvFile function");
-    debugger;
+    //debugger;
     let i=0;
     let csvStr="";
     csvStr = this.parseJSONToCSVStr(jsonData);
@@ -69,13 +69,13 @@ class ExportUsers extends Component {
   };
 
   exportHandler(users){
-    debugger;
+   // debugger;
     console.log("hey from export function");
     //let cvStr = this.parseJSONToCSVStr.bind(users);
     this.exportToCsvFile(users);
     console.log("Exported to data.csv file");
     //call reducer
-    debugger;
+    //debugger;
     this.props.exportusers(users);
   };
 
