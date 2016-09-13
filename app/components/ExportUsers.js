@@ -109,15 +109,12 @@ class ExportUsers extends Component {
     return (
         <div className="container">
           <div className="row">
-            <div className="col-xs-8"> <h1>Καλωσήρθατε στην σελίδα εξαγωγής δεδομένων </h1> </div>
+            <div className="col-xs-11"> <legend>Εξαγωγή δεδομένων </legend> </div>
+            <div className="col-xs-1 positionMainLink"> <Link to="/main">Πίσω</Link></div>
           </div>
           <div className="row">
-            <div className="col-xs-8"> <button className="btn btn-default" onClick={this.exportHandler.bind(this,newUsers)}>Export</button> </div>
-          </div>
-          <div className="row">
-            <div className="col-xs-8">  <Link to="/main">Πίσω στον πίνακα ελέγχου</Link></div>
-          </div>  
-         
+            <div className="col-xs-12"> <button className="btn btn-default" onClick={this.exportHandler.bind(this,newUsers)}>Export</button> </div>
+          </div>         
         </div>
     );
   }

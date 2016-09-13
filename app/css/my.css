@@ -56,6 +56,12 @@ h1, h2{
     top: 13px;
     right: 90px;	
 }
+
+.positionLoginLink{
+    position: absolute;
+    top: 8px;
+    right: 120px;	
+}
 /* unvisited link */
 a:link {
     color: #B53A4E;

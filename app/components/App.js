@@ -17,8 +17,8 @@ componentDidUpdate(){
 
 checkInterval(){
 
-//const checkPeriodInMilliSeconds = 10080000; //check every week to send emails.
-const checkPeriodInMilliSeconds = 5000;   // checkPeriodInMinutes stands for the period in ms that has to be passed between
+const checkPeriodInMilliSeconds = 10080000; //check every week to send emails.
+//const checkPeriodInMilliSeconds = 5000;   // checkPeriodInMinutes stands for the period in ms that has to be passed between
 										    // mail sendings 10080000
 
 
@@ -84,8 +84,8 @@ mycheck(){
   	//debugger;
   	var nodemailer = require('nodemailer');
  
-	// create reusable transporter object using the default SMTP transport 
-	var transporter = nodemailer.createTransport('smtps://ferrumgymbox%40gmail.com:@HHA9jX7R#xkeUa@smtp.gmail.com');
+	// create reusable transporter object using the default SMTP transport  ferrumgymbox@gmail.com HHA9jX7Rx#keUa
+	var transporter = nodemailer.createTransport('smtps://ferrumgymbox@gmail.com:HHA9jX7RxkeUa@smtp.gmail.com');
 	 
 	// setup e-mail data with unicode symbols 
 	var mailOptions = {

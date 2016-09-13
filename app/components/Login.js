@@ -31,8 +31,8 @@ contextTypes: {
     <div>
       <div className="container">
           <div className="row">
-            <div className="col-xs-11"><h2>Παρακαλώ εισάγετε τα στοιχεία σας</h2> </div>
-            <div className="col-xs-1"> <Link to="/" className="positionMainLink">Πίσω</Link></div>
+            <div className="col-xs-11"><legend>Παρακαλώ εισάγετε τα στοιχεία σας</legend> </div>
+            <div className="col-xs-1"> <Link to="/" className="positionLoginLink">Πίσω</Link></div>
           </div>
       
       <form role="form" className="form-inline">
