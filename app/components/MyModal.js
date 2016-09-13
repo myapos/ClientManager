@@ -24,7 +24,8 @@ const customStyles = {
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    transform             : 'translate(-50%, -50%)',
+    background            : 'black'
   }
 };
  
@@ -41,8 +42,8 @@ var MyModal = React.createClass({
  
   afterOpenModal: function() {
     // references are now sync'd and can be accessed. 
-    this.refs.subtitle.style.color = '#90A6AD';
-    this.refs.closebtn.style.color = '#ED1F33';
+    //this.refs.subtitle.style.color = '#90A6AD';
+    //this.refs.closebtn.style.color = '#90A6AD';
   },
  
   closeModal: function() {
@@ -142,13 +143,10 @@ var MyModal = React.createClass({
           <div className="container">
             <form >
             <div className="row">
-              <div className="col-xs-6"><h2 ref="subtitle">Client Form</h2></div>
+              <div className="col-xs-7"><legend ref="subtitle">Καρτέλα πελάτη</legend></div>
+              <div className="col-xs-1"> <button ref="closebtn" id="close-btn" className="btn btn-default positionMainLink"  onClick={this.closeModal}>X</button></div>
              </div>
-            <div className="row">
-                <div className="col-xs-6"> </div>
-                <div className="col-xs-6"> <button ref="closebtn" id="close-btn" className="btn btn-default"  onClick={this.closeModal}>X</button></div>
-              </div>
-              <div className="row">
+             <div className="row">
                 <div className="col-xs-4"> First Name : <input type='text' id="updfname" defaultValue={user.first} onChange={this.handleChange}/></div>
                 <div className="col-xs-4"> Last Name :<input type='text' id="updlname" defaultValue={user.last} onChange={this.handleChange}/></div>
               </div>
@@ -192,7 +190,7 @@ var MyModal = React.createClass({
                 <div className="col-xs-4"> Payment date: <input type='date' defaultValue={user.date_payment} id="date_payment" onChange={this.handleChange}/> </div>
               </div>
               <div className="row">
-                <div className="col-xs-4"> <button className="btn btn-default"  onClick={this.saveUpdatedValuesInStore}>Save</button></div>
+                <div className="col-xs-4"> <button className="btn btn-default"  onClick={this.saveUpdatedValuesInStore}>Αποθήκευση</button></div>
               </div>
             </form>
 

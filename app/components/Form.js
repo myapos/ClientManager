@@ -27,30 +27,30 @@ class Form extends Component {
                     </div>    
                     <div className="form-group"><legend>Τμήματα</legend>
                       <div className="row"> 
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="Kettlebells" id="Kettlebells"/>Kettlebells <br/></div>
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="Made_In_Brazil" id="Made_In_Brazil"/>Made In Brazil <br/></div>
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="Krav_Maga" id="Krav_Maga"/>Krav Maga <br/></div>
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="Civilian" id="Civilian"/>Civilian <br/></div>
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="Kids_A" id="Kids_A"/>Kids A <br/></div>
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="Kids_B" id="Kids_B"/>Kids B <br/></div>
+                        <div className="col-xs-2"><label>Kettlebells:<input className="form-control" type="checkbox" name="Kettlebells" id="Kettlebells"/> <br/></label></div>
+                        <div className="col-xs-2"><label>Made In Brazil:<input className="form-control" type="checkbox" name="Made_In_Brazil" id="Made_In_Brazil"/><br/></label></div>
+                        <div className="col-xs-2"><label>Krav Maga:<input className="form-control" type="checkbox" name="Krav_Maga" id="Krav_Maga"/><br/></label></div>
+                        <div className="col-xs-2"><label>Civilian:<input className="form-control" type="checkbox" name="Civilian" id="Civilian"/><br/></label></div>
+                        <div className="col-xs-2"><label>Kids A:<input className="form-control" type="checkbox" name="Kids_A" id="Kids_A"/><br/></label></div>
+                        <div className="col-xs-2"><label>Kids B:<input className="form-control" type="checkbox" name="Kids_B" id="Kids_B"/><br/></label></div>
                       </div>
                       <div className="row">
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="Crossfit" id="Crossfit"/>Crossfit <br/></div>
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="TRX" id="TRX"/>TRX <br/></div>
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="Womens_corner" id="Womens_corner"/>Women's corner <br/></div>
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="Adaptive_gym" id="Adaptive_gym"/>Adaptive gym <br/></div>
+                        <div className="col-xs-2"><label>Crossfit:<input className="form-control" type="checkbox" name="Crossfit" id="Crossfit"/><br/></label></div>
+                        <div className="col-xs-2"><label>TRX:<input className="form-control" type="checkbox" name="TRX" id="TRX"/><br/></label></div>
+                        <div className="col-xs-2"><label>Women's corner:<input className="form-control" type="checkbox" name="Womens_corner" id="Womens_corner"/><br/></label></div>
+                        <div className="col-xs-2"><label>Adaptive gym:<input className="form-control" type="checkbox" name="Adaptive_gym" id="Adaptive_gym"/><br/></label></div>
                       </div>  
                     </div>  
                     <div className="form-group"><legend>Επικοινωνία</legend>
                       <div className="row">
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="sms" id="sms"/>Receive sms? <br/></div>
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="receive_email" id="receive_email"/>Receive email? <br/></div>
+                        <div className="col-xs-2"><label>Receive sms?:<input className="form-control" type="checkbox" name="sms" id="sms"/><br/></label></div>
+                        <div className="col-xs-2"><label>Receive email?:<input className="form-control" type="checkbox" name="receive_email" id="receive_email"/><br/></label></div>
                       </div>
                    </div>  
                    <div className="form-group"><legend>Πληρωμές</legend>
                       <div className="row">
-                        <div className="col-xs-2"><input className="form-control" type="checkbox" name="payed" id="payed"/>Payed? <br/></div>
-                        <div className="col-xs-4"><input className="form-control" type="date" name="payment_date" id="payment_date"/> Payment date: <br/></div>
+                        <div className="col-xs-2"><label>Payed?:<input className="form-control" type="checkbox" name="payed" id="payed"/><br/></label></div>
+                        <div className="col-xs-4"><label>Payment date:<input className="form-control" type="date" name="payment_date" id="payment_date"/><br/></label></div>
                       </div>
                      </div>
                    </fieldset>

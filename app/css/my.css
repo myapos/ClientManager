@@ -41,6 +41,9 @@ h1, h2{
  #btnupdate{
 	font-size:100%;
 }
+#close-btn{
+	color:#90A6AD;
+}
 .mySignature{
 	text-align:right;
 	padding-right: 25px;
