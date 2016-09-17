@@ -17,9 +17,9 @@ componentDidUpdate(){
 
 checkInterval(){
 
-//const checkPeriodInMilliSeconds = 10080000;
-const checkPeriodInMilliSeconds = 5000; // checkPeriodInMinutes stands for the period in ms that has to be passed between
-										// mail sendings 10080000
+const checkPeriodInMilliSeconds = 10080000; //check every week to send emails.
+//const checkPeriodInMilliSeconds = 5000;   // checkPeriodInMinutes stands for the period in ms that has to be passed between
+										    // mail sendings 10080000
 
 
 let StartTime = JSON.parse(localStorage.getItem("StartTime"));
@@ -41,7 +41,7 @@ if (period>checkPeriodInMilliSeconds){
 
 
 mycheck(){
-    debugger;
+    //debugger;
     
     console.log("hey from check");
     //get users from local storage and check
@@ -78,24 +78,29 @@ mycheck(){
   };
 
   send_email(first,last,email){
-  	debugger;
+  	//debugger;
   	console.log("hey from send email");
   	console.log("first: "+first+" last: "+last+" email: "+email);
-  	debugger;
+  	//debugger;
   	var nodemailer = require('nodemailer');
  
+<<<<<<< HEAD
 	// create reusable transporter object using the default SMTP transport 
 	var transporter = nodemailer.createTransport('smtps://username%40gmail.com:password@smtp.gmail.com');
+=======
+	// create reusable transporter object using the default SMTP transport  ferrumgymbox@gmail.com HHA9jX7Rx#keUa
+	var transporter = nodemailer.createTransport('smtps://ferrumgymbox@gmail.com:HHA9jX7RxkeUa@smtp.gmail.com');
+>>>>>>> GreekVersion
 	 
 	// setup e-mail data with unicode symbols 
 	var mailOptions = {
-	    from: '"Ferrum Gym"<touishtouish@hotmail.com>', // sender address 
+	    from: '"Ferrum Gym"<ferrumgymbox@gmail.com>', // sender address 
 	    to: email, // list of receivers 
-	    subject: 'Ferrum Gym. Please check your registration ✔', // Subject line 
-	    text: 'Hello '+first+" "+last+".Please check your registration fee! ", // plaintext body 
-	    html: '<b>Hello '+first+" "+last+"</b>.Please check you registration fee! " // html body 
+	    subject: 'Ferrum Gym. Παρακαλώ ελέγξτε τη συνδρομή σας ✔', // Subject line 
+	    text: 'Γειά σας '+first+" "+last+".Παρακαλώ ελέγξτε τη συνδρομή σας! ", // plaintext body 
+	    html: '<b>Γειά σας '+first+" "+last+"</b>.Παρακαλώ ελέγξτε τη συνδρομή σας! " // html body 
 	};
-	debugger;
+	//debugger;
 	// send mail with defined transport object 
 	transporter.sendMail(mailOptions, (error, info)=>{
 	    if(error){
@@ -103,7 +108,7 @@ mycheck(){
 	    }
 	    let msg = 'Message sent: ' + info.response+" "+"For user with credentials username: "+first+" lastname: "+last +"." ;
 	    console.log(msg);
-	    debugger;
+	    //debugger;
 	    //save to log file
 	    this.save_to_log_file(msg);
 	});
