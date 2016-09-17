@@ -30,7 +30,7 @@ displayUsersFromState(myprops) {
       if(id!=0)
         return(<tr>
           <td>
-          {id} 
+          {id} sdaasd
           </td>
           <td>
           {user.first} 
@@ -121,31 +121,72 @@ displayUsersFromLocalStorage() {
   }
   else{
   let users = JSON.parse(localStorage.getItem("users"));
-  //let users = [usersStorage];
+  //console.log("testtttttt");
   console.log(users);
-  //var htmlstr="undefined";
-//debugger;
-
-    
+     
     
     /*id is giving us index of array in map function --> 
     see http://stackoverflow.com/questions/20003676/how-to-get-current-index-in-array-prototype-map
     and is used as a key in li element*/
 
-   
+
     return (users.map((user,id) => {
       //debugger;
       //if (user.first)
       //console.log("id:"+id);
-      console.log(user);
-      if(!user.empty)
+      console.log("kettl!!!!"+user.kettl);
+      let classes = "";
+      let classesArr = [];
+      let dummy_var=0;
+      
+      (user.kettl=="true") ? (classesArr.push("Κέτλεμπελς")): (dummy_var=1);
+      (user.MIB=="true") ? (classesArr.push("Made In Brazil")) : (dummy_var=1);
+      (user.KVMG=="true") ? (classesArr.push("Krav Maga Stay Away")) : (dummy_var=1);
+      (user.CV=="true") ? (classesArr.push("Civillian")) :(dummy_var=1);
+      (user.KA=="true") ? (classesArr.push("Krav Maga Kiddy")) : (dummy_var=1);
+      (user.KB=="true") ? (classesArr.push("Krav Maga Kids")) : (dummy_var=1);
+      (user.CF=="true") ? (classesArr.push("Crossfit")) : (dummy_var=1);
+      (user.TRX_=="true") ? (classesArr.push("TRX")) : (dummy_var=1);
+      (user.WC=="true") ? (classesArr.push("Women's corner")) : (dummy_var=1);
+      (user.ADG=="true") ? (classesArr.push("Adaptive gym")) : (dummy_var=1);
+      
+      console.log("length:"+classesArr.length);
+
+      if(classesArr.length==1)
+        classes = classesArr[0];
+      else
+      classesArr.map( (classesArr, idc) => {
+
+        console.log("classesArr:" + classesArr + " idc:" + idc);
+
+        if (idc == classesArr.length - 1){
+          classes += classesArr;
+          console.log("aaaaaaaaaaaaaaaaa:"+classes);
+        }
+        //else classes += classesArr + ",";
+
+      });
+      
+      /*
+      (user.kettl=="true") ? (classes += "Κέτλεμπελς, ") : (classes += "");
+      (user.MIB=="true") ? (classes += "Made In Brazil, ") : (classes += "");
+      (user.KVMG=="true") ? (classes += "Krav Maga Stay Away, ") : (classes += "");
+      (user.CV=="true") ? (classes += "Civillian, ") : (classes += "");
+      (user.KA=="true") ? (classes += "Krav Maga Kiddy, ") : (classes += "");
+      (user.KB=="true") ? (classes += "Krav Maga Kids, ") : (classes += "");
+      (user.CF=="true") ? (classes += "Crossfit, ") : (classes += "");
+      (user.TRX_=="true") ? (classes += "TRX, ") : (classes += "");
+      (user.WC=="true") ? (classes += "Women's corner, ") : (classes += "");
+      (user.ADG=="true") ? (classes += "Adaptive gym, ") : (classes += "");
+      */
+      if(!user.empty){
         return(
         <tr>
           <td>
-          {id} 
+          {id} dadsad 
           </td>
           <td>
-          {user.first}
+          {user.first} 
           </td>
           <td>
           {user.last}
@@ -166,7 +207,7 @@ displayUsersFromLocalStorage() {
            {user.sex}
           </td>
           <td>
-           {user.kettl}
+           {user.kettl} {classes}
          </td>
           <td>
            {user.MIB}
@@ -208,8 +249,13 @@ displayUsersFromLocalStorage() {
           {user.payment_date}
           </td>
         </tr>)
+          //empty variables for next user
+          classes = "";
+          classesArr = [];
+      }
       else 
         return("")
+     
     }))
   }
 }
@@ -234,31 +280,31 @@ displayUsersFromLocalStorage() {
                  <thead>
                    <tr>
                     <th>
-                    Num
+                    A/A
                     </th>
                     <th>
-                    First name
+                    Όνομα
                     </th>
                     <th>
-                    Last name
+                    Επίθετο
                     </th>
                     <th>
-                     email
+                     E-mail
                     </th>
                     <th>
-                     mobile
+                     Κινητό
                     </th>
                     <th>
-                     date
+                     Ημερομηνία
                     </th>
                     <th>
-                     age
+                     Ηλικία
                     </th>
                     <th>
-                     Gender
+                     Φύλλο
                     </th>
                     <th>
-                     Kettlebels
+                     Τμήματα
                    </th>
                     <th>
                      Made in brazil
