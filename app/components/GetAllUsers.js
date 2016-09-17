@@ -30,7 +30,7 @@ displayUsersFromState(myprops) {
       if(id!=0)
         return(<tr>
           <td>
-          {id} sdaasd
+          {id} 
           </td>
           <td>
           {user.first} 
@@ -110,36 +110,39 @@ displayUsersFromState(myprops) {
 
 
 displayUsersFromLocalStorage() {
-  console.log("hey from displayUsersFromLocalStorage");
+  //console.log("hey from displayUsersFromLocalStorage");
 
-  console.log("Users from local storage:"+localStorage.getItem("users")); 
+  //console.log("Users from local storage:"+localStorage.getItem("users")); 
 
   if(localStorage.length<=1){
     //return (<tr><td>No user exist in database</td></tr>);
-    console.log("no user exist in local storage");
+    //console.log("no user exist in local storage");
     return(<tr><td colSpan="22">Δεν υπάρχουν πελάτες</td></tr>)
   }
   else{
   let users = JSON.parse(localStorage.getItem("users"));
-  //console.log("testtttttt");
-  console.log(users);
-     
+  //let users = [usersStorage];
+  //console.log(users);
+  //var htmlstr="undefined";
+//debugger;
+
+    
     
     /*id is giving us index of array in map function --> 
     see http://stackoverflow.com/questions/20003676/how-to-get-current-index-in-array-prototype-map
     and is used as a key in li element*/
 
-
+   
     return (users.map((user,id) => {
       //debugger;
       //if (user.first)
       //console.log("id:"+id);
-      console.log("kettl!!!!"+user.kettl);
+      //console.log(user);
       let classes = "";
       let classesArr = [];
       let dummy_var=0;
       
-      (user.kettl=="true") ? (classesArr.push("Κέτλεμπελς")): (dummy_var=1);
+      (user.kettl=="true") ? (classesArr.push("Kettlebels")): (dummy_var=1);
       (user.MIB=="true") ? (classesArr.push("Made In Brazil")) : (dummy_var=1);
       (user.KVMG=="true") ? (classesArr.push("Krav Maga Stay Away")) : (dummy_var=1);
       (user.CV=="true") ? (classesArr.push("Civillian")) :(dummy_var=1);
@@ -150,43 +153,28 @@ displayUsersFromLocalStorage() {
       (user.WC=="true") ? (classesArr.push("Women's corner")) : (dummy_var=1);
       (user.ADG=="true") ? (classesArr.push("Adaptive gym")) : (dummy_var=1);
       
-      console.log("length:"+classesArr.length);
+      //console.log("length:"+classesArr.length);
 
-      if(classesArr.length==1)
-        classes = classesArr[0];
-      else
       classesArr.map( (classesArr, idc) => {
-
-        console.log("classesArr:" + classesArr + " idc:" + idc);
-
-        if (idc == classesArr.length - 1){
-          classes += classesArr;
-          console.log("aaaaaaaaaaaaaaaaa:"+classes);
-        }
-        //else classes += classesArr + ",";
-
+        //console.log("class:" + classesArr + " idc:" + idc);
+        classes += classesArr + ",";
       });
+
+      //console.log("classes before: "+classes);
       
-      /*
-      (user.kettl=="true") ? (classes += "Κέτλεμπελς, ") : (classes += "");
-      (user.MIB=="true") ? (classes += "Made In Brazil, ") : (classes += "");
-      (user.KVMG=="true") ? (classes += "Krav Maga Stay Away, ") : (classes += "");
-      (user.CV=="true") ? (classes += "Civillian, ") : (classes += "");
-      (user.KA=="true") ? (classes += "Krav Maga Kiddy, ") : (classes += "");
-      (user.KB=="true") ? (classes += "Krav Maga Kids, ") : (classes += "");
-      (user.CF=="true") ? (classes += "Crossfit, ") : (classes += "");
-      (user.TRX_=="true") ? (classes += "TRX, ") : (classes += "");
-      (user.WC=="true") ? (classes += "Women's corner, ") : (classes += "");
-      (user.ADG=="true") ? (classes += "Adaptive gym, ") : (classes += "");
-      */
-      if(!user.empty){
+      if(classes.substr(classes.length-1)==","){
+        //console.log("comma L:::"+classes.length+" last char: "+classes.substr(classes.length-1));
+        classes = classes.substr(0, classes.length-1);
+      }
+
+      if((!user.empty)&&(user.first!="first"))
         return(
         <tr>
-          <td>
-          {id} dadsad 
+          <td className="doNotDisplay">
+          {id} 
           </td>
           <td>
-          {user.first} 
+          {user.first}
           </td>
           <td>
           {user.last}
@@ -200,46 +188,46 @@ displayUsersFromLocalStorage() {
           <td>
            {user.date}
           </td>
-          <td>
+          <td className="doNotDisplay">
            {user.age}
           </td>
-          <td>
+          <td className="doNotDisplay">
            {user.sex}
           </td>
-          <td>
-           {user.kettl} {classes}
+          <td className="doNotDisplay">
+           {user.kettl}
          </td>
-          <td>
+          <td className="doNotDisplay">
            {user.MIB}
          </td>
-          <td>
+          <td className="doNotDisplay">
            {user.KVMG}
           </td>
-          <td>
+          <td className="doNotDisplay">
            {user.CV} 
           </td>
-          <td>
+          <td className="doNotDisplay">
           {user.KA}
           </td>
-          <td>
+          <td className="doNotDisplay">
            {user.KB} 
           </td>
-          <td>
+          <td className="doNotDisplay">
           {user.CF}
           </td>
-          <td>
+          <td className="doNotDisplay">
           {user.TRX_} 
           </td>
-          <td>
+          <td className="doNotDisplay">
           {user.WC}
           </td>
-          <td>
+          <td className="doNotDisplay">
           {user.ADG}
           </td>
-          <td>
+          <td className="doNotDisplay">
           {user.sms}
           </td>
-          <td>
+          <td className="doNotDisplay">
           {user.receive_email}
           </td>
           <td>
@@ -248,14 +236,12 @@ displayUsersFromLocalStorage() {
           <td>
           {user.payment_date}
           </td>
+          <td>
+          {classes}
+          </td>
         </tr>)
-          //empty variables for next user
-          classes = "";
-          classesArr = [];
-      }
       else 
         return("")
-     
     }))
   }
 }
@@ -279,74 +265,80 @@ displayUsersFromLocalStorage() {
              <table className="table table-bordered">
                  <thead>
                    <tr>
-                    <th>
-                    A/A
-                    </th>
-                    <th>
-                    Όνομα
-                    </th>
-                    <th>
-                    Επίθετο
-                    </th>
-                    <th>
-                     E-mail
-                    </th>
-                    <th>
-                     Κινητό
-                    </th>
-                    <th>
-                     Ημερομηνία
-                    </th>
-                    <th>
-                     Ηλικία
-                    </th>
-                    <th>
-                     Φύλλο
-                    </th>
-                    <th>
-                     Τμήματα
-                   </th>
-                    <th>
-                     Made in brazil
-                   </th>
-                    <th>
-                     Kravmaga
-                    </th>
-                    <th>
-                     Civilian 
-                    </th>
-                    <th>
-                    Kids A
-                    </th>
-                    <th>
-                     Kids B 
-                    </th>
-                    <th>
-                    Crossfit 
-                    </th>
-                    <th>
-                    TRX  
-                    </th>
-                    <th>
-                    Womens Corner
-                    </th>
-                    <th>
-                    Adaptive_gym 
-                    </th>
-                    <th>
-                    SMS 
-                    </th>
-                    <th>
-                    Receive email?
-                    </th>
-                    <th>
-                    Payed?
-                    </th>
-                    <th>
-                    Payment date
-                    </th>
+                        <th className="doNotDisplay">\
+                        Num
+                        </th>
+                        <th>
+                        Όνομα
+                        </th>
+                        <th>
+                        Επώνυμο
+                        </th>
+                        <th>
+                        Email
+                        </th>
+                        <th>
+                        Κινητό
+                        </th>
+                        <th>
+                        Ημερομηνία
+                        </th>
+                        <th className="doNotDisplay">
+                        Ηλικία
+                        </th>
+                        <th className="doNotDisplay">
+                        Φύλλο
+                        </th>
+                        <th className="doNotDisplay">
+                        Kettlebels
+                        </th>
+                        <th className="doNotDisplay">
+                        Made in brazil
+                        </th>
+                        <th className="doNotDisplay">
+                        Kravmaga
+                        </th>
+                        <th className="doNotDisplay">
+                        Civilian
+                        </th>
+                        <th className="doNotDisplay">
+                        Kids A
+                        </th>
+                        <th className="doNotDisplay">
+                        Kids B 
+                        </th>
+                        <th className="doNotDisplay">
+                        Crossfit 
+                        </th>
+                        <th className="doNotDisplay">
+                        TRX  
+                        </th>
+                        <th className="doNotDisplay">
+                        Womens Corner
+                        </th>
+                        <th className="doNotDisplay">
+                        Adaptive_gym 
+                        </th>
+                        <th className="doNotDisplay">
+                        id 
+                        </th>
+                        <th className="doNotDisplay">
+                        SMS 
+                        </th>
+                        <th className="doNotDisplay">
+                        Λήψη e-mail?
+                        </th>
+                        <th>
+                        Πληρωμή? 
+                        </th>
+                        <th>
+                        Ημερομηνία πληρωμής
+                        </th>
+                        <th>
+                        Τμήματα
+                        </th>
                   </tr>
-                </thead>
+                    </thead>
                 <tbody>
                   {this.displayUsersFromLocalStorage()}
                 </tbody>

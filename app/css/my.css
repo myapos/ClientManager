@@ -29,6 +29,10 @@ h1, h2{
 .row{
 	padding:5px;
 }
+tr:hover {
+  background-color: #590110;
+}
+        
 .users_table{
 	/*font-size:60%;*/
 	width:95%;
@@ -89,4 +93,7 @@ a:active {
 }
 input {
 	color:black;
+}
+.doNotDisplay{
+	display:none;
 }

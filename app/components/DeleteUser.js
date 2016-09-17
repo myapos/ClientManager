@@ -16,10 +16,10 @@ class DeleteUser extends Component {
   };
 
  addRowHandlers (that){
-    console.log("hey addrowhandler");
+    //console.log("hey addrowhandler");
     var table = document.getElementById("output_table");
     var rows = table.getElementsByClassName("res");
-    for(let i = 0; i <= rows.length; i++) {
+    for(let i = 1; i <= rows.length; i++) {
         var currentRow = table.rows[i];
         var createClickHandler = function (row) {
             return function () {
@@ -27,7 +27,7 @@ class DeleteUser extends Component {
                 var user;
                 //var id = cell.innerHTML;
                 //alert("id:" + id);
-                console.log(that);
+                //console.log(that);
                 //delete selected user from table
                   user = {
                           first: row.getElementsByTagName("td")[1].innerHTML,
@@ -73,84 +73,87 @@ class DeleteUser extends Component {
 Search(usrprops){
   var user;
   var searchcount=0;
-  console.log("hey from displayUsersFromLocalStorage");
+  //console.log("hey from displayUsersFromLocalStorage");
   //debugger;
   //get values from fields
   let fname = document.getElementById("fname").value;
   let lname = document.getElementById("lname").value;
   let output = document.getElementById("output");
   let htmltableheadings ="<div class=\"users_table\">\
-            <table id=\"output_table\" class=\"table table-bordered table-hover\">\
+            <table id=\"output_table\" class=\"table table-bordered\">\
                <thead>\
                <tr>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                   Num\
                   </th>\
                   <th>\
-                  First name\
+                  Όνομα\
                   </th>\
                   <th>\
-                  Last name\
+                  Επώνυμο\
                   </th>\
                   <th>\
-                   email\
+                  Email\
                   </th>\
                   <th>\
-                   mobile\
+                  Κινητό\
                   </th>\
                   <th>\
-                   date\
+                  Ημερομηνία\
                   </th>\
-                  <th>\
-                   age\
+                  <th class=\"doNotDisplay\">\
+                  Ηλικία\
                   </th>\
-                  <th>\
-                   Gender\
+                  <th class=\"doNotDisplay\">\
+                  Φύλλο\
                   </th>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                    Kettlebels\
                  </th>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                    Made in brazil\
                  </th>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                    Kravmaga\
                   </th>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                    Civilian\
                   </th>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                   Kids A\
                   </th>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                    Kids B \
                   </th>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                   Crossfit \
                   </th>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                   TRX  \
                   </th>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                   Womens Corner\
                   </th>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                   Adaptive_gym \
                   </th>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                   id \
                   </th>\
-                  <th>\
-                  sms \
+                  <th class=\"doNotDisplay\">\
+                  SMS \
+                  </th>\
+                  <th class=\"doNotDisplay\">\
+                  Λήψη e-mail? \
                   </th>\
                   <th>\
-                  Receive email? \
+                  Πληρωμή? \
                   </th>\
                   <th>\
-                  Payed? \
+                  Ημερομηνία πληρωμής\
                   </th>\
                   <th>\
-                  Payment date\
+                  Τμήματα\
                   </th>\
               </tr>\
               </thead><tbody>";
@@ -158,46 +161,76 @@ Search(usrprops){
   
   //debugger;
   
-  console.log("Got values succesfully");
+  //console.log("Got values succesfully");
   let output_table = document.getElementById("output_table");
   if(localStorage.length==0){
-        console.log("No users in database yet");
-        output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"17\">No users in database yet. Please add some first!</td></tr</tbody></table></div>";
+        //console.log("No users in database yet");
+        output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"17\">Δεν υπάρχουν πελάτες αυτή τη στιγμή. Παρακαλώ προσθέστε μερικούς πρώτα.</td></tr</tbody></table></div>";
       }
   else {
   let users = JSON.parse(localStorage.getItem("users"));
-  console.log(users);
+  //console.log(users);
   //search for the values user gave
   users.map((user,num) => {
+    let classes = "";
+      let classesArr = [];
+      let dummy_var=0;
+      
+      (user.kettl=="true") ? (classesArr.push("Kettlebels")): (dummy_var=1);
+      (user.MIB=="true") ? (classesArr.push("Made In Brazil")) : (dummy_var=1);
+      (user.KVMG=="true") ? (classesArr.push("Krav Maga Stay Away")) : (dummy_var=1);
+      (user.CV=="true") ? (classesArr.push("Civillian")) :(dummy_var=1);
+      (user.KA=="true") ? (classesArr.push("Krav Maga Kiddy")) : (dummy_var=1);
+      (user.KB=="true") ? (classesArr.push("Krav Maga Kids")) : (dummy_var=1);
+      (user.CF=="true") ? (classesArr.push("Crossfit")) : (dummy_var=1);
+      (user.TRX_=="true") ? (classesArr.push("TRX")) : (dummy_var=1);
+      (user.WC=="true") ? (classesArr.push("Women's corner")) : (dummy_var=1);
+      (user.ADG=="true") ? (classesArr.push("Adaptive gym")) : (dummy_var=1);
+      
+      //console.log("length:"+classesArr.length);
+
+      classesArr.map( (classesArr, idc) => {
+        //console.log("class:" + classesArr + " idc:" + idc);
+        classes += classesArr + ",";
+      });
+
+      //console.log("classes before: "+classes);
+      
+      if(classes.substr(classes.length-1)==","){
+        //console.log("comma L:::"+classes.length+" last char: "+classes.substr(classes.length-1));
+        classes = classes.substr(0, classes.length-1);
+      }
+
     if((user.first==fname)&&(user.last==lname)){
-      console.log("found user");
+      //console.log("found user");
       //debugger; 
       searchcount++;
            
       output_table.innerHTML = output_table.innerHTML+"<tr class="+"res"+">\
-          <td>"+num+"</td>\
+          <td class=\"doNotDisplay\">"+num+"</td>\
           <td>"+user.first+"</td>\
           <td>"+user.last+"</td>\
           <td>"+user.usremail+"</td>\
           <td>"+user.mob+"</td>\
           <td>"+user.date+"</td>\
-          <td>"+user.age+"</td>\
-          <td>"+user.sex+"</td>\
-          <td>"+user.kettl+"</td>\
-          <td>"+user.MIB+"</td>\
-          <td>"+user.KVMG+"</td>\
-          <td>"+user.CV+"</td>\
-          <td>"+user.KA+"</td>\
-          <td>"+user.KB+"</td>\
-          <td>"+user.CF+"</td>\
-          <td>"+user.TRX_+"</td>\
-          <td>"+user.WC+"</td>\
-          <td>"+user.ADG+"</td>\
-          <td>"+user.id+"</td>\
-          <td>"+user.sms+"</td>\
-          <td>"+user.receive_email+"</td>\
+          <td class=\"doNotDisplay\">"+user.age+"</td>\
+          <td class=\"doNotDisplay\">"+user.sex+"</td>\
+          <td class=\"doNotDisplay\">"+user.kettl+"</td>\
+          <td class=\"doNotDisplay\">"+user.MIB+"</td>\
+          <td class=\"doNotDisplay\">"+user.KVMG+"</td>\
+          <td class=\"doNotDisplay\">"+user.CV+"</td>\
+          <td class=\"doNotDisplay\">"+user.KA+"</td>\
+          <td class=\"doNotDisplay\">"+user.KB+"</td>\
+          <td class=\"doNotDisplay\">"+user.CF+"</td>\
+          <td class=\"doNotDisplay\">"+user.TRX_+"</td>\
+          <td class=\"doNotDisplay\">"+user.WC+"</td>\
+          <td class=\"doNotDisplay\">"+user.ADG+"</td>\
+          <td class=\"doNotDisplay\">"+user.id+"</td>\
+          <td class=\"doNotDisplay\">"+user.sms+"</td>\
+          <td class=\"doNotDisplay\">"+user.receive_email+"</td>\
           <td>"+user.payed+"</td>\
           <td>"+user.date_payment+"</td>\
+          <td>"+classes+"</td>\
           </tr>";
     }
   //debugger;
@@ -208,7 +241,7 @@ Search(usrprops){
   })
       
     if(searchcount==0){
-      output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"23\">This user does not exist in database</td></tr></tbody></table></div>";
+      output_table.innerHTML = output_table.innerHTML+"<tr><td colSpan=\"23\">Αυτός ο πελάτης δεν υπάρχει στο πελατολόγιο.</td></tr></tbody></table></div>";
     }
   }
   
@@ -223,7 +256,7 @@ Search(usrprops){
   //alert(searchcount);
   check (count){
     //debugger;
-    console.log("hey from check:"+count);
+    //console.log("hey from check:"+count);
     //console.log("hey from check");
   }
 
