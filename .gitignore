@@ -40,5 +40,5 @@ sendgrid.env
 sendgrid.env
 
 #Output Directories
-ClientManager-linux-x64
-ClientManager-win32-x64
+#ClientManager-linux-x64
+#ClientManager-win32-x64
