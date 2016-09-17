@@ -38,3 +38,7 @@ main.js
 main.js.map
 sendgrid.env
 sendgrid.env
+
+#Output Directories
+ClientManager-linux-x64
+ClientManager-win32-x64
