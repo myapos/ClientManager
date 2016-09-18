@@ -48,13 +48,25 @@ class UpdateUser extends Component {
                 payed:currentRow.getElementsByTagName("td")[21].innerHTML+"",
                 date_payment:currentRow.getElementsByTagName("td")[22].innerHTML+""           
               }
-            //open modal window and get updated data
+            //open modal window and get updated data. From here we create button update
             myDivElement = <MyModal users={that.users} userRow={user} userUpdate={that.updateuser}/>
             ReactDOM.render(myDivElement, document.getElementById("edit"+user.id));  
     }
 };
 
 Search(usrprops){
+
+  console.log("output of Document-readyState"+Document.readyState);
+
+  if (typeof(Document.readyState==="undefined")){
+    console.log("document is not ready");
+    setTimeout(function(){ console.log("waiting for document to get ready"); }, 500);
+  }
+  //debugger;
+
+  //while(typeof(Document.readyState==="undefined")){
+    setTimeout(function(){ console.log("waiting for document to get ready"); }, 50);
+  //}
   var user;
   var searchcount=0;
   console.log("hey from displayUsersFromLocalStorage");
@@ -253,7 +265,7 @@ Search(usrprops){
     return (
         <div className="container">
           <div className="row">
-            <div className="col-xs-12"> <UpdateForm ref="FormInput" ><button onClick={this.Search.bind(this,this.props)} className="btn btn-default">Αναζήτηση</button> </UpdateForm> </div>
+            <div className="col-xs-12"> <UpdateForm ref="FormInput" ><button type="button" onClick={this.Search.bind(this,this.props)} className="btn btn-default">Αναζήτηση</button> </UpdateForm> </div>
           </div>
           <div className="row">
             <div className="col-xs-12">Εάν επιθυμείτε να επεξεργαστείτε κάποιο πελάτη παρακαλώ χρησιμοποιήστε την αναζήτηση 

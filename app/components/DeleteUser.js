@@ -71,6 +71,14 @@ class DeleteUser extends Component {
 };
 
 Search(usrprops){
+  console.log("output of Document-readyState"+Document.readyState);
+
+  if (typeof(Document.readyState==="undefined")){
+    console.log("document is not ready");
+    setTimeout(function(){ console.log("waiting for document to get ready"); }, 1000);
+  }
+  //debugger;
+
   var user;
   var searchcount=0;
   //console.log("hey from displayUsersFromLocalStorage");
@@ -266,7 +274,7 @@ Search(usrprops){
     return (
         <div className="container">
           <div className="row">
-            <div className="col-xs-12"> <DeleteForm ref="FormInput"> <button className="btn btn-default" onClick={this.Search.bind(this,this.props)}>Αναζήτηση</button> </DeleteForm> </div>
+            <div className="col-xs-12"> <DeleteForm ref="FormInput"> <button type="button" className="btn btn-default" onClick={this.Search.bind(this,this.props)}>Αναζήτηση</button> </DeleteForm> </div>
           </div>
           <div className="row">
             <div className="col-xs-12"> Εάν επιθυμείτε να διαγράψετε κάποιο πελάτη παρακαλώ χρησιμοποιήστε την αναζήτηση 

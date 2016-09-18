@@ -113,7 +113,7 @@ class ExportUsers extends Component {
             <div className="col-xs-1 positionMainLink"> <Link to="/main">Πίσω</Link></div>
           </div>
           <div className="row">
-            <div className="col-xs-12"> <button className="btn btn-default" onClick={this.exportHandler.bind(this,newUsers)}>Export</button> </div>
+            <div className="col-xs-12"> <button type="button" className="btn btn-default" onClick={this.exportHandler.bind(this,newUsers)}>Export</button> </div>
           </div>         
         </div>
     );

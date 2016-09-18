@@ -10,21 +10,68 @@
     <script>
       (function() {
         if (!process.env.HOT) {
+          
           const link = document.createElement('link');
           link.rel = 'stylesheet';
           link.href = '../dist/style.css';
           document.write(link.outerHTML);
+
         }
       }());
     </script>
   </head>
   <body>
     <div id="root"></div>
-    <script>
+
+  <script>
+      function script(url) {
+
+      if(Array.isArray(url)) {
+        var self = this, prom = [];
+        url.forEach(function(item) {
+            prom.push(self.script(item));
+        });
+        return Promise.all(prom);
+      }
+
+      return new Promise(function (resolve, reject) {
+        var r = false,
+            t = document.getElementsByTagName("script")[0],
+            s = document.createElement("script");
+
+        s.type = "text/javascript";
+        s.src = url;
+        s.async = true;
+        s.onload = s.onreadystatechange = function () {
+            if (!r && (!this.readyState || this.readyState == "complete")) {
+                r = true;
+                resolve(this);
+            }
+        };
+        s.onerror = s.onabort = reject;
+        t.parentNode.insertBefore(s, t);
+      });
+
+      }
+
+
       (function() {
+        const myscript = document.createElement('script');
+        myscript.src = (process.env.HOT) ? 'http://localhost:3000/dist/bundle.js' : '../dist/bundle.js';
+        myscript.async = true;
+        
+        /*var s = script("http://localhost:3000/dist/bundle.js");
+
+        s.then(function() {
+           console.log("promise success");
+           //document.write(myscript.outerHTML);
+        })*/
+
+        /*
         const script = document.createElement('script');
         script.src = (process.env.HOT) ? 'http://localhost:3000/dist/bundle.js' : '../dist/bundle.js';
-        document.write(script.outerHTML);
+        script.async = true;*/
+        document.write(myscript.outerHTML);
       }());
     </script>
   </body>

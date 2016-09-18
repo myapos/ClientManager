@@ -131,7 +131,7 @@ var MyModal = React.createClass({
     const user = this.props.userRow;
     return (
       <div>
-        <button id="btnupdate" className="btn btn-default"  onClick={this.openModal}>Επεξεργασία</button>
+        <button id="btnupdate" type="button" className="btn btn-default"  onClick={this.openModal}>Επεξεργασία</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -144,7 +144,7 @@ var MyModal = React.createClass({
             <form >
             <div className="row">
               <div className="col-xs-7"><legend ref="subtitle">Καρτέλα πελάτη</legend></div>
-              <div className="col-xs-1"> <button ref="closebtn" id="close-btn" className="btn btn-default positionMainLink"  onClick={this.closeModal}>X</button></div>
+              <div className="col-xs-1"> <button type="button" ref="closebtn" id="close-btn" className="btn btn-default positionMainLink"  onClick={this.closeModal}>X</button></div>
              </div>
              <div className="row">
                 <div className="col-xs-4"> <span className="clientinfo"> First Name : </span><input type='text' id="updfname" defaultValue={user.first} onChange={this.handleChange}/></div>

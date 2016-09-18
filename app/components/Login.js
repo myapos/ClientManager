@@ -43,7 +43,7 @@ contextTypes: {
                   Συνθηματικό: <input className="form-control" type="text" id="pswrd"/> </div>
                 </div> 
                 <div className="row">
-                  <div className="col-xs-2"> <button className="btn btn-default" onClick={this.auth}>Σύνδεση</button> </div>
+                  <div className="col-xs-2"> <button type="button" className="btn btn-default" onClick={this.auth}>Σύνδεση</button> </div>
                 </div>
             </div>
         </div> {/*end of form container*/}

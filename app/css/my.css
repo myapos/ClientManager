@@ -46,7 +46,7 @@ tr:hover {
 	font-size:100%;
 }
 #close-btn{
-	color:#90A6AD;
+	color:#B53A4E;
 }
 .mySignature{
 	text-align:right;
@@ -96,4 +96,14 @@ input {
 }
 .doNotDisplay{
 	display:none;
+}
+
+.form-control:focus{
+	border-color: #B53A4E;
+	-moz-box-shadow:    inset 0 0 8px #691E2A;
+    -webkit-box-shadow: inset 0 0 8px #691E2A;
+   	box-shadow:         inset 0 0 8px #691E2A;
+    /*outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);*/
 }

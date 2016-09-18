@@ -93,7 +93,7 @@ saveValuesInStore(myprops){
               <div className="col-xs-12"><Form ref="FormInput"></Form></div>
             </div>
             <div className="row">            
-               <div className="col-xs-4"><button className="btn btn-default" onClick={this.saveValuesInStore.bind(this,this.props)}>Προσθήκη πελάτη</button></div>
+               <div className="col-xs-4"><button type="button" className="btn btn-default" onClick={this.saveValuesInStore.bind(this,this.props)}>Προσθήκη πελάτη</button></div>
              </div>
         </div>  {/*end of container*/}
       </div>

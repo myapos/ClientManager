@@ -1,4 +1,5 @@
 import { app, BrowserWindow, Menu, shell } from 'electron';
+//require('electron-reload')(__dirname);
 
 let menu;
 let template;
@@ -44,8 +45,8 @@ app.on('ready', async () => {
   mainWindow.loadURL(`file://${__dirname}/app/app.html`);
 
   mainWindow.webContents.on('did-finish-load', () => {
-    mainWindow.show();
-    mainWindow.focus();
+     mainWindow.show();
+     mainWindow.focus();
   });
 
   mainWindow.on('closed', () => {
