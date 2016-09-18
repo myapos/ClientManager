@@ -66,17 +66,27 @@ tr:hover {
     top: 13px;
     right: 90px;	
 }
-
+.positionModalLink{
+    position: absolute;
+    top: 13px;
+    right: -330px;	
+}
 .positionLoginLink{
     position: absolute;
     top: 8px;
     right: 120px;	
 }
+#legendUpdt{
+	width: 160%;
+}
 /* unvisited link */
-a:link,legend {
+a:link {
     color: #B53A4E;
 }
-
+legend{
+	 color: #B53A4E;
+	 width: 103%;
+}
 /* visited link */
 a:visited {
     color: #997A80;
@@ -91,7 +101,7 @@ a:hover {
 a:active {
     color: orange;
 }
-input {
+input,select {
 	color:black;
 }
 .doNotDisplay{
@@ -106,4 +116,12 @@ input {
     /*outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);*/
+}
+
+.checkmodals{
+	transform: scale(1.5);
+}
+
+.selectwidthauto{
+  width:auto !important;
 }

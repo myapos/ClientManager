@@ -19,7 +19,7 @@ Modal.setAppElement('#your-app-element');
 const customStyles = {
   content : {
     top                   : '50%',
-    width                 : '60%',
+    width                 : '90%',
     left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
@@ -47,7 +47,8 @@ var MyModal = React.createClass({
   },
  
   closeModal: function() {
-    this.setState({modalIsOpen: false});
+    this.setState({modalIsOpen: false});//close modal
+    //location.reload();//refresh
   },
   saveUpdatedValuesInStore: function(){
   let userupdt;
@@ -66,20 +67,21 @@ var MyModal = React.createClass({
   let gender = document.getElementById("updgender").value;
   let date = document.getElementById("upddate").value;
   //+"" is used to convert values in string and display them in web page
-  let Kettlebells = document.getElementById("updKettlebells").value;
-  let Made_In_Brazil = document.getElementById("updMade_In_Brazil").value;
-  let Krav_Maga = document.getElementById("updKrav_Maga").value;
-  let Civilian = document.getElementById("updCivilian").value;
-  let Kids_A = document.getElementById("updKids_A").value;
-  let Kids_B = document.getElementById("updKids_B").value;
-  let Crossfit = document.getElementById("updCrossfit").value;
-  let TRX = document.getElementById("updTRX").value;
-  let Womens_corner = document.getElementById("updWomens_corner").value;
-  let Adaptive_gym = document.getElementById("updAdaptive_gym").value;
-  let sms = document.getElementById("sms").value;
-  let receive_email = document.getElementById("receive_email").value;
-  let payed = document.getElementById("payed").checked+"";
-  let date_payment = document.getElementById("date_payment").value;
+  let Kettlebells = document.getElementById("updKettlebells").value+"";
+  let Made_In_Brazil = document.getElementById("updMade_In_Brazil").value+"";
+  let Krav_Maga_Stay_Away = document.getElementById("updKrav_Maga_Stay_Away").value+"";
+  let Civilian = document.getElementById("updKrav_Maga_Civilian").value+"";
+  let Kids_A = document.getElementById("updKrav_Maga_Kiddy").value+"";
+  let Kids_B = document.getElementById("updKrav_Maga_Kids").value+"";
+  let Crossfit = document.getElementById("updCrossfit").value+"";
+  let Judo = document.getElementById("updJudo").value+"";
+  let TRX = document.getElementById("updTRX").value+"";
+  let Womens_corner = document.getElementById("updWomens_corner").value+"";
+  let Adaptive_gym = document.getElementById("updAdaptive_gym").value+"";
+  let sms = document.getElementById("sms").value+"";
+  let receive_email = document.getElementById("receive_email").value+"";
+  let payed = document.getElementById("payed").value+"";
+  let payment_date = document.getElementById("payment_date").value;
 
   console.log("Got values succesfully");
   //console.log(shortid.generate());
@@ -97,10 +99,11 @@ var MyModal = React.createClass({
             date:date,
             kettl:Kettlebells,
             MIB:Made_In_Brazil,
-            KVMG:Krav_Maga,
-            CV:Civilian,
+            KVMGSTAW:Krav_Maga_Stay_Away,
+            KVMGCV:Civilian,
             KA:Kids_A,
             KB:Kids_B,
+            Judo:Judo,
             CF:Crossfit,
             TRX_:TRX,
             WC:Womens_corner,
@@ -108,7 +111,7 @@ var MyModal = React.createClass({
             sms:sms,
             receive_email:receive_email,
             payed:payed,
-            date_payment:date_payment 
+            payment_date:payment_date 
         }
         //debugger;
         var r = confirm("Are you sure to update user "+userupdt.first +" "+userupdt.last+"?");
@@ -118,9 +121,6 @@ var MyModal = React.createClass({
               } else {
                   ;
               }
-  
-  //debugger;
-  //return user;
   },
   handleChange: function(event) {
     document.getElementById(event.target.id).value=event.target.value;
@@ -137,61 +137,131 @@ var MyModal = React.createClass({
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles} >
- 
-          
-          
           <div className="container">
-            <form >
-            <div className="row">
-              <div className="col-xs-7"><legend ref="subtitle">Καρτέλα πελάτη</legend></div>
-              <div className="col-xs-1"> <button type="button" ref="closebtn" id="close-btn" className="btn btn-default positionMainLink"  onClick={this.closeModal}>X</button></div>
+            <form>
+             <div className="row">
+                <div className="col-xs-7"><legend id="legendUpdt" ref="subtitle">Καρτέλα πελάτη</legend></div>
+                <div className="col-xs-1"> <button type="button" ref="closebtn" id="close-btn" className="btn btn-default positionModalLink"  onClick={this.closeModal}>X</button></div>
              </div>
              <div className="row">
-                <div className="col-xs-4"> <span className="clientinfo"> First Name : </span><input type='text' id="updfname" defaultValue={user.first} onChange={this.handleChange}/></div>
-                <div className="col-xs-4"> <span className="clientinfo"> Last Name :</span><input type='text' id="updlname" defaultValue={user.last} onChange={this.handleChange}/></div>
-              </div>
-              <div className="row">  
-                <div className="col-xs-4"><span className="clientinfo"> Email : </span><input type='email' defaultValue={user.usremail} id="updemail" onChange={this.handleChange}/></div>
-                <div className="col-xs-4"><span className="clientinfo"> Mobile: </span><input type='number' defaultValue={user.mob} id="updmobile" onChange={this.handleChange}/></div>
+                <div className="col-xs-3"> <span className="clientinfo"> Όνομα : </span><input className="form-control selectwidthauto" type='text' id="updfname" defaultValue={user.first} onChange={this.handleChange}/></div>
+                <div className="col-xs-3"> <span className="clientinfo"> Επώνυμο :</span><input className="form-control selectwidthauto" type='text' id="updlname" defaultValue={user.last} onChange={this.handleChange}/></div> 
+                <div className="col-xs-3"><span className="clientinfo"> Email : </span><input className="form-control selectwidthauto" type='email' defaultValue={user.usremail} id="updemail" onChange={this.handleChange}/></div>
+                <div className="col-xs-3"><span className="clientinfo"> Κινητό: </span><input className="form-control selectwidthauto" type='number' defaultValue={user.mob} id="updmobile" onChange={this.handleChange}/></div>
               </div>
               <div className="row">
-                <div className="col-xs-4"><span className="clientinfo"> Age: </span><input type='text' defaultValue={user.age} id="updage" onChange={this.handleChange}/></div> 
-                <div className="col-xs-4"><span className="clientinfo"> Gender: </span><input type='text' defaultValue={user.sex} id="updgender" onChange={this.handleChange}/></div>
+                <div className="col-xs-3"><span className="clientinfo"> Ηλικία: </span><input className="form-control selectwidthauto" type='number' defaultValue={user.age} id="updage" onChange={this.handleChange}/></div> 
+                <div className="col-xs-3"><span className="clientinfo"> Φύλλο: </span>
+                  <select className="form-control selectwidthauto" id="updgender">
+                      <option value={user.sex}>{user.sex}</option>
+                      <option value={(user.sex=="Θήλυ")?"Άρρεν":"Θήλυ"}>{(user.sex=="Θήλυ")?"Άρρεν":"Θήλυ"}</option>
+                  </select>
+                </div>
+                <div className="col-xs-3"><span className="clientinfo">  Kettlebells: </span>
+                  <select className="form-control selectwidthauto" id="updKettlebells">
+                      <option value={user.kettl}>{user.kettl}</option>
+                      <option value={(user.kettl=="Ναι")?"Όχι":"Ναι"}>{(user.kettl=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div>
+                <div className="col-xs-3"><span className="clientinfo"> Made In Brazil: </span>
+                  <select className="form-control selectwidthauto" id="updMade_In_Brazil">
+                      <option value={user.MIB}>{user.MIB}</option>
+                      <option value={(user.MIB=="Ναι")?"Όχι":"Ναι"}>{(user.MIB=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div>
+                </div>
+              <div className="row">
+                <div className="col-xs-3"><span className="clientinfo"> Kravmaga Stay Away: </span>
+                  <select className="form-control selectwidthauto" id="updKrav_Maga_Stay_Away">
+                      <option value={user.KVMGSTAW}>{user.KVMGSTAW}</option>
+                      <option value={(user.KVMGSTAW=="Ναι")?"Όχι":"Ναι"}>{(user.KVMGSTAW=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div>            
+                <div className="col-xs-3"><span className="clientinfo"> Krav Maga Civilian: </span>
+                  <select className="form-control selectwidthauto" id="updKrav_Maga_Civilian">
+                      <option value={user.KVMGCV}>{user.KVMGCV}</option>
+                      <option value={(user.KVMGCV=="Ναι")?"Όχι":"Ναι"}>{(user.KVMGCV=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div>
+                <div className="col-xs-3"><span className="clientinfo"> Krav Maga Kiddy: </span>
+                  <select className="form-control selectwidthauto" id="updKrav_Maga_Kiddy">
+                      <option value={user.KA}>{user.KA}</option>
+                      <option value={(user.KA=="Ναι")?"Όχι":"Ναι"}>{(user.KA=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div>
+                <div className="col-xs-3"><span className="clientinfo"> Krav Maga Kids: </span>
+                  <select className="form-control selectwidthauto" id="updKrav_Maga_Kids">
+                        <option value={user.KB}>{user.KB}</option>
+                        <option value={(user.KB=="Ναι")?"Όχι":"Ναι"}>{(user.KB=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div>
+                </div>
+              <div className="row">
+                <div className="col-xs-3"><span className="clientinfo"> Judo: </span>
+                  <select className="form-control selectwidthauto" id="updJudo">
+                      <option value={user.Judo}>{user.Judo}</option>
+                      <option value={(user.Judo=="Ναι")?"Όχι":"Ναι"}>{(user.Judo=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div>
+                <div className="col-xs-3"><span className="clientinfo"> Crossfit: </span>
+                  <select className="form-control selectwidthauto" id="updCrossfit">
+                    <option value={user.CF}>{user.CF}</option>
+                    <option value={(user.CF=="Ναι")?"Όχι":"Ναι"}>{(user.CF=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div>
+                <div className="col-xs-3"><span className="clientinfo"> TRX: </span>
+                  <select className="form-control selectwidthauto" id="updTRX">
+                    <option value={user.TRX_}>{user.TRX_}</option>Ναι
+                    <option value={(user.TRX_=="Ναι")?"Όχι":"Ναι"}>{(user.TRX_=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div>
+                <div className="col-xs-3"><span className="clientinfo"> Womens_corner:</span>
+                  <select className="form-control selectwidthauto" id="updWomens_corner">
+                    <option value={user.WC}>{user.WC}</option>
+                    <option value={(user.WC=="Ναι")?"Όχι":"Ναι"}>{(user.WC=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div>
               </div>
               <div className="row">
-                <div className="col-xs-4"><span className="clientinfo"> Date: </span><input type='date' defaultValue={user.date} id="upddate" onChange={this.handleChange}/> </div>
-                <div className="col-xs-4"><span className="clientinfo">  Kettlebells: </span><input type='text' defaultValue={user.kettl} id="updKettlebells" onChange={this.handleChange}/> </div>
-              </div>
-              <div className="row"> 
-                <div className="col-xs-4"><span className="clientinfo"> Made_In_Brazil: </span><input type='text' defaultValue={user.MIB} id="updMade_In_Brazil" onChange={this.handleChange}/></div>
-                <div className="col-xs-4"><span className="clientinfo"> Krav_Maga: </span><input type='text' defaultValue={user.KVMG} id="updKrav_Maga" onChange={this.handleChange}/></div>
-              </div>
-              <div className="row">
-                <div className="col-xs-4"><span className="clientinfo"> Civilian: </span><input type='text' defaultValue={user.CV} id="updCivilian" onChange={this.handleChange}/></div>
-                <div className="col-xs-4"><span className="clientinfo"> Kids_A: </span><input type='text' defaultValue={user.KA} id="updKids_A" onChange={this.handleChange}/></div>
-              </div>
-              <div className="row">
-                <div className="col-xs-4"><span className="clientinfo"> Kids_B: </span><input type='text' defaultValue={user.KB} id="updKids_B" onChange={this.handleChange}/></div>
-                <div className="col-xs-4"><span className="clientinfo"> Crossfit: </span><input type='text' defaultValue={user.CF} id="updCrossfit" onChange={this.handleChange}/></div>
-              </div>
-              <div className="row">
-                <div className="col-xs-4"><span className="clientinfo"> TRX: </span><input type='text' defaultValue={user.TRX_} id="updTRX" onChange={this.handleChange}/></div>
-                <div className="col-xs-4"><span className="clientinfo"> Womens_corner:</span> <input type='text' defaultValue={user.WC} id="updWomens_corner" onChange={this.handleChange}/></div>
-              </div>
-              <div className="row">
-                <div className="col-xs-4"><span className="clientinfo"> Adaptive_gym: </span><input type='text' defaultValue={user.ADG} id="updAdaptive_gym" onChange={this.handleChange}/></div> 
-                <div className="col-xs-4"><span className="clientinfo"> SMS: </span><input type='text' defaultValue={user.sms} id="sms" onChange={this.handleChange}/></div>
-              </div>
-              <div className="row">
-                <div className="col-xs-4"><span className="clientinfo"> Receive email?: </span><input type='text' defaultValue={user.receive_email} id="receive_email" onChange={this.handleChange}/> </div>
-                <div className="col-xs-4"><span className="clientinfo"> Payed: </span><input type='text' defaultValue={user.payed} id="payed" onChange={this.handleChange}/></div>
+                <div className="col-xs-3"><span className="clientinfo"> Adaptive_gym: </span>
+                  <select className="form-control selectwidthauto" id="updAdaptive_gym">
+                    <option value={user.ADG}>{user.ADG}</option>
+                    <option value={(user.ADG=="Ναι")?"Όχι":"Ναι"}>{(user.ADG=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div> 
+                <div className="col-xs-3"><span className="clientinfo"> SMS: </span>
+                  <select className="form-control selectwidthauto" id="sms">
+                      <option value={user.sms}>{user.sms}</option>
+                      <option value={(user.sms=="Ναι")?"Όχι":"Ναι"}>{(user.sms=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div>
+                <div className="col-xs-3"><span className="clientinfo"> Λήψη email?: </span> 
+                  <select className="form-control selectwidthauto" id="receive_email">
+                      <option value={user.receive_email}>{user.receive_email}</option>
+                      <option value={(user.receive_email=="Ναι")?"Όχι":"Ναι"}>{(user.receive_email=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div>
+                <div className="col-xs-3"><span className="clientinfo"> Πληρωμή: </span>
+                  <select className="form-control selectwidthauto" id="payed">
+                      <option value={user.payed}>{user.payed}</option>
+                      <option value={(user.payed=="Ναι")?"Όχι":"Ναι"}>{(user.payed=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
+                </div> 
               </div>
               <div className="row">
-                <div className="col-xs-4"><span className="clientinfo"> Payment date: </span><input type='date' defaultValue={user.date_payment} id="date_payment" onChange={this.handleChange}/> </div>
-              </div>
+                <div className="col-xs-6"><span className="clientinfo"> Ημερομηνία πληρωμής: </span>
+                  <input type='date' defaultValue={user.payment_date} id="payment_date" onChange={this.handleChange}/> 
+                </div>
+                <div className="col-xs-6"><span className="clientinfo"> Ημερομηνία εγγραφής: </span>
+                  <input type='date' defaultValue={user.date} id="upddate" onChange={this.handleChange}/> 
+                </div>
+              </div>{/* */}
               <div className="row">
-                <div className="col-xs-4"> <button className="btn btn-default"  onClick={this.saveUpdatedValuesInStore}>Αποθήκευση</button></div>
+                <div className="col-xs-4"> 
+                  <button type="button" className="btn btn-default"  onClick={this.saveUpdatedValuesInStore}>Αποθήκευση</button>
+                </div>
               </div>
+           
             </form>
 
           </div>

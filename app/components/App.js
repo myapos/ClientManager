@@ -17,8 +17,8 @@ componentDidUpdate(){
 
 checkInterval(){
 
-const checkPeriodInMilliSeconds = 10080000; //check every week to send emails.
-//const checkPeriodInMilliSeconds = 5000;   // checkPeriodInMinutes stands for the period in ms that has to be passed between
+//const checkPeriodInMilliSeconds = 10080000; //check every week to send emails.
+const checkPeriodInMilliSeconds = 5000;   // checkPeriodInMinutes stands for the period in ms that has to be passed between
 										    // mail sendings 10080000
 
 
@@ -67,7 +67,7 @@ mycheck(){
 		//2. User has not payed
 		//3. User wishes to be informed by email?? If he don't want to be informed what happens?
 
-		if ((diffDays>30)&&(previoususers[i].payed==="false")&&(previoususers[i].receive_email==="true")){
+		if ((diffDays>30)&&(previoususers[i].payed=="Όχι")&&(previoususers[i].receive_email=="Ναι")){
 			console.log("User "+previoususers[i].first+" "+previoususers[i].last+" "+Math.floor(diffDays/30)+" month(s) passed");
 			//send email to user
 			this.send_email(previoususers[i].first,previoususers[i].last, previoususers[i].usremail);	

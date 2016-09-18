@@ -28,19 +28,20 @@ saveValuesInStore(myprops){
   let gender = document.getElementById("gender").value;
   let date = document.getElementById("date").value;
   //+"" is used to convert values in string and display them in web page
-  let Kettlebells = document.getElementById("Kettlebells").checked+"";
-  let Made_In_Brazil = document.getElementById("Made_In_Brazil").checked+"";
-  let Krav_Maga = document.getElementById("Krav_Maga").checked+"";
-  let Civilian = document.getElementById("Civilian").checked+"";
-  let Kids_A = document.getElementById("Kids_A").checked+"";
-  let Kids_B = document.getElementById("Kids_B").checked+"";
-  let Crossfit = document.getElementById("Crossfit").checked+"";
-  let TRX = document.getElementById("TRX").checked+"";
-  let Womens_corner = document.getElementById("Womens_corner").checked+"";
-  let Adaptive_gym = document.getElementById("Adaptive_gym").checked+"";
-  let sms = document.getElementById("sms").checked+"";
-  let receive_email = document.getElementById("receive_email").checked+"";
-  let payed = document.getElementById("payed").checked+"";
+  let Kettlebells = document.getElementById("Kettlebells").value+"";
+  let Made_In_Brazil = document.getElementById("Made_In_Brazil").value+"";
+  let Krav_Maga_Stay_Away = document.getElementById("Krav_Maga_Stay_Away").value+"";
+  let Krav_Maga_Civilian = document.getElementById("Krav_Maga_Civilian").value+"";
+  let Krav_Maga_Kiddy = document.getElementById("Krav_Maga_Kiddy").value+"";
+  let Krav_Maga_Kids = document.getElementById("Krav_Maga_Kids").value+"";
+  let Crossfit = document.getElementById("Crossfit").value+"";
+  let TRX = document.getElementById("TRX").value+"";
+  let Womens_corner = document.getElementById("Womens_corner").value+"";
+  let Adaptive_gym = document.getElementById("Adaptive_gym").value+"";
+  let Judo = document.getElementById("Judo").value+"";
+  let sms = document.getElementById("sms").value+"";
+  let receive_email = document.getElementById("receive_email").value+"";
+  let payed = document.getElementById("payed").value+"";
   let payment_date = document.getElementById("payment_date").value;
 
   console.log("Got values succesfully");
@@ -57,14 +58,15 @@ saveValuesInStore(myprops){
             date:date,
             kettl:Kettlebells,
             MIB:Made_In_Brazil,
-            KVMG:Krav_Maga,
-            CV:Civilian,
-            KA:Kids_A,
-            KB:Kids_B,
+            KVMGSTAW:Krav_Maga_Stay_Away,
+            KVMGCV:Krav_Maga_Civilian,
+            KA:Krav_Maga_Kiddy,
+            KB:Krav_Maga_Kids,
             CF:Crossfit,
             TRX_:TRX,
             WC:Womens_corner,
             ADG:Adaptive_gym,
+            Judo:Judo,
             sms:sms,
             receive_email:receive_email,
             payed:payed,

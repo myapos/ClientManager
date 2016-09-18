@@ -142,16 +142,17 @@ displayUsersFromLocalStorage() {
       let classesArr = [];
       let dummy_var=0;
       
-      (user.kettl=="true") ? (classesArr.push("Kettlebels")): (dummy_var=1);
-      (user.MIB=="true") ? (classesArr.push("Made In Brazil")) : (dummy_var=1);
-      (user.KVMG=="true") ? (classesArr.push("Krav Maga Stay Away")) : (dummy_var=1);
-      (user.CV=="true") ? (classesArr.push("Civillian")) :(dummy_var=1);
-      (user.KA=="true") ? (classesArr.push("Krav Maga Kiddy")) : (dummy_var=1);
-      (user.KB=="true") ? (classesArr.push("Krav Maga Kids")) : (dummy_var=1);
-      (user.CF=="true") ? (classesArr.push("Crossfit")) : (dummy_var=1);
-      (user.TRX_=="true") ? (classesArr.push("TRX")) : (dummy_var=1);
-      (user.WC=="true") ? (classesArr.push("Women's corner")) : (dummy_var=1);
-      (user.ADG=="true") ? (classesArr.push("Adaptive gym")) : (dummy_var=1);
+      (user.kettl=="Ναι") ? (classesArr.push("Kettlebels")): (dummy_var=1);
+      (user.MIB=="Ναι") ? (classesArr.push("Made In Brazil")) : (dummy_var=1);
+      (user.KVMGSTAW=="Ναι") ? (classesArr.push("Krav Maga Stay Away")) : (dummy_var=1);
+      (user.KVMGCV=="Ναι") ? (classesArr.push("Krav Maga Civillian")) :(dummy_var=1);
+      (user.KA=="Ναι") ? (classesArr.push("Krav Maga Kiddy")) : (dummy_var=1);
+      (user.KB=="Ναι") ? (classesArr.push("Krav Maga Kids")) : (dummy_var=1);
+      (user.CF=="Ναι") ? (classesArr.push("Crossfit")) : (dummy_var=1);
+      (user.TRX_=="Ναι") ? (classesArr.push("TRX")) : (dummy_var=1);
+      (user.WC=="Ναι") ? (classesArr.push("Women's corner")) : (dummy_var=1);
+      (user.ADG=="Ναι") ? (classesArr.push("Adaptive gym")) : (dummy_var=1);
+      (user.Judo=="Ναι") ? (classesArr.push("Judo")) : (dummy_var=1);
       
       //console.log("length:"+classesArr.length);
 
@@ -201,16 +202,19 @@ displayUsersFromLocalStorage() {
            {user.MIB}
          </td>
           <td className="doNotDisplay">
-           {user.KVMG}
+           {user.KVMGSTAW}
           </td>
           <td className="doNotDisplay">
-           {user.CV} 
+           {user.KVMGCV} 
           </td>
           <td className="doNotDisplay">
           {user.KA}
           </td>
           <td className="doNotDisplay">
            {user.KB} 
+          </td>
+          <td className="doNotDisplay">
+           {user.Judo} 
           </td>
           <td className="doNotDisplay">
           {user.CF}
@@ -296,16 +300,19 @@ displayUsersFromLocalStorage() {
                         Made in brazil
                         </th>
                         <th className="doNotDisplay">
-                        Kravmaga
+                        Kravmaga Stay Away
                         </th>
                         <th className="doNotDisplay">
-                        Civilian
+                        Kravmaga Civilian
                         </th>
                         <th className="doNotDisplay">
-                        Kids A
+                        Kravmaga Kiddy
                         </th>
                         <th className="doNotDisplay">
-                        Kids B 
+                        Kravmaga Kids
+                        </th>
+                        <th className="doNotDisplay">
+                        Judo
                         </th>
                         <th className="doNotDisplay">
                         Crossfit 

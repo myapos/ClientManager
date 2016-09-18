@@ -12,48 +12,52 @@ class DeleteUser extends Component {
   };
 
   componentDidMount (){
-            () => this.refs.FormInput.getDOMNode().focus(); 
+      () => this.refs.FormInput.getDOMNode().focus(); 
   };
 
  addRowHandlers (that){
     //console.log("hey addrowhandler");
     var table = document.getElementById("output_table");
     var rows = table.getElementsByClassName("res");
+    var currentRow;
     for(let i = 1; i <= rows.length; i++) {
-        var currentRow = table.rows[i];
+        currentRow = table.rows[i];
         var createClickHandler = function (row) {
             return function () {
-                var cell = row.getElementsByTagName("td")[0];
+                var cell = currentRow.getElementsByTagName("td")[0];
                 var user;
                 //var id = cell.innerHTML;
                 //alert("id:" + id);
                 //console.log(that);
                 //delete selected user from table
+                  debugger;
                   user = {
-                          first: row.getElementsByTagName("td")[1].innerHTML,
-                          last:row.getElementsByTagName("td")[2].innerHTML,
-                          usremail:row.getElementsByTagName("td")[3].innerHTML,
-                          mob:row.getElementsByTagName("td")[4].innerHTML,
-                          date:row.getElementsByTagName("td")[5].innerHTML,
-                          age:row.getElementsByTagName("td")[6].innerHTML,
-                          sex:row.getElementsByTagName("td")[7].innerHTML,
-                          kettl:row.getElementsByTagName("td")[8].innerHTML,
-                          MIB:row.getElementsByTagName("td")[9].innerHTML,
-                          KVMG:row.getElementsByTagName("td")[10].innerHTML,
-                          CV:row.getElementsByTagName("td")[11].innerHTML,
-                          KA:row.getElementsByTagName("td")[12].innerHTML,
-                          KB:row.getElementsByTagName("td")[13].innerHTML,
-                          CF:row.getElementsByTagName("td")[14].innerHTML,
-                          TRX_:row.getElementsByTagName("td")[15].innerHTML,
-                          WC:row.getElementsByTagName("td")[16].innerHTML,
-                          ADG:row.getElementsByTagName("td")[17].innerHTML,
-                          id:row.getElementsByTagName("td")[18].innerHTML,
-                          sms:row.getElementsByTagName("td")[19].innerHTML,
-                          receive_email:row.getElementsByTagName("td")[20].innerHTML,
-                          payed:row.getElementsByTagName("td")[21].innerHTML,
-                          date_payment:row.getElementsByTagName("td")[22].innerHTML            
+                          first: currentRow.getElementsByTagName("td")[1].innerHTML,
+                          last:currentRow.getElementsByTagName("td")[2].innerHTML,
+                          usremail:currentRow.getElementsByTagName("td")[3].innerHTML,
+                          mob:currentRow.getElementsByTagName("td")[4].innerHTML,
+                          date:currentRow.getElementsByTagName("td")[5].innerHTML,
+                          age:currentRow.getElementsByTagName("td")[6].innerHTML,
+                          sex:currentRow.getElementsByTagName("td")[7].innerHTML,
+                          kettl:currentRow.getElementsByTagName("td")[8].innerHTML,
+                          MIB:currentRow.getElementsByTagName("td")[9].innerHTML,
+                          KVMGSTAW:currentRow.getElementsByTagName("td")[10].innerHTML,
+                          KVMGCV:currentRow.getElementsByTagName("td")[11].innerHTML,
+                          KA:currentRow.getElementsByTagName("td")[12].innerHTML,
+                          KB:currentRow.getElementsByTagName("td")[13].innerHTML,
+                          Judo:currentRow.getElementsByTagName("td")[14].innerHTML,
+                          CF:currentRow.getElementsByTagName("td")[15].innerHTML,
+                          TRX_:currentRow.getElementsByTagName("td")[16].innerHTML,
+                          WC:currentRow.getElementsByTagName("td")[17].innerHTML,
+                          ADG:currentRow.getElementsByTagName("td")[18].innerHTML,
+                          id:currentRow.getElementsByTagName("td")[19].innerHTML,
+                          sms:currentRow.getElementsByTagName("td")[20].innerHTML,
+                          receive_email:currentRow.getElementsByTagName("td")[21].innerHTML,
+                          payed:currentRow.getElementsByTagName("td")[22].innerHTML,
+                          date_payment:currentRow.getElementsByTagName("td")[23].innerHTML            
                       }
-                      //debugger;
+                      console.log(user);
+                      debugger;
                       var r = confirm("Are you sure to delete user "+user.first +" "+user.last+"?");
                       if (r == true) {
                         
@@ -122,16 +126,19 @@ Search(usrprops){
                    Made in brazil\
                  </th>\
                   <th class=\"doNotDisplay\">\
-                   Kravmaga\
+                   Kravmaga Stay Away\
                   </th>\
                   <th class=\"doNotDisplay\">\
-                   Civilian\
+                   Krav Maga Civilian\
                   </th>\
                   <th class=\"doNotDisplay\">\
-                  Kids A\
+                  Krav Maga Kiddy\
                   </th>\
                   <th class=\"doNotDisplay\">\
-                   Kids B \
+                  Krav Maga Kids\
+                  </th>\
+                  <th class=\"doNotDisplay\">\
+                  Judo\
                   </th>\
                   <th class=\"doNotDisplay\">\
                   Crossfit \
@@ -184,16 +191,17 @@ Search(usrprops){
       let classesArr = [];
       let dummy_var=0;
       
-      (user.kettl=="true") ? (classesArr.push("Kettlebels")): (dummy_var=1);
-      (user.MIB=="true") ? (classesArr.push("Made In Brazil")) : (dummy_var=1);
-      (user.KVMG=="true") ? (classesArr.push("Krav Maga Stay Away")) : (dummy_var=1);
-      (user.CV=="true") ? (classesArr.push("Civillian")) :(dummy_var=1);
-      (user.KA=="true") ? (classesArr.push("Krav Maga Kiddy")) : (dummy_var=1);
-      (user.KB=="true") ? (classesArr.push("Krav Maga Kids")) : (dummy_var=1);
-      (user.CF=="true") ? (classesArr.push("Crossfit")) : (dummy_var=1);
-      (user.TRX_=="true") ? (classesArr.push("TRX")) : (dummy_var=1);
-      (user.WC=="true") ? (classesArr.push("Women's corner")) : (dummy_var=1);
-      (user.ADG=="true") ? (classesArr.push("Adaptive gym")) : (dummy_var=1);
+      (user.kettl=="Ναι") ? (classesArr.push("Kettlebels")): (dummy_var=1);
+      (user.MIB=="Ναι") ? (classesArr.push("Made In Brazil")) : (dummy_var=1);
+      (user.KVMGSTAW=="Ναι") ? (classesArr.push("Krav Maga Stay Away")) : (dummy_var=1);
+      (user.KVMGCV=="Ναι") ? (classesArr.push("Krav Maga Civillian")) :(dummy_var=1);
+      (user.KA=="Ναι") ? (classesArr.push("Krav Maga Kiddy")) : (dummy_var=1);
+      (user.KB=="Ναι") ? (classesArr.push("Krav Maga Kids")) : (dummy_var=1);
+      (user.CF=="Ναι") ? (classesArr.push("Crossfit")) : (dummy_var=1);
+      (user.TRX_=="Ναι") ? (classesArr.push("TRX")) : (dummy_var=1);
+      (user.WC=="Ναι") ? (classesArr.push("Women's corner")) : (dummy_var=1);
+      (user.ADG=="Ναι") ? (classesArr.push("Adaptive gym")) : (dummy_var=1);
+      (user.Judo=="Ναι") ? (classesArr.push("Judo")) : (dummy_var=1);
       
       //console.log("length:"+classesArr.length);
 
@@ -210,8 +218,8 @@ Search(usrprops){
       }
 
     if((user.first==fname)&&(user.last==lname)){
-      //console.log("found user");
-      //debugger; 
+      console.log("found user");
+      debugger; 
       searchcount++;
            
       output_table.innerHTML = output_table.innerHTML+"<tr class="+"res"+">\
@@ -225,10 +233,11 @@ Search(usrprops){
           <td class=\"doNotDisplay\">"+user.sex+"</td>\
           <td class=\"doNotDisplay\">"+user.kettl+"</td>\
           <td class=\"doNotDisplay\">"+user.MIB+"</td>\
-          <td class=\"doNotDisplay\">"+user.KVMG+"</td>\
-          <td class=\"doNotDisplay\">"+user.CV+"</td>\
+          <td class=\"doNotDisplay\">"+user.KVMGSTAW+"</td>\
+          <td class=\"doNotDisplay\">"+user.KVMGCV+"</td>\
           <td class=\"doNotDisplay\">"+user.KA+"</td>\
           <td class=\"doNotDisplay\">"+user.KB+"</td>\
+          <td class=\"doNotDisplay\">"+user.Judo+"</td>\
           <td class=\"doNotDisplay\">"+user.CF+"</td>\
           <td class=\"doNotDisplay\">"+user.TRX_+"</td>\
           <td class=\"doNotDisplay\">"+user.WC+"</td>\
@@ -237,7 +246,7 @@ Search(usrprops){
           <td class=\"doNotDisplay\">"+user.sms+"</td>\
           <td class=\"doNotDisplay\">"+user.receive_email+"</td>\
           <td>"+user.payed+"</td>\
-          <td>"+user.date_payment+"</td>\
+          <td>"+user.payment_date+"</td>\
           <td>"+classes+"</td>\
           </tr>";
     }
