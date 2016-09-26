@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import MySignature from './Signature';
 import logger from 'electron-logger';
+import loggerAbout from 'electron-logger';
+import fs from 'fs';
 
 export default class App extends Component {
 
@@ -54,12 +56,20 @@ mycheck(){
 	let numOfUsers = previoususers.length;
 	let userDates = new Array();
 	let diffUserDates = new Array();
+	let gonnaEnd = new Array();
 
 	for (let i=0;i<numOfUsers;i++){
 		userDate = new Date(previoususers[i].date); 
 		var timeDiff = Math.abs(today.getTime() - userDate.getTime());
 		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+		var daysOffset = 5;
 		
+		//First collect every user that is about to end
+
+		if (((diffDays+daysOffset)>30)&&(previoususers[i].payed=="Όχι")&&(previoususers[i].receive_email=="Ναι")){
+			gonnaEnd.push("Όνομα: "+previoususers[i].first + " Επίθετο: "+previoususers[i].last+" email: "+previoususers[i].usremail);
+		}
+
 		//Business logic entered here!!!!!!
 		
 		//   Mail conditions
@@ -74,8 +84,70 @@ mycheck(){
 			//update date of registration payment
 		}
 	}
+
+	//Write to log file about2end.txt the users that are about to end
+	this.save_to_log_about2end_file(gonnaEnd,'./about2end.log');
+
+	//Then send a notification to ferrum gym for the users that are about to end
+	//send log file save_to_log_abou2end_file to Ferrum Gym as email
+	if(this.send_about2_end_email()){
+		gonnaEnd.length = 0; //empty gonnaEnd array
+	}
+
+
     console.log("current date: "+Date());
   };
+
+emptyAbout2End(fileAbout2End){
+	  console.log("hey from emptyAbout2End");	
+
+	  fs.exists(fileAbout2End, function(exists) {
+	  if (exists) {
+	  	fs.writeFileSync(fileAbout2End, '')};
+  	  });
+  
+}
+
+  //sends about2end.log file to Ferrum Gym
+  send_about2_end_email(){
+  	//debugger;
+  	console.log("hey from send_about2_end_email email");
+  	//console.log("first: "+first+" last: "+last+" email: "+email);
+  	//debugger;
+  	var nodemailer = require('nodemailer');
+ 
+	// create reusable transporter object using the default SMTP transport  ferrumgymbox@gmail.com HHA9jX7Rx#keUa
+	var transporter = nodemailer.createTransport('smtps://ferrumgymbox@gmail.com:HHA9jX7RxkeUa@smtp.gmail.com');
+	 
+	// setup e-mail data with unicode symbols 
+	var mailOptions = {
+	    from: '"Ferrum Gym"<ferrumgymbox@gmail.com>', // sender address 
+	    to: 'ferrumgymbox@gmail.com', // Notify Ferrum Gym
+	    subject: 'Ferrum Gym. Χρήστες στους οποίους λήγει η συνδρομή ✔', // Subject line 
+	    text: 'Στα συνημμένα οι χρήστες για τους οποίους λήγει η συνδρομή ', // plaintext body 
+	    html: 'Στα συνημμένα οι χρήστες για τους οποίους λήγει η συνδρομή ', // html body 
+		attachments: {path: './about2end.log'} // filename and content type is derived from path
+		
+	};
+	// debugger;
+	// send mail with defined transport object 
+	transporter.sendMail(mailOptions, (error, info)=>{
+	    if(error){
+	        return console.log(error);
+	    }
+	    else{
+
+		    let msg = 'Message sent: ' + info.response+" "+" Ferrum Gym was notified" ;
+		    console.log(msg);
+		    //empty file
+		    this.emptyAbout2End("./about2end.log");	
+		}
+
+	});
+
+	return true;
+  }; //end of send_email
+
 
   send_email(first,last,email){
   	//debugger;
@@ -101,13 +173,39 @@ mycheck(){
 	    if(error){
 	        return console.log(error);
 	    }
-	    let msg = 'Message sent: ' + info.response+" "+"For user with credentials username: "+first+" lastname: "+last +"." ;
-	    console.log(msg);
-	    //debugger;
-	    //save to log file
-	    this.save_to_log_file(msg);
+	    else{
+		    let msg = 'Message sent: ' + info.response+" "+"For user with credentials username: "+first+" lastname: "+last +"." ;
+		    console.log(msg);
+		    //debugger;
+		    //save to log file
+		    this.save_to_log_file(msg);
+		    this.emptyAbout2End("./about2end.log");	
+		}
+	    
 	});
   }; //end of send_email
+
+
+  save_to_log_about2end_file(arr,path2File){
+
+  	console.log("users to end: ",arr.toString());
+  	let users2End = arr.toString();
+  	let msg=Date()+"\n";
+  	msg = msg + "Χρήστες που θα λήξουν οι συνδρομές τους σε διάστημα 5 ημερών\n";
+
+  	for (let i=0;i<arr.length;i++){
+  		console.log("user ",i," ",arr[i]);
+  		msg = msg + (i+1) +" - " + arr[i]+"\n";
+  	}
+
+  	fs.exists(path2File, function(exists) {
+	  if (exists) {
+	  	fs.writeFileSync(path2File, msg)};
+  	  });
+	
+	console.log("Wrote to about2end file succesfully");
+
+  };
 
   save_to_log_file(msg){
 	//reference https://www.npmjs.com/package/electron-logger
