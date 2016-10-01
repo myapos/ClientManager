@@ -50,6 +50,7 @@ saveValuesInStore(myprops){
   let newid = shortid.generate();
   //debugger;
   //test
+  //test2
   user = {  id:newid,
             first: fname,
             last:lname,
