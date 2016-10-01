@@ -43,6 +43,7 @@ saveValuesInStore(myprops){
   let receive_email = document.getElementById("receive_email").value+"";
   let payed = document.getElementById("payed").value+"";
   let payment_date = document.getElementById("payment_date").value;
+  let test = "test";
 
   console.log("Got values succesfully");
   //console.log(shortid.generate());
@@ -70,7 +71,15 @@ saveValuesInStore(myprops){
             sms:sms,
             receive_email:receive_email,
             payed:payed,
-            payment_date:payment_date       
+            payment_date:payment_date,
+            testClass : {
+                          Register:"Yes/No", 
+                          Payments: {
+                            Jan:"Yes/No",
+                            Feb:"Yes/No"
+
+                          }
+                        }       
         }
         var r = confirm("Are you sure to add user "+user.first +" "+user.last+"?");
                       if (r == true) {

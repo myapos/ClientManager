@@ -19,8 +19,8 @@ componentDidUpdate(){
 
 checkInterval(){
 
-//const checkPeriodInMilliSeconds = 10080000; //check every week to send emails.
-const checkPeriodInMilliSeconds = 5000;   // checkPeriodInMinutes stands for the period in ms that has to be passed between
+const checkPeriodInMilliSeconds = 10080000; //check every week to send emails.
+//const checkPeriodInMilliSeconds = 5000;   // checkPeriodInMinutes stands for the period in ms that has to be passed between
 										    // mail sendings 10080000
 
 
@@ -149,7 +149,7 @@ emptyAbout2End(fileAbout2End){
   }; //end of send_email
 
 
-  send_email(first,last,email){
+send_email(first,last,email){
   	//debugger;
   	console.log("hey from send email");
   	console.log("first: "+first+" last: "+last+" email: "+email);

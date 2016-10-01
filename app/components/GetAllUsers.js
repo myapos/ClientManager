@@ -137,7 +137,7 @@ displayUsersFromLocalStorage() {
       //debugger;
       //if (user.first)
       //console.log("id:"+id);
-      //console.log(user);
+      console.log(user);
       let classes = "";
       let classesArr = [];
       let dummy_var=0;
