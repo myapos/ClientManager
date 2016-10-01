@@ -21,10 +21,10 @@ class UpdateUser extends Component {
     var table = document.getElementById("output_table");
     var rows = table.getElementsByClassName("res");
     var currentRow,user,myDivElement;
-    debugger;
+    //debugger;
     for(let i = 1; i <= rows.length; i++) {
         currentRow = table.rows[i];
-        debugger;
+        //debugger;
         var cell = currentRow.getElementsByTagName("td")[0];
         
         user = {
@@ -48,9 +48,10 @@ class UpdateUser extends Component {
                 ADG:currentRow.getElementsByTagName("td")[18].innerHTML,
                 id:currentRow.getElementsByTagName("td")[19].innerHTML,
                 sms:currentRow.getElementsByTagName("td")[20].innerHTML,
-                receive_email:currentRow.getElementsByTagName("td")[21].innerHTML,
-                payed:currentRow.getElementsByTagName("td")[22].innerHTML,
-                payment_date:currentRow.getElementsByTagName("td")[23].innerHTML   
+                testkettlClass:currentRow.getElementsByTagName("td")[21].innerHTML,
+                receive_email:currentRow.getElementsByTagName("td")[22].innerHTML,
+                payed:currentRow.getElementsByTagName("td")[23].innerHTML,
+                payment_date:currentRow.getElementsByTagName("td")[24].innerHTML   
               }
             //open modal window and get updated data. From here we create button update
             myDivElement = <MyModal users={that.users} userRow={user} userUpdate={that.updateuser}/>
@@ -146,6 +147,9 @@ Search(usrprops){
                   <th class=\"doNotDisplay\">\
                   sms \
                   </th>\
+                  <th>\
+                  Test \
+                  </th>\
                   <th class=\"doNotDisplay\">\
                   receive_email\
                   </th>\
@@ -209,7 +213,7 @@ Search(usrprops){
       }
     if((user.first==fname)&&(user.last==lname)){
       console.log("found user");
-      //debugger; 
+      debugger; 
       searchcount++;
            
       output_table.innerHTML = output_table.innerHTML+"<tr class="+"res"+">\
@@ -234,6 +238,7 @@ Search(usrprops){
           <td class=\"doNotDisplay\">"+user.ADG+"</td>\
           <td class=\"doNotDisplay\">"+user.id+"</td>\
           <td class=\"doNotDisplay\">"+user.sms+"</td>\
+          <td class=\"do\">"+JSON.stringify(user.testkettlClass)+"</td>\
           <td class=\"doNotDisplay\">"+user.receive_email+"</td>\
           <td>"+user.payed+"</td>\
           <td>"+user.payment_date+"</td>\
