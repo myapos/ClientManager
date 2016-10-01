@@ -97,18 +97,10 @@ var MyModal = React.createClass({
 
   for (var i = 0; i < unPaidMonths.length; ++i) {
       //var item = unPaidMonths[i];  
-      switch (i){
-        case 0:
 
-            console.log("unpaid months"+unPaidMonths[i].innerHTML);
-            //paymentsForMonths[unPaidMonths[i].innerHTML] = {};
-
-            break;
-        case 1:
-
-            console.log("unpaid months"+unPaidMonths[i].value);
-            paymentsForMonths[unPaidMonths[i-1].innerHTML] = unPaidMonths[i].value;
-            break;
+      if ((i>=1)&(i%2)!=0){      
+        console.log("unpaid months"+unPaidMonths[i].value);
+        paymentsForMonths[unPaidMonths[i-1].innerHTML] = unPaidMonths[i].value;
       }
       console.log("paymentsForMonths:");
       console.log(paymentsForMonths);
