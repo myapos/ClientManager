@@ -51,6 +51,30 @@ saveValuesInStore(myprops){
   //debugger;
   //test
   //test2
+
+  Date.prototype.monthNames = [
+    "Iανουάριος", "Φεβρουάριος", "Μάρτιος",
+    "Απρίλιος", "Μάιος", "Ιούνιος",
+    "Ιούλιος", "Αύγουστος", "Σεπτέμβριος",
+    "Οκτώβριος", "Νοέμβριος", "Δεκέμβριος"
+];
+
+Date.prototype.getMonthName = function() {
+    return this.monthNames[this.getMonth()];
+};
+Date.prototype.getShortMonthName = function () {
+    return this.getMonthName().substr(0, 3);
+};
+
+// usage:
+//var d = new Date();
+//alert(d.getMonthName());      // "October"
+//alert(d.getShortMonthName()); // "Oct"
+
+  let datek = new Date(payment_date);
+  let datekettl = datek.getShortMonthName();
+
+  console.log("cur month: "+datekettl);
   user = {  id:newid,
             first: fname,
             last:lname,
@@ -74,15 +98,17 @@ saveValuesInStore(myprops){
             receive_email:receive_email,
             payed:payed,
             payment_date:payment_date,
-            testClass : {
-                          Register:"Yes/No", 
-                          Payments: {
-                            Jan:"Yes/No",
-                            Feb:"Yes/No"
-
+            testkettlClass : {
+                          Register: Kettlebells, 
+                          PaymentsMonths:{
+                              Payments: {
+                                [datekettl]:payed,
+                                //Feb:"Yes/No"
+                            }
                           }
                         }       
-        }
+        } 
+        debugger;
         var r = confirm("Are you sure to add user "+user.first +" "+user.last+"?");
                       if (r == true) {
                           myprops.adduser(user);
