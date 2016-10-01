@@ -153,7 +153,8 @@ displayUsersFromLocalStorage() {
       (user.WC=="Ναι") ? (classesArr.push("Women's corner")) : (dummy_var=1);
       (user.ADG=="Ναι") ? (classesArr.push("Adaptive gym")) : (dummy_var=1);
       (user.Judo=="Ναι") ? (classesArr.push("Judo")) : (dummy_var=1);
-      
+      ((typeof(user.testkettlClass)!="undefined")&&(user.testkettlClass.Register=="Ναι")) ? (classesArr.push("testkettlClass")) : (dummy_var=1);
+
       //console.log("length:"+classesArr.length);
 
       classesArr.map( (classesArr, idc) => {
