@@ -116,7 +116,8 @@
     "sendgrid": "^4.0.1",
     "sendgrid-rest": "^2.2.1",
     "shortid": "^2.2.6",
-    "source-map-support": "^0.4.2"
+    "source-map-support": "^0.4.2",
+    "unique-random": "^1.0.0"
   },
   "devEngines": {
     "node": "4.x || 5.x || 6.x",

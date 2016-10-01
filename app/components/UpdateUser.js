@@ -147,7 +147,7 @@ Search(usrprops){
                   <th class=\"doNotDisplay\">\
                   sms \
                   </th>\
-                  <th>\
+                  <th class=\"doNotDisplay\">\
                   Test \
                   </th>\
                   <th class=\"doNotDisplay\">\
@@ -169,7 +169,7 @@ Search(usrprops){
               </thead><tbody>";
             output.innerHTML = htmltableheadings;
   
-  //debugger;
+  
   
   console.log("Got values succesfully");
   let output_table = document.getElementById("output_table");
@@ -197,6 +197,8 @@ Search(usrprops){
       (user.WC=="Ναι") ? (classesArr.push("Women's corner")) : (dummy_var=1);
       (user.ADG=="Ναι") ? (classesArr.push("Adaptive gym")) : (dummy_var=1);
       (user.Judo=="Ναι") ? (classesArr.push("Judo")) : (dummy_var=1);
+      //debugger;
+      ((typeof(user.testkettlClass)!="undefined")&&(user.testkettlClass.Register=="Ναι")) ? (classesArr.push("testkettlClass")) : (dummy_var=1);
 
       //console.log("length:"+classesArr.length);
 
@@ -213,7 +215,7 @@ Search(usrprops){
       }
     if((user.first==fname)&&(user.last==lname)){
       console.log("found user");
-      debugger; 
+      //debugger; 
       searchcount++;
            
       output_table.innerHTML = output_table.innerHTML+"<tr class="+"res"+">\
@@ -238,7 +240,7 @@ Search(usrprops){
           <td class=\"doNotDisplay\">"+user.ADG+"</td>\
           <td class=\"doNotDisplay\">"+user.id+"</td>\
           <td class=\"doNotDisplay\">"+user.sms+"</td>\
-          <td class=\"do\">"+JSON.stringify(user.testkettlClass)+"</td>\
+          <td class=\"doNotDisplay\">"+JSON.stringify(user.testkettlClass)+"</td>\
           <td class=\"doNotDisplay\">"+user.receive_email+"</td>\
           <td>"+user.payed+"</td>\
           <td>"+user.payment_date+"</td>\

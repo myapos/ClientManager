@@ -79,12 +79,43 @@ var MyModal = React.createClass({
   let Womens_corner = document.getElementById("updWomens_corner").value+"";
   let Adaptive_gym = document.getElementById("updAdaptive_gym").value+"";
   let sms = document.getElementById("sms").value+"";
-  debugger;
+  //debugger;
   let tempObjString = JSON.parse(document.getElementById("tempObjString").innerHTML); 
+  let payments = tempObjString.PaymentsMonths.Payments;
   //get register value
   let payed_test = document.getElementById("testkettlClass").value+"";
   tempObjString.Register = payed_test;
+  //get selection and save PaymentsMonths???? reconstruct unPaidMonths objects with
+  //selection of user
+  debugger;
+  var unPaidMonths = document.getElementsByClassName("unPaidMonths");
+  //var cusid_ele = document.getElementsByClassName('custid');
+  // unPaidMonths[0] has the value of months
+  // unPaidMonths[1].value has the info of payment in that month
+  //reconstruct that object
+  let paymentsForMonths={};
+
+  for (var i = 0; i < unPaidMonths.length; ++i) {
+      //var item = unPaidMonths[i];  
+      switch (i){
+        case 0:
+
+            console.log("unpaid months"+unPaidMonths[i].innerHTML);
+            //paymentsForMonths[unPaidMonths[i].innerHTML] = {};
+
+            break;
+        case 1:
+
+            console.log("unpaid months"+unPaidMonths[i].value);
+            paymentsForMonths[unPaidMonths[i-1].innerHTML] = unPaidMonths[i].value;
+            break;
+      }
+      console.log("paymentsForMonths:");
+      console.log(paymentsForMonths);
+
+  }
   let testkettlClass = tempObjString;
+  testkettlClass.PaymentsMonths.Payments = paymentsForMonths;
   let receive_email = document.getElementById("receive_email").value+"";
   let payed = document.getElementById("payed").value+"";
   let payment_date = document.getElementById("payment_date").value;
@@ -93,7 +124,7 @@ var MyModal = React.createClass({
   //console.log(shortid.generate());
   let newid = this.props.userRow.id;
   //use the same id
-  debugger;
+  //debugger;
   userupdt = {  
             id:newid,
             first: fname,
@@ -134,10 +165,25 @@ var MyModal = React.createClass({
 
   },
   render: function() {
-    debugger;
+    
     const user = this.props.userRow;
     let temp = {};
     temp = JSON.parse(user.testkettlClass);
+    //loop over object and take all payments equal to "No"
+    debugger;
+    let payments = {};
+    (typeof(user.testkettlClass)!="undefined") ?  (payments = temp.PaymentsMonths.Payments) : (payments ={});
+    let unpaidMonths = {};
+    for (let months in payments) {
+        if (payments[months]=="Όχι"){
+            unpaidMonths[months] = payments[months];
+        }   
+    };
+    let rand = require('unique-random')(1, 1000);
+    for (var unpmonth in unpaidMonths) {
+         console.log("month:" + unpmonth + " = " + unpaidMonths[unpmonth]);
+    };
+   
     //user.test = temp;
     return (
       <div>
@@ -259,12 +305,43 @@ var MyModal = React.createClass({
                 </div> 
               </div>
               <div className="row">
-                <span className="clientinfo"> Δοκιμαστικό τμήμα: </span>
+                <div className="col-xs-2"><span className="clientinfo"> Δοκιμαστικό τμήμα: </span>
                  <div className="doNotDisplay" id="tempObjString">{JSON.stringify(temp)}</div>
                   <select className="form-control selectwidthauto" id="testkettlClass">doNotDisplay
                       <option value={temp.Register}>{temp.Register}</option>
                       <option value={(temp.Register=="Ναι")?"Όχι":"Ναι"}>{(temp.Register=="Ναι")?"Όχι":"Ναι"}</option>
                   </select>
+                </div>
+                <div className="col-xs-2"><span className="clientinfo"> Πληρωμές: </span>
+                  <div className="users_table_update table-responsive">
+                    <table className="payment_table table table-bordered">
+                        <thead>
+                            <tr>
+                              <th> Μήνας
+                              </th>
+                              <th> Πληρωμή
+                              </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          {
+                            Object.keys(unpaidMonths).map(function(month) {
+                            return (
+                              <tr key={rand()}>
+                                <td className="unPaidMonths">{month}</td> 
+                                <td>
+                                  <select className="unPaidMonths form-control selectwidthauto" id="testkettlClassPayments">
+                                    <option value={unpaidMonths[month]}>{unpaidMonths[month]}</option>
+                                    <option value={(unpaidMonths[month]=="Ναι")?"Όχι":"Ναι"}>{(unpaidMonths[month]=="Ναι")?"Όχι":"Ναι"}</option>
+                                </select>
+                                </td>
+                                </tr>);
+                            })
+                          }
+                        </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
               <div className="row">
                 <div className="col-xs-6"><span className="clientinfo"> Ημερομηνία πληρωμής: </span>
