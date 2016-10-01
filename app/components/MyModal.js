@@ -57,7 +57,7 @@ var MyModal = React.createClass({
   const userupdatefunc = this.props.userUpdate;
 
   console.log("hello from update savevalues");
-  //debugger;
+  
   
   let fname = document.getElementById("updfname").value;
   let lname = document.getElementById("updlname").value;
@@ -79,6 +79,12 @@ var MyModal = React.createClass({
   let Womens_corner = document.getElementById("updWomens_corner").value+"";
   let Adaptive_gym = document.getElementById("updAdaptive_gym").value+"";
   let sms = document.getElementById("sms").value+"";
+  debugger;
+  let tempObjString = JSON.parse(document.getElementById("tempObjString").innerHTML); 
+  //get register value
+  let payed_test = document.getElementById("testkettlClass").value+"";
+  tempObjString.Register = payed_test;
+  let testkettlClass = tempObjString;
   let receive_email = document.getElementById("receive_email").value+"";
   let payed = document.getElementById("payed").value+"";
   let payment_date = document.getElementById("payment_date").value;
@@ -87,7 +93,7 @@ var MyModal = React.createClass({
   //console.log(shortid.generate());
   let newid = this.props.userRow.id;
   //use the same id
-  
+  debugger;
   userupdt = {  
             id:newid,
             first: fname,
@@ -109,6 +115,7 @@ var MyModal = React.createClass({
             WC:Womens_corner,
             ADG:Adaptive_gym,
             sms:sms,
+            testkettlClass:testkettlClass,
             receive_email:receive_email,
             payed:payed,
             payment_date:payment_date 
@@ -127,8 +134,11 @@ var MyModal = React.createClass({
 
   },
   render: function() {
-    //debugger;
+    debugger;
     const user = this.props.userRow;
+    let temp = {};
+    temp = JSON.parse(user.testkettlClass);
+    //user.test = temp;
     return (
       <div>
         <button id="btnupdate" type="button" className="btn btn-default"  onClick={this.openModal}>Επεξεργασία</button>
@@ -247,6 +257,14 @@ var MyModal = React.createClass({
                       <option value={(user.payed=="Ναι")?"Όχι":"Ναι"}>{(user.payed=="Ναι")?"Όχι":"Ναι"}</option>
                   </select>
                 </div> 
+              </div>
+              <div className="row">
+                <span className="clientinfo"> Δοκιμαστικό τμήμα: </span>
+                 <div className="doNotDisplay" id="tempObjString">{JSON.stringify(temp)}</div>
+                  <select className="form-control selectwidthauto" id="testkettlClass">doNotDisplay
+                      <option value={temp.Register}>{temp.Register}</option>
+                      <option value={(temp.Register=="Ναι")?"Όχι":"Ναι"}>{(temp.Register=="Ναι")?"Όχι":"Ναι"}</option>
+                  </select>
               </div>
               <div className="row">
                 <div className="col-xs-6"><span className="clientinfo"> Ημερομηνία πληρωμής: </span>
