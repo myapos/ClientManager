@@ -19,11 +19,11 @@ componentDidUpdate(){
 
 checkInterval(){
 
-const checkPeriodInMilliSeconds = 10080000; //check every week to send emails.
-//const checkPeriodInMilliSeconds = 5000;   // checkPeriodInMinutes stands for the period in ms that has to be passed between
-										    // mail sendings 10080000
+//const checkPeriodInMilliSeconds = 10080000; 	//check every week to send emails.
+const checkPeriodInMilliSeconds = 5000;   		// checkPeriodInMinutes stands for the period in ms that has to be passed between
+										    	// mail sendings 10080000
 
-
+//debugger;
 let StartTime = JSON.parse(localStorage.getItem("StartTime"));
 let CurrTime = new Date().getTime();
 let period = CurrTime - StartTime;
@@ -57,17 +57,25 @@ mycheck(){
 	let userDates = new Array();
 	let diffUserDates = new Array();
 	let gonnaEnd = new Array();
+	let usersGonnaEnd={};
 
 	for (let i=0;i<numOfUsers;i++){
 		userDate = new Date(previoususers[i].date); 
 		var timeDiff = Math.abs(today.getTime() - userDate.getTime());
 		var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
 		var daysOffset = 5;
-		
+		//debugger;
 		//First collect every user that is about to end
 
 		if (((diffDays+daysOffset)>30)&&(previoususers[i].payed=="Όχι")&&(previoususers[i].receive_email=="Ναι")){
 			gonnaEnd.push("Όνομα: "+previoususers[i].first + " Επίθετο: "+previoususers[i].last+" email: "+previoususers[i].usremail);
+			let userGonnaEnd = {
+				"Όνομα": previoususers[i].first,
+				"Επίθετο": previoususers[i].last,
+				"email": previoususers[i].usremail
+			};
+			usersGonnaEnd[i] = userGonnaEnd;
+
 		}
 
 		//Business logic entered here!!!!!!
@@ -84,7 +92,10 @@ mycheck(){
 			//update date of registration payment
 		}
 	}
-
+	debugger;
+	//save gonnaEnd in localStorage
+	localStorage.setItem("gonnaEnd", gonnaEnd);
+	localStorage.setItem("usersGonnaEnd", JSON.stringify(usersGonnaEnd));
 	//Write to log file about2end.txt the users that are about to end
 	this.save_to_log_about2end_file(gonnaEnd,'./about2end.log');
 
@@ -109,7 +120,7 @@ emptyAbout2End(fileAbout2End){
 }
 
   //sends about2end.log file to Ferrum Gym
-  send_about2_end_email(){
+send_about2_end_email(){
   	//debugger;
   	console.log("hey from send_about2_end_email email");
   	//console.log("first: "+first+" last: "+last+" email: "+email);

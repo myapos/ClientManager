@@ -6,13 +6,20 @@ export default class Main extends Component {
  
  
   render() {
+    let gonnaEnd = localStorage.getItem("gonnaEnd").split(",");
+    //debugger;
+    //console.log("!!!!!!!!!!________!!!!!!!!!!:"+gonnaEnd);
     return (
         <div>
           
           <div className="container">
               <div className="row">
                 <div className="col-xs-11"> <legend> Πίνακας Ελέγχου</legend></div>
-                <div className="col-xs-1 positionLogoutLink"> <Link to="/">Αποσύνδεση</Link></div>
+                <div className="col-xs-2 positionLogoutLink">
+                {(gonnaEnd.length>=1)?<Link to="/displayunpaidusers"> <img src="images/bell_.png" alt="warning_bell" 
+                                      title="Υπάρχουν απλήρωτες συνδρομές"/>
+                                      </Link>:""} 
+                    <Link to="/"> Αποσύνδεση</Link></div>
               </div>
               <div className="row">
                 <div className="col-xs-12"> <Link to="/getallusers">Πελατολόγιο</Link></div>
