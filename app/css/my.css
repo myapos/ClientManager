@@ -48,6 +48,9 @@ tr:hover {
 #close-btn{
 	color:#B53A4E;
 }
+#bell{
+	background-image: url("../images/bell_.png");
+}
 .mySignature{
 	text-align:right;
 	padding-right: 25px;

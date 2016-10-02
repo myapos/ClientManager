@@ -5,139 +5,59 @@ var rand = require('unique-random')(1, 10000);
 import AddUser from '../containers/add-user';*/
 
 
-class GetAllUsers extends Component {
+class DisplayUnpaidUsers extends Component {
   static propTypes = {
-    getallusers: PropTypes.func.isRequired,
-    users:PropTypes.array.isRequired
+    //getallusers: PropTypes.func.isRequired,
+    //users:PropTypes.array.isRequired
   };
 
-//if we want to trigger an action we call myprops this.getallusers. This is not necessary 
-//because the state of this is the users that are saved. displayUsersFromState only displays the 
-//users which is equal to our state. no change to the state happens here!!!!!!!
+displayUsersFromLocalStorage(newusersGonnaEnd) {
 
-displayUsersFromState(myprops) {
-  console.log("hey from displayUsers");
-  let users = myprops.users;
+  console.log("hey from displayUnpaidUsers:" +newusersGonnaEnd);
+
   
-  //debugger;
-
-    /*id is giving us index of array in map function --> 
-    see http://stackoverflow.com/questions/20003676/how-to-get-current-index-in-array-prototype-map
-    and is used as a key in li element*/
-    return (users.map((user,id) => {
-
-      //if (user.first)
-      console.log("id:"+id);
-      if(id!=0)
-        return(<tr key={rand()}>
-          <td>
-          {id} 
-          </td>
-          <td>
-          {user.first} 
-          </td>
-          <td>
-          {user.last}
-          </td>
-          <td>
-           {user.usremail}
-          </td>
-          <td>
-           {user.mob}
-          </td>
-          <td>
-           {user.date}
-          </td>
-          <td>
-           {user.age}
-          </td>
-          <td>
-           {user.sex}
-          </td>
-          <td>
-           {user.kettl}
-         </td>
-          <td>
-           {user.MIB}
-         </td>
-          <td>
-           {user.KVMG}
-          </td>
-          <td>
-           {user.CV} 
-          </td>
-          <td>
-          {user.KA}
-          </td>
-          <td>
-           {user.KB} 
-          </td>
-          <td>
-          {user.CF} 
-          </td>
-          <td>
-          {user.TRX_}  
-          </td>
-          <td>
-          {user.WC} 
-          </td>
-          <td>
-          {user.ADG} 
-          </td>
-          <td>
-          {user.sms}
-          </td>
-          <td>
-          {user.receive_email}
-          </td>
-          <td>
-          {user.payed}
-          </td>
-          <td>
-          {user.payment_date}
-          </td>
-          </tr>)
-      else 
-        return("")
-    }))
-      
+  console.log("Users from local storage:"+localStorage.getItem("users")); 
 
 
-}
-
-//if we want to trigger an action we call myprops this.getallusers. This is not necessary 
-//because the state of this is the users that are saved. displayUsersFromLocalStorage only displays the 
-//users which is equal to our state. no change to the state happens here!!!!!!!
-
-
-displayUsersFromLocalStorage() {
-  //console.log("hey from displayUsersFromLocalStorage");
-
-  //console.log("Users from local storage:"+localStorage.getItem("users")); 
 
   if(localStorage.length<=1){
-    //return (<tr><td>No user exist in database</td></tr>);
-    //console.log("no user exist in local storage");
+
     return(<tr><td colSpan="22">Δεν υπάρχουν πελάτες</td></tr>)
   }
   else{
+  
+  //get users from local storage and search to find info data for newusersGonnaEnd
+  //return a new users full info object which corresponds to newusersGonnaEnd object
+
   let users = JSON.parse(localStorage.getItem("users"));
-  //let users = [usersStorage];
-  //console.log(users);
-  //var htmlstr="undefined";
-//debugger;
+  let newInfoUnpaidUsers = [];
+
+  for(let j in newusersGonnaEnd){
+    for(let m in users){
+       //debugger;
+      if((users[m].first==newusersGonnaEnd[j]["Όνομα"])
+          &&(users[m].last==newusersGonnaEnd[j]["Επίθετο"]))
+        {
+          newInfoUnpaidUsers.push(users[m]);
+          console.log("fffff");
+         
+      }
+
+    }
+  }
+  debugger;
 
     
     
-    /*id is giving us index of array in map function --> 
-    see http://stackoverflow.com/questions/20003676/how-to-get-current-index-in-array-prototype-map
-    and is used as a key in li element*/
+  /*id is giving us index of array in map function --> 
+  see http://stackoverflow.com/questions/20003676/how-to-get-current-index-in-array-prototype-map
+  and is used as a key in li element*/
 
    
-    return (users.map((user,id) => {
+    return (newInfoUnpaidUsers.map((user,id) => {
       //debugger;
-      //if (user.first)
-      //console.log("id:"+id);
+      if (user.first)
+      console.log("id:"+id);
       console.log(user);
       let classes = "";
       let classesArr = [];
@@ -252,14 +172,29 @@ displayUsersFromLocalStorage() {
   }
 }
  render() {
-  const {users} = this.props;
-  
+  //const {users} = this.props;
+  //let gonnaEnd = localStorage.getItem("gonnaEnd").split(",");
+  let usersGonnaEnd = JSON.parse(localStorage.getItem("usersGonnaEnd"));
+  let usert;
+  let newusersGonnaEnd = {};
+  //console.log("mpainw edw");
+
+  for (var i in usersGonnaEnd){
+
+    usert = usersGonnaEnd[i];
+    console.log("Όνομα:"+usert["Όνομα"]+" Επίθετο:"+usert["Επίθετο"]+" email:"+usert["email"]);
+    //scan for the dummy line and ignore it
+    if((usert["Όνομα"]!="first")&&((usert["Επίθετο"]!="last")))
+      newusersGonnaEnd[i] = usert ;
+      //debugger;
+  }
 
   //debugger;
     return (
+
       <div className="container">
         <div className="row">
-          <div className="col-xs-11"> <legend> Πελατολόγιο</legend></div>
+          <div className="col-xs-11"> <legend> Απλήρωτες συνδρομές</legend></div>
           <div className="col-xs-1 positionMainLink"> <Link to="/main">Πίσω</Link></div>
         </div>
         <div className="row">
@@ -350,7 +285,7 @@ displayUsersFromLocalStorage() {
                   </tr>
                 </thead>
                 <tbody >
-                  {this.displayUsersFromLocalStorage()}
+                  {this.displayUsersFromLocalStorage(newusersGonnaEnd)}
                 </tbody>
               </table>
             </div>
@@ -361,4 +296,4 @@ displayUsersFromLocalStorage() {
   }
 }
 
-export default GetAllUsers;
+export default DisplayUnpaidUsers;

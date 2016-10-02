@@ -98,7 +98,7 @@ var MyModal = React.createClass({
   for (var i = 0; i < unPaidMonths.length; ++i) {
       //var item = unPaidMonths[i];  
 
-      if ((i>=1)&(i%2)!=0){      
+      if ((i>=1)&(i%2)==0){      
         console.log("unpaid months"+unPaidMonths[i].value);
         paymentsForMonths[unPaidMonths[i-1].innerHTML] = unPaidMonths[i].value;
       }
@@ -171,7 +171,7 @@ var MyModal = React.createClass({
             unpaidMonths[months] = payments[months];
         }   
     };
-    let rand = require('unique-random')(1, 1000);
+    let rand = require('unique-random')(1, 10000);
     for (var unpmonth in unpaidMonths) {
          console.log("month:" + unpmonth + " = " + unpaidMonths[unpmonth]);
     };
