@@ -118,6 +118,13 @@ class Form extends Component {
                               </select>
                           </label>
                         </div>
+                       <div className="col-xs-2"><label>Test Kettl Class:
+                              <select className="form-control selectwidthauto" name="test_kettl_class" id="test_kettl_class">
+                                  <option value="Ναι">Ναι</option>
+                                  <option value="Όχι">Όχι</option>
+                              </select>
+                          </label>
+                        </div>
                       </div>  
                     </div>  
                     <div className="form-group"><legend>Επικοινωνία</legend>

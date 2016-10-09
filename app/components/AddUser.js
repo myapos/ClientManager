@@ -39,16 +39,17 @@ saveValuesInStore(myprops){
   let Womens_corner = document.getElementById("Womens_corner").value+"";
   let Adaptive_gym = document.getElementById("Adaptive_gym").value+"";
   let Judo = document.getElementById("Judo").value+"";
+  let test_kettl_class = document.getElementById("test_kettl_class").value+"";
   let sms = document.getElementById("sms").value+"";
   let receive_email = document.getElementById("receive_email").value+"";
-  let payed = document.getElementById("payed").value+"";
+  let payed_kettl = document.getElementById("payed").value+"";
   let payment_date = document.getElementById("payment_date").value;
   let test = "test";
 
   console.log("Got values succesfully");
   //console.log(shortid.generate());
   let newid = shortid.generate();
-  //debugger;
+  debugger;
   //test
   //test2
 
@@ -96,13 +97,13 @@ Date.prototype.getShortMonthName = function () {
             Judo:Judo,
             sms:sms,
             receive_email:receive_email,
-            payed:payed,
+            payed:payed_kettl,
             payment_date:payment_date,
             testkettlClass : {
-                          Register: Kettlebells, 
+                          Register: test_kettl_class, 
                           PaymentsMonths:{
                               Payments: {
-                                [datekettl]:payed,
+                                [datekettl]:payed_kettl,
                                 //Feb:"Yes/No"
                             }
                           }

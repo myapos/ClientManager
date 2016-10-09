@@ -4,7 +4,7 @@ import App from './components/App';
 import Home from './components/Home';
 import Login from './components/Login';
 import Main from './components/Main';
-import DisplayUnpaidUsers from './components/DisplayUnpaidUsers';
+import DisplayUnpaidUsers from './containers/unpaid-users';
 import GetAllUsers from './containers/get-all-users';
 import AddUser from './containers/add-user';
 import DeleteUser from './containers/delete-user';

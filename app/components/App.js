@@ -58,7 +58,7 @@ mycheck(){
 	let diffUserDates = new Array();
 	let gonnaEnd = new Array();
 	let usersGonnaEnd={};
-
+	debugger;
 	for (let i=0;i<numOfUsers;i++){
 		userDate = new Date(previoususers[i].date); 
 		var timeDiff = Math.abs(today.getTime() - userDate.getTime());
@@ -67,6 +67,8 @@ mycheck(){
 		//debugger;
 		//First collect every user that is about to end
 
+		//edw prepei to previoususers[i].payed na antikatasta8ei me tin plirwmi ka8e mina
+		
 		if (((diffDays+daysOffset)>30)&&(previoususers[i].payed=="Όχι")&&(previoususers[i].receive_email=="Ναι")){
 			gonnaEnd.push("Όνομα: "+previoususers[i].first + " Επίθετο: "+previoususers[i].last+" email: "+previoususers[i].usremail);
 			let userGonnaEnd = {
