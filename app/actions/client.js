@@ -5,6 +5,7 @@ export const DELETE_USER = 'DELETE_USER';
 export const UPDATE_USER = 'UPDATE_USER';
 export const IMPORT_USERS = 'IMPORT_USERS';
 export const EXPORT_USERS = 'EXPORT_USERS';
+export const UNPAID_USERS = 'UNPAID_USERS';
 
 export function adduser(user) {
   return {
@@ -24,6 +25,14 @@ export function deleteuser(users, id) {
 export function updateuser(user, users) {
   return {
     type: UPDATE_USER,
+    user:user,
+    users: users
+  };
+}
+
+export function updateunpaiduser(user, users) {
+return {
+    type: UNPAID_USERS,
     user:user,
     users: users
   };

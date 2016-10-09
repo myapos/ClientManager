@@ -51,6 +51,7 @@ var MyModal = React.createClass({
     //location.reload();//refresh
   },
   saveUpdatedValuesInStore: function(){
+  debugger;
   let userupdt;
 
   const users = this.props.users;
@@ -79,7 +80,7 @@ var MyModal = React.createClass({
   let Womens_corner = document.getElementById("updWomens_corner").value+"";
   let Adaptive_gym = document.getElementById("updAdaptive_gym").value+"";
   let sms = document.getElementById("sms").value+"";
-  //debugger;
+
   let tempObjString = JSON.parse(document.getElementById("tempObjString").innerHTML); 
   let payments = tempObjString.PaymentsMonths.Payments;
   //get register value
@@ -146,6 +147,7 @@ var MyModal = React.createClass({
         //debugger;
         var r = confirm("Are you sure to update user "+userupdt.first +" "+userupdt.last+"?");
               if (r == true) {
+                  debugger;
                   userupdatefunc(userupdt,users);
                   alert("User updated!");
               } else {
@@ -157,10 +159,12 @@ var MyModal = React.createClass({
 
   },
   render: function() {
-    
+    debugger;
     const user = this.props.userRow;
     let temp = {};
-    temp = JSON.parse(user.testkettlClass);
+    ((typeof(user.testkettlClass)=="string") ? (temp = JSON.parse(user.testkettlClass)):(temp = user.testkettlClass)) ;
+    //temp = JSON.parse(user.testkettlClass);
+    
     //loop over object and take all payments equal to "No"
     debugger;
     let payments = {};
@@ -177,6 +181,8 @@ var MyModal = React.createClass({
     };
    
     //user.test = temp;
+
+    
     return (
       <div>
         <button id="btnupdate" type="button" className="btn btn-default"  onClick={this.openModal}>Επεξεργασία</button>

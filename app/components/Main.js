@@ -6,7 +6,13 @@ export default class Main extends Component {
  
  
   render() {
-    let gonnaEnd = localStorage.getItem("gonnaEnd").split(",");
+    //if no gonnaEnd exist in localstorage then 
+
+    debugger;
+    let gonnaEnd={};
+    if (localStorage.getItem("gonnaEnd")) {
+      gonnaEnd = localStorage.getItem("gonnaEnd").split(",");
+    }
     //debugger;
     //console.log("!!!!!!!!!!________!!!!!!!!!!:"+gonnaEnd);
     return (

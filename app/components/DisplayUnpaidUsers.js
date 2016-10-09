@@ -1,24 +1,24 @@
 import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
 var rand = require('unique-random')(1, 10000);
+import MyModal from './MyModal';
 /*import GetAllUsersList from '../containers/get-all-users';
 import AddUser from '../containers/add-user';*/
 
 
 class DisplayUnpaidUsers extends Component {
-  static propTypes = {
-    //getallusers: PropTypes.func.isRequired,
-    //users:PropTypes.array.isRequired
+ 
+static propTypes = {
+    updateunpaiduser: PropTypes.func.isRequired,
+    //users: PropTypes.array.isRequired
   };
 
-displayUsersFromLocalStorage(newusersGonnaEnd) {
-
+displayUsersFromLocalStorage(that, newusersGonnaEnd) {
+  debugger;
   console.log("hey from displayUnpaidUsers:" +newusersGonnaEnd);
 
-  
   console.log("Users from local storage:"+localStorage.getItem("users")); 
-
-
 
   if(localStorage.length<=1){
 
@@ -45,17 +45,15 @@ displayUsersFromLocalStorage(newusersGonnaEnd) {
 
     }
   }
-  debugger;
+  //debugger;
 
-    
-    
   /*id is giving us index of array in map function --> 
   see http://stackoverflow.com/questions/20003676/how-to-get-current-index-in-array-prototype-map
   and is used as a key in li element*/
 
    
     return (newInfoUnpaidUsers.map((user,id) => {
-      //debugger;
+      debugger;
       if (user.first)
       console.log("id:"+id);
       console.log(user);
@@ -90,7 +88,15 @@ displayUsersFromLocalStorage(newusersGonnaEnd) {
         classes = classes.substr(0, classes.length-1);
       }
 
+      var myDivElement;
+
       if((!user.empty)&&(user.first!="first"))
+        {
+        
+        //myDivElement = <MyModal users={user} userRow={user} userUpdate={user}/>;
+        //des giati den iparxei to user.testkettlclass ekei kollaei kai den dimiourgei to modal window
+        //
+        debugger;
         return(
         <tr key={rand()}>
           <td className="doNotDisplay">
@@ -165,13 +171,23 @@ displayUsersFromLocalStorage(newusersGonnaEnd) {
           <td>
           {classes}
           </td>
+          <td id={"edit"+user.id}> <MyModal users={newInfoUnpaidUsers} userRow={user} userUpdate={that.updateunpaiduser}/>
+          </td>
         </tr>)
+        
+      }//end of if
       else 
-        return("")
+        return(""); 
+       
     }))
   }
 }
  render() {
+  //const {users,updateuser} = this.props;
+  
+  debugger;
+
+  const {updateunpaiduser} = this.props;
   //const {users} = this.props;
   //let gonnaEnd = localStorage.getItem("gonnaEnd").split(",");
   let usersGonnaEnd = JSON.parse(localStorage.getItem("usersGonnaEnd"));
@@ -189,7 +205,7 @@ displayUsersFromLocalStorage(newusersGonnaEnd) {
       //debugger;
   }
 
-  //debugger;
+  debugger;
     return (
 
       <div className="container">
@@ -282,17 +298,20 @@ displayUsersFromLocalStorage(newusersGonnaEnd) {
                         <th>
                         Τμήματα
                         </th>
+                        <th>
+                        Επεξεργασία
+                        </th>
                   </tr>
                 </thead>
                 <tbody >
-                  {this.displayUsersFromLocalStorage(newusersGonnaEnd)}
+                  {this.displayUsersFromLocalStorage(this.props,newusersGonnaEnd)}
                 </tbody>
               </table>
             </div>
           </div>
         </div>        
       </div>
-    )
+    );
   }
 }
 
