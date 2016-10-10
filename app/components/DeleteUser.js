@@ -58,11 +58,11 @@ class DeleteUser extends Component {
                       }
                       console.log(user);
                       debugger;
-                      var r = confirm("Are you sure to delete user "+user.first +" "+user.last+"?");
+                      var r = confirm("Είστε σίγουροι για την διαγραφή του "+user.first +" "+user.last+"?");
                       if (r == true) {
                         
                           that.deleteuser(that.users,user.id);
-                          alert("User deleted!");
+                          alert("Ο πελάτης διαγράφηκε!");
                       } else {
                           ;
                       }
@@ -278,6 +278,18 @@ Search(usrprops){
     //console.log("hey from check");
   }
 
+empty(){
+  console.log('hey');
+
+  var r = confirm("Προσοχή!  Αν επιλέξετε \"ΟΚ\" θα διαγραφούν όλοι οι πελάτες. Είστε σίγουροι?");
+  if (r == true) {
+      localStorage.clear();
+      alert("Οι πελάτες διαγράφηκαν!");
+  } else {
+      ;
+  }
+}
+
   render() {
   const {users,deleteuser} = this.props;
   //debugger;
@@ -286,10 +298,15 @@ Search(usrprops){
           <div className="row">
             <div className="col-xs-12"> <DeleteForm ref="FormInput"> <button type="button" className="btn btn-default" onClick={this.Search.bind(this,this.props)}>Αναζήτηση</button> </DeleteForm> </div>
           </div>
+          <div className="row">  
+            <div className="col-xs-2 Empty"> <div onClick={this.empty}>Άδειασμα</div></div> 
+          </div>
           <div className="row">
             <div className="col-xs-12"> Εάν επιθυμείτε να διαγράψετε κάποιο πελάτη παρακαλώ χρησιμοποιήστε την αναζήτηση 
-            βάσει ονόματος και επωνύμου και κάντε κλικ πάνω του.</div>
+            βάσει ονόματος και επωνύμου και κάντε κλικ πάνω του. Αν επιθυμείτε να αδείασετε ΟΛΟ το πελατολόγιο επιλέξετε
+            την επιλογή "Άδειασμα".</div>
           </div>
+
           <div className="row">  
               <div className="col-xs-12">Πληροφορίες πελάτη:<div id= "output"></div></div>
           </div>

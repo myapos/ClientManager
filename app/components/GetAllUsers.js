@@ -15,6 +15,7 @@ class GetAllUsers extends Component {
 //because the state of this is the users that are saved. displayUsersFromState only displays the 
 //users which is equal to our state. no change to the state happens here!!!!!!!
 
+
 displayUsersFromState(myprops) {
   console.log("hey from displayUsers");
   let users = myprops.users;
@@ -263,8 +264,7 @@ displayUsersFromLocalStorage() {
           <div className="col-xs-1 positionMainLink"> <Link to="/main">Πίσω</Link></div>
         </div>
         <div className="row">
-          <div className="col-xs-4"> Λίστα πελατών:
-          </div>
+          <div className="col-xs-4"> Λίστα πελατών:</div>
         </div>
         <div className="row">
           <div className="col-xs-12">

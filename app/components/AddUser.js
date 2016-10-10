@@ -110,10 +110,10 @@ Date.prototype.getShortMonthName = function () {
                         }       
         } 
         debugger;
-        var r = confirm("Are you sure to add user "+user.first +" "+user.last+"?");
+        var r = confirm("Είστε σίγουροι για την προσθήκη του"+user.first +" "+user.last+"?");
                       if (r == true) {
                           myprops.adduser(user);
-                          alert("User added!");
+                          alert("Ο πελάτης προστέθηκε!");
                       } else {
                           ;
                       }
