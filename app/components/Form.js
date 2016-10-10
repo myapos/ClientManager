@@ -29,7 +29,7 @@ class Form extends Component {
                           <div className="col-xs-2"><label>Ηλικία: <input className="form-control" type="number" name="age" id="age"/> <br/></label></div>
                       </div>
                       <div className="row">   
-                          <div className="col-xs-4"><label>Ημερομηνία: <input className="form-control" type="date" name="date" id="date"/> <br/></label></div>
+                          <div className="col-xs-4"><label>Ημερομηνία εγγραφής: <input className="form-control" type="date" name="date" id="date"/> <br/></label></div>
                       </div>
                     </div>    
                     <div className="form-group"><legend>Τμήματα</legend>

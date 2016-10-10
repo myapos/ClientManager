@@ -15,7 +15,7 @@ static propTypes = {
   };
 
 displayUsersFromLocalStorage(that, newusersGonnaEnd) {
-  debugger;
+  //debugger;
   console.log("hey from displayUnpaidUsers:" +newusersGonnaEnd);
 
   console.log("Users from local storage:"+localStorage.getItem("users")); 
@@ -53,7 +53,7 @@ displayUsersFromLocalStorage(that, newusersGonnaEnd) {
 
    
     return (newInfoUnpaidUsers.map((user,id) => {
-      debugger;
+      //debugger;
       if (user.first)
       console.log("id:"+id);
       console.log(user);
@@ -95,8 +95,7 @@ displayUsersFromLocalStorage(that, newusersGonnaEnd) {
         
         //myDivElement = <MyModal users={user} userRow={user} userUpdate={user}/>;
         //des giati den iparxei to user.testkettlclass ekei kollaei kai den dimiourgei to modal window
-        //
-        debugger;
+        //debugger;
         return(
         <tr key={rand()}>
           <td className="doNotDisplay">
@@ -185,7 +184,7 @@ displayUsersFromLocalStorage(that, newusersGonnaEnd) {
  render() {
   //const {users,updateuser} = this.props;
   
-  debugger;
+  //debugger;
 
   const {updateunpaiduser} = this.props;
   //const {users} = this.props;
@@ -205,7 +204,7 @@ displayUsersFromLocalStorage(that, newusersGonnaEnd) {
       //debugger;
   }
 
-  debugger;
+  //debugger;
     return (
 
       <div className="container">

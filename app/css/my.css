@@ -58,6 +58,14 @@ tr:hover {
 .clientinfo{
 	color: white;
 }
+
+.Empty{
+	cursor:pointer;
+	color: #B53A4E;
+    /*position: absolute;
+    right: 118px;*/
+}
+
 .positionMainLink{
     position: absolute;
     top: 13px;
